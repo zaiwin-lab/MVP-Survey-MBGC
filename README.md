@@ -14,19 +14,19 @@ no npm install. Open it in a browser, or drop it on any static host.
 
 ## Live
 
-**https://sarawak-growth-check.netlify.app**
+**https://bizgrowthsurvey.netlify.app**
 
 Deep links per language:
-[BM](https://sarawak-growth-check.netlify.app/?lang=bm) ·
-[EN](https://sarawak-growth-check.netlify.app/?lang=en) ·
-[中文](https://sarawak-growth-check.netlify.app/?lang=zh) ·
-[Iban](https://sarawak-growth-check.netlify.app/?lang=ib)
+[BM](https://bizgrowthsurvey.netlify.app/?lang=bm) ·
+[EN](https://bizgrowthsurvey.netlify.app/?lang=en) ·
+[中文](https://bizgrowthsurvey.netlify.app/?lang=zh) ·
+[Iban](https://bizgrowthsurvey.netlify.app/?lang=ib)
 
 ---
 
 ## Deploying
 
-Hosted on Netlify (team `zaiwin`, project `sarawak-growth-check`), publishing the
+Hosted on Netlify (team `zaiwin`, project `bizgrowthsurvey`), publishing the
 repo root. `netlify.toml` sets the security headers and keeps the page itself
 always revalidating so updates go live immediately.
 
