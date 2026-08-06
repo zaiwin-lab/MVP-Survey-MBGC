@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Sarawak Business Growth Check 2026 | Discover Your Next Opportunity</title>
+<meta name="description" content="Free 5-minute Business Growth Check for Sarawak entrepreneurs. Available in Bahasa Malaysia, English, 中文 and Iban. Discover programmes that match your journey under Sarawak Maju Makmur & PCDS 2030." />
+<meta property="og:title" content="Sarawak Business Growth Check 2026" />
+<meta property="og:description" content="Is your business ready for the next level? Take the free 5-minute check in BM / EN / 中文 / Iban and discover support that matches your journey." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ms_MY" />
+<meta name="theme-color" content="#0B6E4F" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ==========================================================================
+   SARAWAK BUSINESS GROWTH CHECK 2026 — stylesheet
+   --------------------------------------------------------------------------
+   Written by hand and inlined on purpose: this microsite must render fully
+   even on a slow or filtered connection in rural Sarawak, so it carries no
+   runtime CSS dependency. Google Fonts is progressive enhancement only —
+   every family falls back to system fonts.
+   ========================================================================== */
+
+:root{
+  /* Sarawak green — the primary brand colour */
+  --g50:#f0fdf6; --g100:#dcfce9; --g200:#bbf7d4; --g300:#86efb0;
+  --g500:#0B6E4F; --g600:#0a5c42; --g700:#084c37; --g800:#063c2c; --g900:#042c20;
+  /* Gold — ceremonial accent */
+  --gold300:#f7dfa0; --gold400:#f0c75e; --gold500:#D4A017; --gold600:#a8790c;
+  /* Pua kumbu red — the Iban textile accent, used sparingly */
+  --pua500:#A63A2A; --pua400:#c75b45;
+
+  --ink:#1e293b; --ink2:#475569; --ink3:#64748b; --ink4:#94a3b8;
+  --line:#e8edf2; --line2:#f1f5f9;
+
+  --r-sm:10px; --r:14px; --r-lg:18px; --r-xl:24px;
+  --sh-soft:0 4px 20px -2px rgba(11,110,79,.08);
+  --sh-card:0 8px 30px -4px rgba(11,110,79,.12);
+  --sh-glow:0 10px 34px -8px rgba(11,110,79,.45);
+
+  --font: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --shell: 34rem;           /* content column width */
+  --footer-h: 42px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+*{ -webkit-tap-highlight-color:transparent; }
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:linear-gradient(160deg,#f0fdf6 0%,#f8fafc 42%,#fefce8 100%);
+  background-attachment:fixed;
+  min-height:100dvh;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  /* Keeps the last CTA clear of the fixed footer + iOS home indicator */
+  padding-bottom:calc(var(--footer-h) + 28px + env(safe-area-inset-bottom));
+}
+
+/* Sarawak texture: a soft ukiran/weave field behind everything */
+body::before{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55;
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(11,110,79,.07) 0%, transparent 42%),
+    radial-gradient(circle at 84% 76%, rgba(212,160,23,.10) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230B6E4F' stroke-opacity='.055' stroke-width='1'%3E%3Cpath d='M0 32 L32 0 L64 32 L32 64 Z'/%3E%3Cpath d='M16 32 L32 16 L48 32 L32 48 Z'/%3E%3Cpath d='M32 26 L38 32 L32 38 L26 32 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+img,svg{ display:block; max-width:100%; }
+button{ font:inherit; color:inherit; }
+
+/* -------------------------------------------------------------------------
+   Pua kumbu banding — the woven stripe motif of Iban ceremonial cloth
+   ------------------------------------------------------------------------- */
+.pua{
+  height:6px; flex:none;
+  background:repeating-linear-gradient(90deg,
+    var(--pua500) 0 10px, var(--gold500) 10px 14px,
+    var(--g500) 14px 24px, var(--gold300) 24px 27px);
+}
+.pua-thin{
+  height:3px; flex:none;
+  background:repeating-linear-gradient(90deg,
+    rgba(166,58,42,.6) 0 6px, rgba(212,160,23,.6) 6px 9px, rgba(11,110,79,.6) 9px 15px);
+}
+
+/* =========================== LAYOUT SHELL =========================== */
+.shell{ max-width:var(--shell); margin-inline:auto; padding-inline:16px; }
+
+.hdr{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--g100);
+}
+.hdr-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; }
+
+.brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+.brand-mark{
+  width:36px; height:36px; flex:none; border-radius:11px;
+  background:linear-gradient(135deg,var(--g500),var(--g700));
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--sh-soft);
+}
+.brand-mark svg{ width:24px; height:24px; }
+.brand-name{
+  font-family:var(--font-display); font-weight:700; font-size:13px; line-height:1.2;
+  color:var(--g800); margin:0;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.brand-sub{ font-size:10px; color:var(--ink3); font-weight:500; letter-spacing:.06em; margin:1px 0 0; }
+
+/* ---- 4-language panel: BM · EN · 中 · IB ---- */
+.langbar{
+  display:flex; align-items:center; gap:2px; flex:none;
+  background:var(--line2); border-radius:999px; padding:3px;
+}
+.lang-btn{
+  border:0; background:transparent; cursor:pointer;
+  font-size:11px; font-weight:700; letter-spacing:.02em;
+  color:var(--ink3); padding:6px 9px; border-radius:999px; line-height:1;
+  transition:background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.lang-btn:hover{ color:var(--g600); background:rgba(255,255,255,.75); }
+.lang-btn.active{
+  background:linear-gradient(135deg,var(--g500),var(--g700));
+  color:#fff; box-shadow:0 2px 8px -2px rgba(11,110,79,.5);
+}
+.lang-btn:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+
+.prog-row{ display:flex; align-items:center; gap:10px; padding-bottom:9px; }
+.prog-track{ flex:1; height:6px; background:var(--line2); border-radius:999px; overflow:hidden; }
+.prog-fill{
+  height:100%; width:0; border-radius:999px;
+  background:linear-gradient(90deg,var(--g500),var(--gold500) 70%,var(--pua500));
+  transition:width .5s cubic-bezier(.4,0,.2,1);
+}
+.prog-label{
+  font-size:11px; font-weight:600; color:var(--g600);
+  background:var(--g50); padding:3px 9px; border-radius:999px; flex:none;
+}
+
+main{ position:relative; z-index:1; padding-top:22px; }
+
+/* =========================== STEPS =========================== */
+.step{ display:none; }
+.step.active{ display:block; animation:fadeUp .42s ease-out both; }
+@keyframes fadeUp{ from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:none;} }
+
+/* =========================== CARDS =========================== */
+.card{
+  background:#fff; border:1px solid var(--g100);
+  border-radius:var(--r-xl); box-shadow:var(--sh-card); overflow:hidden;
+}
+.card-pad{ padding:24px; }
+
+.hero{
+  position:relative; overflow:hidden;
+  padding:26px 24px 22px;
+  background:linear-gradient(150deg,var(--g50) 0%,rgba(247,223,160,.38) 42%,#fff 100%);
+}
+.hero-bird{ position:absolute; right:-22px; top:-14px; width:158px; height:158px; opacity:.075; }
+.hero > *{ position:relative; }
+.eyebrow{
+  font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold600); margin:0 0 8px;
+}
+h1{ font-family:var(--font-display); font-weight:800; font-size:25px; line-height:1.24; color:var(--g900); margin:0 0 8px; }
+h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-height:1.25; color:var(--g900); margin:0; }
+.lede{ font-size:14px; color:var(--ink2); margin:0; }
+
+/* Landing checklist */
+.checklist{ list-style:none; margin:0; padding:0; display:grid; gap:11px; }
+.checklist li{ display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--ink2); }
+.tick{
+  width:20px; height:20px; flex:none; margin-top:1px; border-radius:999px;
+  background:var(--g100); color:var(--g600);
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;
+}
+.dream{
+  margin:20px 0 0; padding:13px 16px; font-size:14px; font-weight:500; line-height:1.6;
+  color:var(--g800); background:var(--g50); border:1px solid var(--g100); border-radius:var(--r);
+}
+.timing{
+  margin-top:15px; display:flex; align-items:center; justify-content:center; gap:7px;
+  font-size:12.5px; color:var(--ink3); font-weight:500;
+}
+.fineprint{ text-align:center; font-size:12px; color:var(--ink4); margin:15px 0 0; }
+
+/* Ukiran rosette used on the intro step */
+.rosette{
+  width:56px; height:56px; border-radius:16px; margin:6px 0 20px;
+  background:linear-gradient(135deg,var(--g100),rgba(247,223,160,.75));
+  display:flex; align-items:center; justify-content:center;
+}
+.rosette svg{ width:32px; height:32px; }
+.prose p{ font-size:14.5px; color:var(--ink2); line-height:1.68; margin:0 0 14px; }
+.prose p:last-child{ margin-bottom:0; }
+.prose strong{ color:var(--g700); font-weight:700; }
+
+/* =========================== BUTTONS =========================== */
+.btn{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; border:0; cursor:pointer; text-decoration:none;
+  font-weight:600; border-radius:var(--r); padding:14px 16px; font-size:14px;
+  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease, background .18s ease;
+}
+.btn svg{ width:17px; height:17px; flex:none; }
+.btn-primary{ background:linear-gradient(135deg,var(--g500),var(--g700)); color:#fff; }
+.btn-primary:hover:not(:disabled){ transform:translateY(-1px); box-shadow:var(--sh-glow); }
+.btn-primary:active:not(:disabled){ transform:none; }
+.btn-primary:disabled{ opacity:.42; cursor:not-allowed; box-shadow:none; transform:none; }
+.btn-lg{ padding:17px; font-size:15.5px; border-radius:var(--r-lg); box-shadow:var(--sh-glow); }
+.btn-ghost{ background:#fff; border:2px solid var(--line); color:var(--ink2); }
+.btn-ghost:hover{ background:var(--line2); }
+.btn-outline{ background:#fff; border:2px solid var(--g200); color:var(--g700); font-size:12.5px; padding:12px 10px; }
+.btn-outline:hover{ background:var(--g50); }
+.btn-gold{ background:#fff; border:2px solid var(--gold400); color:var(--gold600); font-size:12.5px; padding:12px 10px; }
+.btn-gold:hover{ background:rgba(247,223,160,.3); }
+.btn:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+
+.nav-row{ display:flex; gap:11px; margin-top:6px; }
+.nav-row .btn:first-child{ flex:1; }
+.nav-row .btn:last-child{ flex:2; }
+
+.linkish{
+  display:block; margin:0 auto; background:none; border:0; cursor:pointer;
+  font-size:13.5px; font-weight:500; color:var(--ink3);
+  text-decoration:underline; text-underline-offset:3px;
+}
+.linkish:hover{ color:var(--g600); }
+
+/* =========================== QUESTIONS =========================== */
+.sec-head{ margin-bottom:22px; }
+.sec-kicker{ display:flex; align-items:center; gap:9px; margin-bottom:7px; }
+.sec-kicker .pua{ width:34px; height:4px; border-radius:2px; }
+.sec-kicker span:last-child{
+  font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--g600);
+}
+.sec-note{ font-size:13px; color:var(--ink3); margin:5px 0 0; }
+
+/* One-time nudge that some questions accept several answers */
+.hint{
+  display:flex; gap:10px; align-items:flex-start;
+  background:rgba(247,223,160,.32); border:1px solid var(--gold400);
+  border-radius:var(--r); padding:12px 14px; margin-bottom:22px;
+  animation:hintPulse 2.4s ease-in-out 2;
+}
+.hint p{ margin:0; font-size:12.5px; line-height:1.6; color:var(--ink2); }
+.hint strong{ color:var(--gold600); }
+@keyframes hintPulse{
+  0%,100%{ box-shadow:0 0 0 0 rgba(212,160,23,0); }
+  50%    { box-shadow:0 0 0 7px rgba(212,160,23,.16); }
+}
+
+.q{ margin-bottom:30px; }
+.q-title{ font-size:15px; font-weight:600; color:var(--ink); margin:0 0 9px; line-height:1.45; }
+.q-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:13px; }
+
+/* The answer-count badge — present on EVERY question, gold when multi */
+.badge{
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; line-height:1.5;
+}
+.badge svg{ width:11px; height:11px; flex:none; }
+.badge-one{ color:var(--ink3); background:var(--line2); border:1px solid var(--line); font-weight:600; }
+.badge-many{ color:var(--gold600); background:rgba(247,223,160,.4); border:1px solid var(--gold400); }
+.count{ font-size:11px; font-weight:700; color:var(--g600); transition:color .2s ease; }
+.count.warn{ color:var(--pua500); }
+
+/* ---- Option groups ---- */
+.opts{ display:grid; gap:10px; }
+.opts.list{ grid-template-columns:1fr; }
+.opts.grid,.opts.tiles{ grid-template-columns:1fr 1fr; }
+.opts.duo{ grid-template-columns:1fr 1fr; gap:12px; }
+
+.opt{
+  position:relative; display:flex; align-items:center; gap:11px;
+  padding:14px; background:#fff;
+  border:2px solid var(--line); border-radius:var(--r);
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+  cursor:pointer; user-select:none;
+  transition:transform .16s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.opt:hover{ border-color:var(--g300); background:var(--g50); }
+.opt:active{ transform:scale(.985); }
+.opt:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+.opt.on{
+  border-color:var(--g500);
+  background:linear-gradient(135deg,var(--g50),var(--g100));
+  box-shadow:0 4px 16px -3px rgba(11,110,79,.2);
+}
+.opt input{ position:absolute; opacity:0; width:0; height:0; pointer-events:none; }
+
+.opt-emoji{ font-size:19px; line-height:1; flex:none; }
+.opt-label{ flex:1; font-size:14px; font-weight:500; line-height:1.4; }
+
+/* Tile variant — icon stacked over label, check pinned to the corner */
+.opts.tiles .opt{ flex-direction:column; text-align:center; gap:7px; padding:16px 10px; }
+.opts.tiles .opt-emoji{ font-size:24px; }
+.opts.tiles .opt-label{ flex:none; font-size:12.5px; }
+.opts.tiles .mark{ position:absolute; top:8px; right:8px; }
+
+/* Compact 2-column variant for the industry list */
+.opts.grid .opt{ padding:13px 12px; gap:8px; }
+.opts.grid .opt-emoji{ font-size:17px; }
+.opts.grid .opt-label{ font-size:13px; }
+
+/* Yes / No */
+.opts.duo .opt{ justify-content:center; padding:19px 12px; }
+.opts.duo .opt-label{ flex:none; font-weight:600; }
+
+/* The selection marker: a circle for "one answer", a square for "many" */
+.mark{
+  width:21px; height:21px; flex:none; border-radius:999px;
+  background:var(--g500); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:800;
+  opacity:0; transform:scale(.55);
+  transition:opacity .18s ease, transform .18s cubic-bezier(.34,1.56,.64,1);
+}
+.mark.square{ border-radius:7px; }
+.opt.on .mark{ opacity:1; transform:scale(1); }
+.opts.list .mark,.opts.grid .mark{ margin-left:auto; }
+
+/* =========================== RESULTS =========================== */
+.res-top{ text-align:center; margin-bottom:24px; }
+.res-badge{
+  width:64px; height:64px; margin:0 auto 16px; border-radius:999px;
+  background:linear-gradient(135deg,var(--g100),rgba(240,199,94,.5));
+  display:flex; align-items:center; justify-content:center; font-size:32px;
+  box-shadow:var(--sh-soft);
+}
+.res-top h2{ font-weight:800; font-size:24px; margin-bottom:7px; }
+.res-top p{ font-size:14px; color:var(--ink2); margin:0; }
+
+.rec-head{
+  position:relative; overflow:hidden; padding:16px 20px;
+  background:linear-gradient(120deg,var(--g500),var(--g700));
+}
+.rec-head-bird{ position:absolute; right:4px; bottom:-14px; width:92px; height:92px; opacity:.15; }
+.rec-head > *{ position:relative; }
+.rec-kicker{
+  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--g200); margin:0;
+}
+.rec-title{ font-family:var(--font-display); font-weight:700; font-size:20px; color:#fff; margin:4px 0 0; }
+.rec-body{ padding:20px; }
+.rec-msg{ font-size:14px; line-height:1.72; color:var(--ink2); margin:0 0 18px; }
+.rec-msg strong{ color:var(--g700); font-weight:700; }
+
+.getbox{ background:var(--g50); border:1px solid var(--g100); border-radius:var(--r); padding:15px 16px; margin-bottom:18px; }
+.getbox h4{
+  font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--g700); margin:0 0 9px;
+}
+.getbox ul{ list-style:none; margin:0; padding:0; display:grid; gap:7px; }
+.getbox li{ display:flex; gap:9px; font-size:13.5px; color:var(--ink2); line-height:1.5; }
+.getbox li::before{ content:'•'; color:var(--gold500); font-weight:800; flex:none; }
+.getbox strong{ color:var(--g800); }
+
+.actions{ display:grid; gap:10px; }
+.actions-2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+.snapshot{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r-lg);
+  box-shadow:var(--sh-soft); padding:18px 20px; margin:22px 0;
+}
+.snapshot > h4{
+  font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink3); margin:0 0 13px;
+}
+.snap-row{ padding:9px 0; border-bottom:1px solid var(--line2); }
+.snap-row:last-child{ border-bottom:0; padding-bottom:0; }
+.snap-row:first-child{ padding-top:0; }
+.snap-row.single{ display:flex; justify-content:space-between; gap:16px; align-items:baseline; }
+.snap-k{ font-size:12px; color:var(--ink3); flex:none; }
+.snap-v{ font-size:13.5px; font-weight:600; text-align:right; }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.chip{
+  font-size:12px; font-weight:500; padding:3px 9px; border-radius:9px;
+  background:var(--g50); border:1px solid var(--g100); color:var(--g800);
+}
+.disclaimer{ text-align:center; font-size:11.5px; color:var(--ink4); line-height:1.65; margin:28px 0 0; }
+
+/* =========================== FOOTER + TOAST =========================== */
+.ftr{
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  background:rgba(255,255,255,.93);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);
+}
+.ftr-row{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  font-size:10px; color:var(--ink4); padding:10px 0;
+  padding-bottom:calc(10px + env(safe-area-inset-bottom));
+}
+.ftr-row span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+.toast{
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:calc(var(--footer-h) + 26px + env(safe-area-inset-bottom));
+  z-index:60; background:var(--g800); color:#fff;
+  font-size:13.5px; font-weight:500; padding:11px 18px; border-radius:var(--r);
+  box-shadow:0 10px 30px -6px rgba(0,0,0,.35);
+  opacity:0; pointer-events:none; transition:opacity .3s ease;
+  max-width:calc(100vw - 40px); text-align:center;
+}
+.toast.show{ opacity:1; }
+
+/* =========================== RESPONSIVE =========================== */
+@media (min-width:640px){
+  :root{ --shell:38rem; }
+  main{ padding-top:32px; }
+  h1{ font-size:29px; }
+  .hero{ padding:34px 32px 28px; }
+  .card-pad{ padding:30px 32px; }
+  .opts.grid,.opts.tiles{ grid-template-columns:1fr 1fr 1fr; }
+  .opts.duo{ max-width:420px; }
+}
+@media (min-width:1024px){
+  body{ padding-bottom:calc(var(--footer-h) + 40px + env(safe-area-inset-bottom)); }
+  main{ padding-top:44px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important; animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================== HEADER ============================== -->
+<header class="hdr">
+  <div class="pua-thin"></div>
+  <div class="shell">
+    <div class="hdr-row">
+
+      <!-- Brand mark: the kenyalang (rhinoceros hornbill), emblem of Sarawak -->
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <g fill="#f0c75e"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
+            <circle cx="39.5" cy="21" r="1.9" fill="#0B6E4F"/>
+          </svg>
+        </div>
+        <div style="min-width:0">
+          <p class="brand-name" data-i18n="brandShort">Business Growth Check</p>
+          <p class="brand-sub" data-i18n="brandSub">SARAWAK 2026</p>
+        </div>
+      </div>
+
+      <!-- ===== 4-LANGUAGE PANEL: BM · EN · 中文 · IBAN ===== -->
+      <div class="langbar" role="group" aria-label="Language / Bahasa / 语言 / Jaku">
+        <button type="button" class="lang-btn" data-lang="bm" title="Bahasa Malaysia">BM</button>
+        <button type="button" class="lang-btn" data-lang="en" title="English">EN</button>
+        <button type="button" class="lang-btn" data-lang="zh" title="中文" lang="zh">中</button>
+        <button type="button" class="lang-btn" data-lang="ib" title="Jaku Iban">IB</button>
+      </div>
+    </div>
+
+    <div class="prog-row">
+      <div class="prog-track" id="prog-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="prog-fill" id="progress-bar"></div>
+      </div>
+      <span class="prog-label" id="progress-label">Start</span>
+    </div>
+  </div>
+</header>
+
+<!-- =============================== MAIN =============================== -->
+<main class="shell">
+
+  <!-- ========== STEP 0 · LANDING ========== -->
+  <section id="step-0" class="step active">
+    <div class="card" style="margin-bottom:22px">
+      <div class="pua"></div>
+
+      <div class="hero">
+        <svg class="hero-bird" viewBox="0 0 64 64" aria-hidden="true">
+          <g fill="#0B6E4F"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
+        </svg>
+        <p class="eyebrow" data-i18n="landingEyebrow">Bumi Kenyalang</p>
+        <h1 data-i18n="landingTitle">Is This Assessment for You?</h1>
+        <p class="lede" data-i18n="landingSubtitle"></p>
+      </div>
+
+      <div class="card-pad" style="padding-top:20px">
+        <ul class="checklist" id="landing-list"></ul>
+        <p class="dream" data-i18n="landingDream"></p>
+        <div class="timing"><span aria-hidden="true">⏱️</span><span data-i18n="landingTime"></span></div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-lg" onclick="goToStep(1)">
+      <span data-i18n="ctaStart">Start My Growth Check</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5-5 5M18 12H6"/></svg>
+    </button>
+    <p class="fineprint" data-i18n="alignNote"></p>
+  </section>
+
+  <!-- ========== STEP 1 · INTRODUCTION ========== -->
+  <section id="step-1" class="step">
+    <div class="card" style="margin-bottom:22px">
+      <div class="pua-thin"></div>
+      <div class="card-pad">
+        <!-- Ukiran-inspired rosette, echoing Sarawak woodcarving -->
+        <div class="rosette">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <g fill="none" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round">
+              <path d="M20 4 28 12 20 20 12 12Z"/><path d="M20 20 28 28 20 36 12 28Z"/>
+              <path d="M4 20 12 12M36 20 28 12M4 20 12 28M36 20 28 28"/>
+            </g>
+            <circle cx="20" cy="20" r="2.6" fill="#D4A017"/>
+          </svg>
+        </div>
+        <h2 data-i18n="introTitle" style="margin-bottom:14px">Your Journey Starts Here</h2>
+        <div class="prose">
+          <p data-i18n="introP1"></p>
+          <p data-i18n="introP2"></p>
+          <p data-i18n="introP3"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goToStep(0)" data-i18n="navBack">Back</button>
+      <button class="btn btn-primary" onclick="goToStep(2)">
+        <span data-i18n="ctaBegin">Begin Assessment</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5-5 5M18 12H6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== STEPS 2–5 · QUESTION SECTIONS (rendered by JS) ========== -->
+  <section id="step-2" class="step"></section>
+  <section id="step-3" class="step"></section>
+  <section id="step-4" class="step"></section>
+  <section id="step-5" class="step"></section>
+
+  <!-- ========== STEP 6 · RESULTS ========== -->
+  <section id="step-6" class="step">
+    <div class="res-top">
+      <div class="res-badge" aria-hidden="true">🎉</div>
+      <h2 data-i18n="resTitle">Thank You!</h2>
+      <p data-i18n="resSubtitle"></p>
+    </div>
+
+    <div class="card">
+      <div class="pua"></div>
+      <div class="rec-head">
+        <svg class="rec-head-bird" viewBox="0 0 64 64" aria-hidden="true">
+          <g fill="#fff"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
+        </svg>
+        <p class="rec-kicker" data-i18n="resEyebrow">Your Recommended Next Step</p>
+        <h3 class="rec-title" id="rec-title">GERAK &amp; USTEV</h3>
+      </div>
+
+      <div class="rec-body">
+        <p class="rec-msg" id="rec-message"></p>
+
+        <div class="getbox">
+          <h4 data-i18n="resGetTitle">What you can get</h4>
+          <ul id="rec-benefits"></ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://mintred.sarawak.gov.my/web/subpage/webpage_view/148" target="_blank" rel="noopener">
+            <span data-i18n="ctaLearnMore">Learn More about GERAK &amp; USTEV</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6v6M10 14 20 4"/></svg>
+          </a>
+          <div class="actions-2">
+            <button class="btn btn-outline" onclick="shareResults()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+              <span data-i18n="ctaShare">Share</span>
+            </button>
+            <button class="btn btn-gold" onclick="copySummary()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span data-i18n="ctaCopy">Copy answers</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="snapshot">
+      <h4 data-i18n="resSnapshot">Your Snapshot</h4>
+      <div id="summary-list"></div>
+    </div>
+
+    <button class="linkish" onclick="restart()" data-i18n="ctaRetake">Take the check again</button>
+    <p class="disclaimer" data-i18n="resDisclaimer"></p>
+  </section>
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="ftr">
+  <div class="pua-thin" style="opacity:.6"></div>
+  <div class="shell">
+    <div class="ftr-row">
+      <span>MINTRED Sarawak · PCDS 2030</span>
+      <span data-i18n="brandShort">Business Growth Check</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Confetti is a nicety only; the results page works perfectly without it. -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
+
+<script>
+/* ==========================================================================
+   SARAWAK BUSINESS GROWTH CHECK 2026
+   Single self-contained HTML file · vanilla JS · no build step, no framework
+   --------------------------------------------------------------------------
+   HOW THIS FILE IS ORGANISED
+     1. QUESTIONS — the question schema (order, single vs multi, icons)
+     2. I18N      — every string in 4 languages: bm · en · zh · ib
+     3. STATE     — the answers object
+     4. RENDER    — builds the question steps from QUESTIONS + I18N
+     5. SELECTION — single/multi handling and validation
+     6. NAVIGATION
+     7. RESULTS   — recommendation logic (leads toward GERAK & USTEV)
+     8. SHARING
+     9. PERSISTENCE (localStorage)
+    10. LANGUAGE SWITCHING
+    11. INIT
+
+   MINTRED DEVELOPERS: search for "BACKEND HOOK" — that is the single place
+   where responses should be POSTed to a real endpoint. Nothing else needs
+   to change.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. QUESTION SCHEMA
+   --------------------------------------------------------------------------
+   type:'single' -> radio behaviour, exactly one answer
+   type:'multi'  -> checkbox behaviour, ONE OR MORE answers allowed
+                    (optional `max` caps how many can be picked)
+   layout: 'list' | 'grid' | 'tiles' | 'duo'
+   ========================================================================== */
+const QUESTIONS = [
+
+  /* ---- SECTION 1 · About Your Business ---- */
+  { id:'q1', section:1, type:'single', layout:'list',
+    opts:['planning','started-12m','operating-1y','growing'] },
+
+  /* MULTI — a Sarawak micro-business is very often home-based AND online. */
+  { id:'q2', section:1, type:'multi', layout:'tiles',
+    opts:['home-based','online','physical','workshop','mobile'],
+    icons:{ 'home-based':'🏠', online:'💻', physical:'🏪', workshop:'🔧', mobile:'🛵' } },
+
+  /* MULTI — many operators straddle two industries (e.g. Food + Retail). */
+  { id:'q3', section:1, type:'multi', layout:'grid',
+    opts:['food','retail','agriculture','services','manufacturing','creative','technical','others'],
+    icons:{ food:'🍜', retail:'🛍️', agriculture:'🌾', services:'💼',
+            manufacturing:'🏭', creative:'🎨', technical:'⚙️', others:'✨' } },
+
+  /* ---- SECTION 2 · Your Growth Journey ---- */
+  { id:'q4', section:2, type:'single', layout:'list',
+    opts:['surviving','stable','ready-grow','ready-expand'],
+    icons:{ surviving:'😮‍💨', stable:'🙂', 'ready-grow':'🚀', 'ready-expand':'🌟' } },
+
+  /* SINGLE on purpose — the brief specifies "Choose ONE", so the single
+     biggest pain point stays clean, unambiguous data for MINTRED. */
+  { id:'q5', section:2, type:'single', layout:'list',
+    opts:['equipment','working-capital','customers','marketing','skills','hiring','others'],
+    icons:{ equipment:'🛠️', 'working-capital':'💰', customers:'👥', marketing:'📣',
+            skills:'📚', hiring:'🧑‍💼', others:'❓' } },
+
+  /* ---- SECTION 3 · Your 2030 Vision ---- */
+  /* MULTI (max 3) — ambitions stack: "recognised Sarawak brand" AND
+     "sell throughout Malaysia". Capped at 3 so the answer stays meaningful. */
+  { id:'q6', section:3, type:'multi', layout:'list', max:3,
+    opts:['family','employ-2-5','branch','brand','malaysia','export'],
+    icons:{ family:'🏡', 'employ-2-5':'🤝', branch:'🏬', brand:'⭐', malaysia:'🇲🇾', export:'🌏' } },
+
+  { id:'q7', section:3, type:'single', layout:'list',
+    opts:['below-100k','100-300k','300k-1m','1-5m','above-5m'] },
+
+  { id:'q8', section:3, type:'single', layout:'list',
+    opts:['myself','1-2','3-5','6-10','more-10'] },
+
+  /* ---- SECTION 4 · Business Support ---- */
+  /* MULTI — as in the original brief. */
+  { id:'q9', section:4, type:'multi', layout:'tiles',
+    opts:['grant','equipment','capital','coaching','marketing','training'],
+    icons:{ grant:'🎁', equipment:'🛠️', capital:'💵', coaching:'🧭', marketing:'📈', training:'🎓' } },
+
+  { id:'q10', section:4, type:'single', layout:'duo', opts:['yes','no'] },
+];
+
+/* Which question section lives on which step */
+const SECTION_OF_STEP = { 2:1, 3:2, 4:3, 5:4 };
+
+
+/* ==========================================================================
+   2. TRANSLATIONS — bm (Bahasa Malaysia) · en (English) · zh (中文) · ib (Iban)
+   --------------------------------------------------------------------------
+   NOTE FOR REVIEWERS: the Iban (ib) copy follows common Sarawak usage and
+   borrows Malay terms where spoken Iban naturally does. Please have a native
+   Iban speaker sign it off before the public launch.
+   ========================================================================== */
+const I18N = {
+
+/* -------------------------------- ENGLISH -------------------------------- */
+en:{
+  _label:'English', _htmlLang:'en',
+  brandTitle:'Business Growth Check', brandShort:'Business Growth Check', brandSub:'SARAWAK 2026',
+  steps:['Start','Intro','Business','Growth','Vision','Support','Results'],
+
+  landingEyebrow:'Bumi Kenyalang · Land of the Hornbill',
+  landingTitle:'Is This Assessment for You?',
+  landingSubtitle:'This FREE Business Growth Check is designed for Sarawak entrepreneurs who are:',
+  landingList:[
+    'Running a small business',
+    'Recently started a business',
+    'Planning to start a business',
+    'TVET / Technical Skills graduates',
+    'SPM leavers or graduates interested in entrepreneurship',
+    'Looking to grow their business',
+  ],
+  landingDream:'If you dream of taking your business to the next level, this assessment is for you.',
+  landingTime:'Takes only 5–7 minutes',
+  ctaStart:'Start My Growth Check',
+  alignNote:'Aligned with Sarawak Maju Makmur &amp; PCDS 2030',
+
+  introTitle:'Your Journey Starts Here',
+  introP1:'Sarawak is creating more opportunities for local entrepreneurs through the vision of <strong>Sarawak Maju Makmur</strong> and <strong>PCDS 2030</strong>.',
+  introP2:"Whether you're just starting or already running a small business, understanding your current business stage is the first step towards future growth.",
+  introP3:'Complete this short Business Growth Check to discover programmes and opportunities that may support your next business milestone.',
+  ctaBegin:'Begin Assessment',
+
+  sectionOf:'Section {n} of 4',
+  sectionTitles:{ 1:'About Your Business', 2:'Your Growth Journey', 3:'Your 2030 Vision', 4:'Business Support' },
+  sectionNote:{ 3:'Aligned with PCDS 2030' },
+
+  badgeSingle:'Choose ONE answer',
+  badgeMulti:'You may choose MORE THAN ONE',
+  badgeMultiMax:'Choose up to {n} answers',
+  selectedCount:'{n} selected',
+  multiHint:'Heads up — some questions let you pick several answers. Look for the gold <strong>“more than one”</strong> tag.',
+
+  navBack:'Back', navNext:'Next →', navResults:'See My Results →',
+
+  resTitle:'Thank You!',
+  resSubtitle:'Based on your responses, our system has identified programmes that may match your current business stage.',
+  resEyebrow:'Your Recommended Next Step',
+  resGetTitle:'What you can get',
+  resBenefits:[
+    'Grants of up to <strong>RM20,000</strong>',
+    'Support for starting or expanding your business',
+    'Designed for graduates, SPM leavers &amp; TVET holders',
+  ],
+  ctaLearnMore:'Learn More about GERAK &amp; USTEV',
+  ctaShare:'Share', ctaCopy:'Copy answers',
+  resSnapshot:'Your Snapshot',
+  ctaRetake:'Take the check again',
+  resDisclaimer:'This Growth Check is designed to inspire and guide. Final eligibility for any programme is subject to official criteria by MINTRED Sarawak &amp; implementing agencies.',
+  toastCopied:'Answers copied ✓',
+  toastShared:'Link copied! Share it with fellow entrepreneurs 🌱',
+  shareText:'I just completed the Sarawak Business Growth Check 2026! 🚀\nDiscover programmes that match your business journey.\n\nTake the free 5-minute check:',
+
+  recMsg:{
+    planning:"You're at the perfect starting point. As someone planning to launch a business in Sarawak, <strong>GERAK</strong> (for graduates &amp; SPM leavers) or <strong>USTEV</strong> (for TVET / technical skills holders) can provide grant support of up to RM20,000 to help you take the first real step.",
+    'started-12m':"You've already taken the brave step of starting. Now is a great time to strengthen your foundation. <strong>GERAK</strong> or <strong>USTEV</strong> grants of up to RM20,000 are designed exactly for early-stage entrepreneurs like you who want to grow with confidence.",
+    operating:'Your business is already moving. Whether you need equipment, working capital or a boost to expand, <strong>GERAK</strong> and <strong>USTEV</strong> remain relevant pathways for eligible Sarawak entrepreneurs who want to reach the next level under PCDS 2030.',
+    fallback:'Based on your growth goals and current stage, <strong>GERAK</strong> (Graduan Kearah Keusahawanan) and <strong>USTEV</strong> (Usahawan Teknikal dan Vokasional) are strong matches. Both offer grants of up to RM20,000 to help Sarawak entrepreneurs start or expand.',
+    needsFit:' Your current needs around capital or equipment align particularly well with what these programmes offer.',
+    tvetFit:' Because you work in a technical / TVET field, <strong>USTEV</strong> in particular is worth looking at first.',
+    ambitionFit:' Your 2030 ambitions are exactly the kind of growth these programmes are built to support.',
+  },
+  snapshotLabels:{
+    q1:'Stage', q2:'Setup', q3:'Industry', q4:'Today', q5:'Biggest challenge',
+    q6:'2030 vision', q7:'Sales goal', q8:'Team size goal', q9:'Support needed', q10:'Prior assistance',
+  },
+  q:{
+    q1:{ t:'1. Which best describes you?', o:{
+      planning:'Planning to start a business', 'started-12m':'Started within the last 12 months',
+      'operating-1y':'Operating for more than 1 year', growing:'Growing my existing business' } },
+    q2:{ t:'2. Your business currently is', o:{
+      'home-based':'Home-based', online:'Online', physical:'Physical shop',
+      workshop:'Workshop', mobile:'Mobile / Service-based' } },
+    q3:{ t:'3. Industry', o:{
+      food:'Food', retail:'Retail', agriculture:'Agriculture', services:'Services',
+      manufacturing:'Manufacturing', creative:'Creative', technical:'Technical / TVET', others:'Others' } },
+    q4:{ t:'4. Which best describes your business today?', o:{
+      surviving:'Just surviving', stable:'Stable', 'ready-grow':'Ready to grow', 'ready-expand':'Ready to expand' } },
+    q5:{ t:'5. What is your biggest challenge?', o:{
+      equipment:'Equipment', 'working-capital':'Working Capital', customers:'Finding Customers',
+      marketing:'Marketing', skills:'Business Skills', hiring:'Hiring Employees', others:'Others' } },
+    q6:{ t:'6. By 2030… What would you like your business to become?', o:{
+      family:'Stable family business', 'employ-2-5':'Employ 2–5 people', branch:'Open another branch',
+      brand:'Become a recognised Sarawak brand', malaysia:'Sell throughout Malaysia', export:'Export internationally' } },
+    q7:{ t:'7. What annual sales would you like your business to achieve by 2030?', o:{
+      'below-100k':'Below RM100,000', '100-300k':'RM100,000 – 300,000', '300k-1m':'RM300,000 – 1 million',
+      '1-5m':'RM1 – 5 million', 'above-5m':'Above RM5 million' } },
+    q8:{ t:'8. By 2030… How many people do you hope your business will employ?', o:{
+      myself:'Just myself', '1-2':'1–2', '3-5':'3–5', '6-10':'6–10', 'more-10':'More than 10' } },
+    q9:{ t:'9. Which support would help your business the MOST today?', o:{
+      grant:'Business Grant', equipment:'Equipment / Machinery', capital:'Working Capital',
+      coaching:'Business Coaching', marketing:'Marketing Support', training:'Skills Training' } },
+    q10:{ t:'10. Have you previously received any government entrepreneurship assistance?', o:{
+      yes:'Yes', no:'No' } },
+  },
+},
+
+/* ---------------------------- BAHASA MALAYSIA ---------------------------- */
+bm:{
+  _label:'Bahasa Malaysia', _htmlLang:'ms',
+  brandTitle:'Semakan Pertumbuhan Perniagaan', brandShort:'Semakan Pertumbuhan', brandSub:'SARAWAK 2026',
+  steps:['Mula','Pengenalan','Perniagaan','Pertumbuhan','Wawasan','Sokongan','Keputusan'],
+
+  landingEyebrow:'Bumi Kenyalang',
+  landingTitle:'Adakah Semakan Ini Untuk Anda?',
+  landingSubtitle:'Semakan Pertumbuhan Perniagaan PERCUMA ini direka untuk usahawan Sarawak yang:',
+  landingList:[
+    'Sedang menjalankan perniagaan kecil',
+    'Baru sahaja memulakan perniagaan',
+    'Merancang untuk memulakan perniagaan',
+    'Graduan TVET / Kemahiran Teknikal',
+    'Lepasan SPM atau graduan yang berminat dalam keusahawanan',
+    'Ingin mengembangkan perniagaan mereka',
+  ],
+  landingDream:'Jika anda bercita-cita membawa perniagaan anda ke peringkat seterusnya, semakan ini untuk anda.',
+  landingTime:'Hanya mengambil masa 5–7 minit',
+  ctaStart:'Mulakan Semakan Saya',
+  alignNote:'Selari dengan Sarawak Maju Makmur &amp; PCDS 2030',
+
+  introTitle:'Perjalanan Anda Bermula Di Sini',
+  introP1:'Sarawak sedang mewujudkan lebih banyak peluang untuk usahawan tempatan menerusi wawasan <strong>Sarawak Maju Makmur</strong> dan <strong>PCDS 2030</strong>.',
+  introP2:'Sama ada anda baru bermula atau sudah menjalankan perniagaan kecil, memahami peringkat perniagaan anda hari ini adalah langkah pertama ke arah pertumbuhan masa hadapan.',
+  introP3:'Lengkapkan Semakan Pertumbuhan Perniagaan yang ringkas ini untuk mengenal pasti program dan peluang yang mungkin menyokong pencapaian perniagaan anda yang seterusnya.',
+  ctaBegin:'Mulakan Penilaian',
+
+  sectionOf:'Bahagian {n} daripada 4',
+  sectionTitles:{ 1:'Tentang Perniagaan Anda', 2:'Perjalanan Pertumbuhan Anda', 3:'Wawasan 2030 Anda', 4:'Sokongan Perniagaan' },
+  sectionNote:{ 3:'Selari dengan PCDS 2030' },
+
+  badgeSingle:'Pilih SATU jawapan sahaja',
+  badgeMulti:'Anda boleh pilih LEBIH DARIPADA SATU',
+  badgeMultiMax:'Pilih sehingga {n} jawapan',
+  selectedCount:'{n} dipilih',
+  multiHint:'Ambil perhatian — sesetengah soalan membenarkan anda memilih beberapa jawapan. Cari label emas <strong>“lebih daripada satu”</strong>.',
+
+  navBack:'Kembali', navNext:'Seterusnya →', navResults:'Lihat Keputusan Saya →',
+
+  resTitle:'Terima Kasih!',
+  resSubtitle:'Berdasarkan jawapan anda, sistem kami telah mengenal pasti program yang mungkin sepadan dengan peringkat perniagaan anda.',
+  resEyebrow:'Langkah Seterusnya Yang Disyorkan',
+  resGetTitle:'Apa yang anda boleh dapat',
+  resBenefits:[
+    'Geran sehingga <strong>RM20,000</strong>',
+    'Sokongan untuk memulakan atau mengembangkan perniagaan anda',
+    'Direka untuk graduan, lepasan SPM &amp; pemegang TVET',
+  ],
+  ctaLearnMore:'Ketahui Lebih Lanjut tentang GERAK &amp; USTEV',
+  ctaShare:'Kongsi', ctaCopy:'Salin jawapan',
+  resSnapshot:'Ringkasan Anda',
+  ctaRetake:'Buat semakan sekali lagi',
+  resDisclaimer:'Semakan Pertumbuhan ini bertujuan memberi inspirasi dan panduan. Kelayakan akhir bagi mana-mana program tertakluk kepada kriteria rasmi MINTRED Sarawak &amp; agensi pelaksana.',
+  toastCopied:'Jawapan disalin ✓',
+  toastShared:'Pautan disalin! Kongsikan dengan rakan usahawan 🌱',
+  shareText:'Saya baru sahaja melengkapkan Semakan Pertumbuhan Perniagaan Sarawak 2026! 🚀\nTemui program yang sepadan dengan perjalanan perniagaan anda.\n\nBuat semakan percuma 5 minit:',
+
+  recMsg:{
+    planning:'Anda berada di titik permulaan yang tepat. Sebagai seseorang yang merancang untuk memulakan perniagaan di Sarawak, <strong>GERAK</strong> (untuk graduan &amp; lepasan SPM) atau <strong>USTEV</strong> (untuk pemegang TVET / kemahiran teknikal) boleh memberikan sokongan geran sehingga RM20,000 untuk membantu anda mengambil langkah pertama yang sebenar.',
+    'started-12m':'Anda sudah pun mengambil langkah berani untuk bermula. Kini masa yang baik untuk mengukuhkan asas anda. Geran <strong>GERAK</strong> atau <strong>USTEV</strong> sehingga RM20,000 direka khusus untuk usahawan peringkat awal seperti anda yang ingin berkembang dengan yakin.',
+    operating:'Perniagaan anda sudah bergerak. Sama ada anda memerlukan peralatan, modal kerja atau dorongan untuk berkembang, <strong>GERAK</strong> dan <strong>USTEV</strong> kekal sebagai laluan yang relevan untuk usahawan Sarawak yang layak dan ingin mencapai peringkat seterusnya di bawah PCDS 2030.',
+    fallback:'Berdasarkan matlamat pertumbuhan dan peringkat semasa anda, <strong>GERAK</strong> (Graduan Kearah Keusahawanan) dan <strong>USTEV</strong> (Usahawan Teknikal dan Vokasional) adalah padanan yang kukuh. Kedua-duanya menawarkan geran sehingga RM20,000 untuk membantu usahawan Sarawak memulakan atau mengembangkan perniagaan.',
+    needsFit:' Keperluan semasa anda berkaitan modal atau peralatan sangat sepadan dengan apa yang ditawarkan oleh program ini.',
+    tvetFit:' Memandangkan anda berada dalam bidang teknikal / TVET, <strong>USTEV</strong> khususnya wajar anda lihat terlebih dahulu.',
+    ambitionFit:' Cita-cita 2030 anda adalah tepat jenis pertumbuhan yang program ini dibina untuk menyokong.',
+  },
+  snapshotLabels:{
+    q1:'Peringkat', q2:'Bentuk operasi', q3:'Industri', q4:'Hari ini', q5:'Cabaran terbesar',
+    q6:'Wawasan 2030', q7:'Sasaran jualan', q8:'Sasaran pekerja', q9:'Sokongan diperlukan', q10:'Bantuan terdahulu',
+  },
+  q:{
+    q1:{ t:'1. Yang mana paling menggambarkan anda?', o:{
+      planning:'Merancang untuk memulakan perniagaan', 'started-12m':'Bermula dalam tempoh 12 bulan lepas',
+      'operating-1y':'Beroperasi lebih daripada 1 tahun', growing:'Sedang mengembangkan perniagaan sedia ada' } },
+    q2:{ t:'2. Perniagaan anda pada masa ini', o:{
+      'home-based':'Berasaskan rumah', online:'Dalam talian', physical:'Kedai fizikal',
+      workshop:'Bengkel', mobile:'Bergerak / Servis' } },
+    q3:{ t:'3. Industri', o:{
+      food:'Makanan', retail:'Peruncitan', agriculture:'Pertanian', services:'Perkhidmatan',
+      manufacturing:'Pembuatan', creative:'Kreatif', technical:'Teknikal / TVET', others:'Lain-lain' } },
+    q4:{ t:'4. Yang mana paling menggambarkan perniagaan anda hari ini?', o:{
+      surviving:'Sekadar bertahan', stable:'Stabil', 'ready-grow':'Bersedia untuk berkembang', 'ready-expand':'Bersedia untuk meluaskan' } },
+    q5:{ t:'5. Apakah cabaran terbesar anda?', o:{
+      equipment:'Peralatan', 'working-capital':'Modal Kerja', customers:'Mencari Pelanggan',
+      marketing:'Pemasaran', skills:'Kemahiran Perniagaan', hiring:'Mengambil Pekerja', others:'Lain-lain' } },
+    q6:{ t:'6. Menjelang 2030… Anda mahu perniagaan anda menjadi apa?', o:{
+      family:'Perniagaan keluarga yang stabil', 'employ-2-5':'Menggaji 2–5 orang', branch:'Membuka cawangan baharu',
+      brand:'Menjadi jenama Sarawak yang dikenali', malaysia:'Menjual ke seluruh Malaysia', export:'Mengeksport ke luar negara' } },
+    q7:{ t:'7. Berapakah jualan tahunan yang anda mahu capai menjelang 2030?', o:{
+      'below-100k':'Bawah RM100,000', '100-300k':'RM100,000 – 300,000', '300k-1m':'RM300,000 – 1 juta',
+      '1-5m':'RM1 – 5 juta', 'above-5m':'Melebihi RM5 juta' } },
+    q8:{ t:'8. Menjelang 2030… Berapa ramai pekerja yang anda harap akan bekerja dengan anda?', o:{
+      myself:'Saya sendiri sahaja', '1-2':'1–2', '3-5':'3–5', '6-10':'6–10', 'more-10':'Lebih daripada 10' } },
+    q9:{ t:'9. Sokongan manakah yang PALING membantu perniagaan anda hari ini?', o:{
+      grant:'Geran Perniagaan', equipment:'Peralatan / Mesin', capital:'Modal Kerja',
+      coaching:'Bimbingan Perniagaan', marketing:'Sokongan Pemasaran', training:'Latihan Kemahiran' } },
+    q10:{ t:'10. Pernahkah anda menerima sebarang bantuan keusahawanan kerajaan sebelum ini?', o:{
+      yes:'Ya', no:'Tidak' } },
+  },
+},
+
+/* ---------------------------------- 中文 ---------------------------------- */
+zh:{
+  _label:'中文', _htmlLang:'zh',
+  brandTitle:'商业成长检测', brandShort:'商业成长检测', brandSub:'砂拉越 2026',
+  steps:['开始','简介','业务','成长','愿景','支援','结果'],
+
+  landingEyebrow:'犀鸟之乡 · 砂拉越',
+  landingTitle:'这项检测适合您吗？',
+  landingSubtitle:'这项免费的「商业成长检测」，专为以下砂拉越创业者而设：',
+  landingList:[
+    '正在经营小生意',
+    '最近才开始创业',
+    '正在计划创业',
+    '技职教育（TVET）／技术技能毕业生',
+    '对创业有兴趣的中学（SPM）毕业生或大学毕业生',
+    '希望把生意做得更大',
+  ],
+  landingDream:'如果您希望把生意提升到更高层次，这项检测就是为您而设。',
+  landingTime:'只需 5–7 分钟',
+  ctaStart:'开始我的成长检测',
+  alignNote:'配合 Sarawak Maju Makmur 与 PCDS 2030 愿景',
+
+  introTitle:'您的旅程从这里开始',
+  introP1:'砂拉越正通过 <strong>Sarawak Maju Makmur</strong> 与 <strong>PCDS 2030</strong> 愿景，为本地创业者创造更多机会。',
+  introP2:'无论您才刚起步，还是已经在经营小生意，认清自己目前所处的阶段，都是迈向未来成长的第一步。',
+  introP3:'完成这份简短的「商业成长检测」，即可了解哪些计划与机会，可能支持您事业的下一个里程碑。',
+  ctaBegin:'开始评估',
+
+  sectionOf:'第 {n} 部分／共 4 部分',
+  sectionTitles:{ 1:'关于您的生意', 2:'您的成长历程', 3:'您的 2030 愿景', 4:'商业支援' },
+  sectionNote:{ 3:'配合 PCDS 2030' },
+
+  badgeSingle:'只能选择一个答案',
+  badgeMulti:'可以选择多个答案',
+  badgeMultiMax:'最多可选 {n} 个答案',
+  selectedCount:'已选 {n} 项',
+  multiHint:'温馨提示 — 部分题目可以选择多个答案，请留意金色的<strong>「可多选」</strong>标签。',
+
+  navBack:'返回', navNext:'下一步 →', navResults:'查看我的结果 →',
+
+  resTitle:'谢谢您！',
+  resSubtitle:'根据您的回答，我们的系统已找出可能符合您目前阶段的计划。',
+  resEyebrow:'为您推荐的下一步',
+  resGetTitle:'您可以获得什么',
+  resBenefits:[
+    '最高 <strong>RM20,000</strong> 的补助金',
+    '支持您创业或扩展生意',
+    '专为大学毕业生、SPM 毕业生及 TVET 持证者而设',
+  ],
+  ctaLearnMore:'进一步了解 GERAK 与 USTEV',
+  ctaShare:'分享', ctaCopy:'复制答案',
+  resSnapshot:'您的概况',
+  ctaRetake:'重新做一次检测',
+  resDisclaimer:'此成长检测旨在提供启发与指引。任何计划的最终资格，须以砂拉越 MINTRED 及执行机构的官方标准为准。',
+  toastCopied:'答案已复制 ✓',
+  toastShared:'链接已复制！分享给其他创业伙伴 🌱',
+  shareText:'我刚完成了「砂拉越商业成长检测 2026」！🚀\n快来找出适合您创业旅程的计划。\n\n免费 5 分钟检测：',
+
+  recMsg:{
+    planning:'您正处在最理想的起点。作为一位计划在砂拉越创业的人，<strong>GERAK</strong>（适合大学与 SPM 毕业生）或 <strong>USTEV</strong>（适合 TVET／技术技能持证者）可提供最高 RM20,000 的补助金，助您踏出真正的第一步。',
+    'started-12m':'您已经勇敢地跨出第一步。现在正是巩固基础的好时机。最高 RM20,000 的 <strong>GERAK</strong> 或 <strong>USTEV</strong> 补助金，正是为像您这样希望稳健成长的初创业者而设。',
+    operating:'您的生意已经在运转。无论您需要设备、周转金还是扩展的助力，<strong>GERAK</strong> 与 <strong>USTEV</strong> 依然是砂拉越合格创业者在 PCDS 2030 之下迈向更高层次的可行途径。',
+    fallback:'根据您的成长目标与目前阶段，<strong>GERAK</strong>（Graduan Kearah Keusahawanan）与 <strong>USTEV</strong>（Usahawan Teknikal dan Vokasional）都非常合适。两者均提供最高 RM20,000 的补助金，协助砂拉越创业者创业或扩展。',
+    needsFit:' 您目前在资金或设备方面的需求，与这些计划所提供的支援特别契合。',
+    tvetFit:' 由于您从事技术／TVET 领域，建议您优先了解 <strong>USTEV</strong>。',
+    ambitionFit:' 您的 2030 目标，正是这些计划所要支持的成长方向。',
+  },
+  snapshotLabels:{
+    q1:'阶段', q2:'经营方式', q3:'行业', q4:'目前状况', q5:'最大挑战',
+    q6:'2030 愿景', q7:'销售目标', q8:'团队目标', q9:'所需支援', q10:'曾获援助',
+  },
+  q:{
+    q1:{ t:'1. 以下哪一项最符合您？', o:{
+      planning:'正在计划创业', 'started-12m':'在过去 12 个月内开始',
+      'operating-1y':'经营超过 1 年', growing:'正在扩展现有生意' } },
+    q2:{ t:'2. 您目前的生意形式是', o:{
+      'home-based':'居家经营', online:'线上经营', physical:'实体店面',
+      workshop:'工作坊／工厂', mobile:'流动／服务型' } },
+    q3:{ t:'3. 行业', o:{
+      food:'餐饮', retail:'零售', agriculture:'农业', services:'服务业',
+      manufacturing:'制造业', creative:'创意产业', technical:'技术／TVET', others:'其他' } },
+    q4:{ t:'4. 以下哪一项最符合您今天的生意状况？', o:{
+      surviving:'勉强维持', stable:'稳定', 'ready-grow':'准备成长', 'ready-expand':'准备扩展' } },
+    q5:{ t:'5. 您最大的挑战是什么？', o:{
+      equipment:'设备', 'working-capital':'周转资金', customers:'寻找顾客',
+      marketing:'市场推广', skills:'商业技能', hiring:'聘请员工', others:'其他' } },
+    q6:{ t:'6. 到了 2030 年…… 您希望您的生意成为什么？', o:{
+      family:'稳定的家族生意', 'employ-2-5':'聘用 2–5 名员工', branch:'开设另一家分店',
+      brand:'成为知名的砂拉越品牌', malaysia:'销售遍及全马', export:'出口到海外' } },
+    q7:{ t:'7. 到 2030 年，您希望达到的年销售额是多少？', o:{
+      'below-100k':'RM100,000 以下', '100-300k':'RM100,000 – 300,000', '300k-1m':'RM300,000 – 100 万',
+      '1-5m':'RM100 万 – 500 万', 'above-5m':'RM500 万以上' } },
+    q8:{ t:'8. 到了 2030 年…… 您希望您的生意聘用多少人？', o:{
+      myself:'只有我自己', '1-2':'1–2 人', '3-5':'3–5 人', '6-10':'6–10 人', 'more-10':'超过 10 人' } },
+    q9:{ t:'9. 今天哪些支援对您的生意帮助最大？', o:{
+      grant:'商业补助金', equipment:'设备／机器', capital:'周转资金',
+      coaching:'商业辅导', marketing:'市场推广支援', training:'技能培训' } },
+    q10:{ t:'10. 您以前是否曾获得任何政府创业援助？', o:{ yes:'有', no:'没有' } },
+  },
+},
+
+/* ---------------------------------- IBAN ---------------------------------- */
+ib:{
+  _label:'Jaku Iban', _htmlLang:'iba',
+  brandTitle:'Cek Pemansang Bisnes', brandShort:'Cek Pemansang Bisnes', brandSub:'SARAWAK 2026',
+  steps:['Berengkah','Pengenal','Bisnes','Pemansang','Wawasan','Sukung','Utai Ditemu'],
+
+  landingEyebrow:'Menua Kenyalang',
+  landingTitle:'Kati Cek Tu Ngena Ke Nuan?',
+  landingSubtitle:'Cek Pemansang Bisnes ti PERCUMA tu digaga ke orang bedagang Sarawak ke:',
+  landingList:[
+    'Bisi ngintu bisnes mit',
+    'Baru berengkah bisnes',
+    'Berundingka deka berengkah bisnes',
+    'Graduan TVET / Pengelandik Teknikal',
+    'Nembiak lepas SPM tauka graduan ti rinduka pengawa bedagang',
+    'Deka meransang bisnes sida empu',
+  ],
+  landingDream:'Enti nuan bemimpi mai bisnes nuan ngagai tikas ti tinggi agi, cek tu digaga ke nuan.',
+  landingTime:'Semina makai 5–7 minit',
+  ctaStart:'Berengkah Cek Pemansang Aku',
+  alignNote:'Sejalai enggau Sarawak Maju Makmur &amp; PCDS 2030',
+
+  introTitle:'Pejalai Nuan Berengkah Ditu',
+  introP1:'Sarawak benung ngaga mayuh agi peluang ke orang bedagang tempatan ngena wawasan <strong>Sarawak Maju Makmur</strong> enggau <strong>PCDS 2030</strong>.',
+  introP2:'Nemu tauka nuan baru berengkah, tauka udah bisi bisnes mit, ngelala tikas bisnes nuan diatu nya tikas keterubah ngagai pemansang ila.',
+  introP3:'Ngabis Cek Pemansang Bisnes ti pendek tu kena nemu program enggau peluang ti ulih nyukung tikas bisnes nuan ti baru.',
+  ctaBegin:'Berengkah Cek',
+
+  sectionOf:'Bagi {n} ari 4',
+  sectionTitles:{ 1:'Pasal Bisnes Nuan', 2:'Pejalai Pemansang Nuan', 3:'Wawasan 2030 Nuan', 4:'Sukung Bisnes' },
+  sectionNote:{ 3:'Sejalai enggau PCDS 2030' },
+
+  badgeSingle:'Pilih SIJI aja',
+  badgeMulti:'Nuan ulih milih LEBIH ARI SIJI',
+  badgeMultiMax:'Pilih sampai {n} saut',
+  selectedCount:'{n} udah dipilih',
+  multiHint:'Beratika — sekeda tanya ulih dipilih mayuh saut. Peda label emas <strong>“lebih ari siji”</strong>.',
+
+  navBack:'Pulai', navNext:'Terus →', navResults:'Peda Utai Ditemu Aku →',
+
+  resTitle:'Terima Kasih!',
+  resSubtitle:'Nitih ke saut nuan, sistem kami udah nemu program ti ulih ngena enggau tikas bisnes nuan diatu.',
+  resEyebrow:'Tikas Ti Ditunjuk Ke Nuan',
+  resGetTitle:'Nama ti ulih diulih nuan',
+  resBenefits:[
+    'Geran sampai <strong>RM20,000</strong>',
+    'Sukung kena berengkah tauka meransang bisnes nuan',
+    'Digaga ke graduan, nembiak lepas SPM &amp; pemegai TVET',
+  ],
+  ctaLearnMore:'Nemu Agi Pasal GERAK &amp; USTEV',
+  ctaShare:'Kongsi', ctaCopy:'Salin saut',
+  resSnapshot:'Gambar Diri Nuan',
+  ctaRetake:'Ngaga cek tu baru',
+  resDisclaimer:'Cek Pemansang tu digaga kena meri semangat enggau tunjuk jalai. Pengelayak penghabis ke sebarang program ditentuka ari kriteria resmi MINTRED Sarawak &amp; agensi ti ngereja.',
+  toastCopied:'Saut udah disalin ✓',
+  toastShared:'Pautan udah disalin! Kongsi enggau pangan bedagang bukai 🌱',
+  shareText:'Aku baru udah ngabis Cek Pemansang Bisnes Sarawak 2026! 🚀\nTemu program ti ngena enggau pejalai bisnes nuan.\n\nGaga cek percuma 5 minit tu:',
+
+  recMsg:{
+    planning:'Nuan benung bediri ba tikas keterubah ti manah. Laban nuan benung berundingka deka berengkah bisnes ba Sarawak, <strong>GERAK</strong> (ke graduan &amp; nembiak lepas SPM) tauka <strong>USTEV</strong> (ke pemegai TVET / pengelandik teknikal) ulih meri geran sampai RM20,000 kena nulung nuan ngambi tikas keterubah ti bendar.',
+    'started-12m':'Nuan udah berani ngambi tikas keterubah. Diatu nyadi maya ti manah kena ngeringka pun bisnes nuan. Geran <strong>GERAK</strong> tauka <strong>USTEV</strong> sampai RM20,000 digaga ke orang bedagang ti baru berengkah baka nuan, ti deka mansang enggau pengering ati.',
+    operating:'Bisnes nuan udah bejalai. Nemu tauka nuan ibuh pengkakas, modal pengawa, tauka sukung kena meransang, <strong>GERAK</strong> enggau <strong>USTEV</strong> agi nyadi jalai ti ngena ke orang bedagang Sarawak ti layak, lalu deka niki ngagai tikas ti baru dalam PCDS 2030.',
+    fallback:'Nitih ke tuju pemansang enggau tikas bisnes nuan diatu, <strong>GERAK</strong> (Graduan Kearah Keusahawanan) enggau <strong>USTEV</strong> (Usahawan Teknikal dan Vokasional) endang ngena bendar. Dua iti program tu meri geran sampai RM20,000 kena nulung orang bedagang Sarawak berengkah tauka meransang bisnes.',
+    needsFit:' Pengiba nuan diatu pasal modal tauka pengkakas endang ngena bendar enggau utai ti diberi program tu.',
+    tvetFit:' Laban nuan bekereja dalam bidang teknikal / TVET, <strong>USTEV</strong> patut dipeda nuan dulu.',
+    ambitionFit:' Tuju 2030 nuan endang macha pemansang ti dikena program tu nyukung.',
+  },
+  snapshotLabels:{
+    q1:'Tikas', q2:'Chara bisnes', q3:'Industri', q4:'Sehari tu', q5:'Penanggul pemadu besai',
+    q6:'Wawasan 2030', q7:'Tuju jual', q8:'Tuju orang gawa', q9:'Sukung ti diibuh', q10:'Bantu dulu kelia',
+  },
+  q:{
+    q1:{ t:'1. Sekeda ari tu ti pemadu ngena ke nuan?', o:{
+      planning:'Berundingka deka berengkah bisnes', 'started-12m':'Berengkah dalam 12 bulan ti udah',
+      'operating-1y':'Bejalai lebih ari 1 taun', growing:'Meransang bisnes ti udah bisi' } },
+    q2:{ t:'2. Bisnes nuan diatu', o:{
+      'home-based':'Ba rumah', online:'Ba online', physical:'Kedai',
+      workshop:'Bengkel', mobile:'Bejalai / Servis' } },
+    q3:{ t:'3. Industri', o:{
+      food:'Pemakai', retail:'Jual runcit', agriculture:'Pengawa umai', services:'Servis',
+      manufacturing:'Kilang', creative:'Kreatif', technical:'Teknikal / TVET', others:'Bukai' } },
+    q4:{ t:'4. Sekeda ari tu ti pemadu ngambarka bisnes nuan sehari tu?', o:{
+      surviving:'Baru ulih idup', stable:'Tetap', 'ready-grow':'Sedia mansang', 'ready-expand':'Sedia ngelebarka' } },
+    q5:{ t:'5. Nama penanggul nuan ti pemadu besai?', o:{
+      equipment:'Pengkakas', 'working-capital':'Modal pengawa', customers:'Ngiga orang meli',
+      marketing:'Pemasaran', skills:'Pengelandik bisnes', hiring:'Ngambi orang gawa', others:'Bukai' } },
+    q6:{ t:'6. Ngagai taun 2030… Nama ti dikedeka nuan ke bisnes nuan?', o:{
+      family:'Bisnes ruang bilik ti tetap', 'employ-2-5':'Ngambi 2–5 iku orang gawa', branch:'Muka kedai bukai',
+      brand:'Nyadi jenama Sarawak ti dikelala', malaysia:'Bejual ngagai serata Malaysia', export:'Bejual ngagai menua bukai' } },
+    q7:{ t:'7. Berapa jual setaun ti dikedeka nuan ngagai taun 2030?', o:{
+      'below-100k':'Baruh ari RM100,000', '100-300k':'RM100,000 – 300,000', '300k-1m':'RM300,000 – 1 juta',
+      '1-5m':'RM1 – 5 juta', 'above-5m':'Atas ari RM5 juta' } },
+    q8:{ t:'8. Ngagai taun 2030… Berapa iku orang ti diarapka nuan gawa dalam bisnes nuan?', o:{
+      myself:'Semina aku empu', '1-2':'1–2 iku', '3-5':'3–5 iku', '6-10':'6–10 iku', 'more-10':'Lebih ari 10 iku' } },
+    q9:{ t:'9. Sukung ni ti PEMADU nulung bisnes nuan sehari tu?', o:{
+      grant:'Geran bisnes', equipment:'Pengkakas / Mesin', capital:'Modal pengawa',
+      coaching:'Tunjuk ajar bisnes', marketing:'Sukung pemasaran', training:'Latih pengelandik' } },
+    q10:{ t:'10. Kati nuan udah kala nerima bantu keusahawanan ari perintah?', o:{ yes:'Udah', no:'Apin' } },
+  },
+},
+};
+
+
+/* ==========================================================================
+   3. STATE
+   ========================================================================== */
+const LS_KEY = 'sbgc2026';
+let lang = 'bm';                 // Bahasa Malaysia leads for a Sarawak audience
+let currentStep = 0;
+
+/** answers: single -> string, multi -> array of strings */
+const answers = {};
+
+const t    = () => I18N[lang];
+const qDef = id => QUESTIONS.find(q => q.id === id);
+const esc  = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+                           .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+
+/* ==========================================================================
+   4. RENDERING
+   ========================================================================== */
+
+const ICON_TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>';
+const ICON_DOT  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="12" cy="12" r="7"/></svg>';
+
+/** Rebuilds the four question steps in the active language. */
+function renderQuestionSteps(){
+  const L = t();
+  const firstMultiSection = QUESTIONS.find(q => q.type === 'multi').section;
+
+  Object.entries(SECTION_OF_STEP).forEach(([stepStr, sectionNo]) => {
+    const step = Number(stepStr);
+    const host = document.getElementById('step-' + step);
+    const qs   = QUESTIONS.filter(q => q.section === sectionNo);
+
+    const note = L.sectionNote && L.sectionNote[sectionNo]
+      ? '<p class="sec-note">' + L.sectionNote[sectionNo] + '</p>' : '';
+
+    /* The "some questions accept several answers" nudge, shown once on the
+       first section that actually contains a multi-select question. */
+    const hint = sectionNo === firstMultiSection
+      ? '<div class="hint"><span aria-hidden="true">💡</span><p>' + L.multiHint + '</p></div>' : '';
+
+    host.innerHTML = `
+      <div class="sec-head">
+        <div class="sec-kicker">
+          <span class="pua" aria-hidden="true"></span>
+          <span>${L.sectionOf.replace('{n}', sectionNo)}</span>
+        </div>
+        <h2>${L.sectionTitles[sectionNo]}</h2>
+        ${note}
+      </div>
+      ${hint}
+      ${qs.map(renderQuestion).join('')}
+      <div class="nav-row">
+        <button class="btn btn-ghost" onclick="goToStep(${step - 1})">${L.navBack}</button>
+        <button class="btn btn-primary" id="btn-step${step}" onclick="validateAndGo(${step}, ${step + 1})" disabled>
+          ${sectionNo === 4 ? L.navResults : L.navNext}
+        </button>
+      </div>`;
+  });
+
+  wireOptions();
+  restoreSelectionsToDOM();
+  updateNextButtons();
+}
+
+/** One question: title, answer-count badge, and its option group. */
+function renderQuestion(q){
+  const L = t();
+  const copy = L.q[q.id];
+  const multi = q.type === 'multi';
+
+  /* Every question states how many answers it takes — this is the core
+     "not every question is single-answer" signal the brief calls for. */
+  const badge = multi
+    ? `<span class="badge badge-many">${ICON_TICK}${q.max ? L.badgeMultiMax.replace('{n}', q.max) : L.badgeMulti}</span>
+       <span class="count" id="count-${q.id}"></span>`
+    : `<span class="badge badge-one">${ICON_DOT}${L.badgeSingle}</span>`;
+
+  return `
+    <div class="q">
+      <p class="q-title" id="lbl-${q.id}">${copy.t}</p>
+      <div class="q-meta">${badge}</div>
+      <div class="opts ${q.layout}" data-question="${q.id}" role="group" aria-labelledby="lbl-${q.id}">
+        ${q.opts.map(k => renderOption(q, k, copy.o[k])).join('')}
+      </div>
+    </div>`;
+}
+
+function renderOption(q, key, label){
+  const multi = q.type === 'multi';
+  const icon  = q.icons && q.icons[key];
+  return `
+    <label class="opt" tabindex="0" role="${multi ? 'checkbox' : 'radio'}" aria-checked="false">
+      <input type="${multi ? 'checkbox' : 'radio'}" name="${q.id}" value="${esc(key)}" tabindex="-1" />
+      ${icon ? `<span class="opt-emoji" aria-hidden="true">${icon}</span>` : ''}
+      <span class="opt-label">${label}</span>
+      <span class="mark${multi ? ' square' : ''}" aria-hidden="true">✓</span>
+    </label>`;
+}
+
+/** Fills every [data-i18n] slot plus the two JS-built lists. */
+function renderStaticCopy(){
+  const L = t();
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = L[el.dataset.i18n];
+    if (typeof val === 'string') el.innerHTML = val;
+  });
+
+  document.getElementById('landing-list').innerHTML = L.landingList
+    .map(item => '<li><span class="tick" aria-hidden="true">✓</span><span>' + item + '</span></li>').join('');
+
+  document.getElementById('rec-benefits').innerHTML = L.resBenefits
+    .map(b => '<li><span>' + b + '</span></li>').join('');
+
+  document.documentElement.lang = L._htmlLang;
+  updateProgress();
+}
+
+
+/* ==========================================================================
+   5. SELECTION + VALIDATION
+   ========================================================================== */
+
+function wireOptions(){
+  document.querySelectorAll('.opt').forEach(card => {
+    card.addEventListener('click', () => toggle(card));
+    card.addEventListener('keydown', e => {
+      if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); toggle(card); }
+    });
+  });
+}
+
+function toggle(card){
+  const input = card.querySelector('input');
+  if (!input) return;
+  const q = qDef(input.name);
+
+  if (q.type === 'multi'){
+    const picked = document.querySelectorAll('input[name="' + q.id + '"]:checked').length;
+    // Respect an optional cap (e.g. "choose up to 3")
+    if (!input.checked && q.max && picked >= q.max){ flashCount(q.id); return; }
+    input.checked = !input.checked;
+    setState(card, input.checked);
+    answers[q.id] = getMulti(q.id);
+  } else {
+    document.querySelectorAll('input[name="' + q.id + '"]').forEach(sib => {
+      sib.checked = false;
+      setState(sib.closest('.opt'), false);
+    });
+    input.checked = true;
+    setState(card, true);
+    answers[q.id] = input.value;
+  }
+
+  updateCount(q.id);
+  updateNextButtons();
+  saveProgress();
+}
+
+function setState(card, on){
+  if (!card) return;
+  card.classList.toggle('on', on);
+  card.setAttribute('aria-checked', String(on));
+}
+
+/** Live "N selected" readout beside each multi-select question. */
+function updateCount(qid){
+  const el = document.getElementById('count-' + qid);
+  if (!el) return;
+  const n = document.querySelectorAll('input[name="' + qid + '"]:checked').length;
+  el.textContent = n ? t().selectedCount.replace('{n}', n) : '';
+}
+
+/** Flags "you've hit the cap" without an intrusive alert. */
+function flashCount(qid){
+  const el = document.getElementById('count-' + qid);
+  if (!el) return;
+  el.classList.add('warn');
+  setTimeout(() => el.classList.remove('warn'), 800);
+}
+
+const getRadio = name => {
+  const el = document.querySelector('input[name="' + name + '"]:checked');
+  return el ? el.value : null;
+};
+const getMulti = name =>
+  Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(el => el.value);
+
+/** Answered = at least one selection. True for single and multi alike. */
+const isAnswered = q => document.querySelectorAll('input[name="' + q.id + '"]:checked').length > 0;
+
+function updateNextButtons(){
+  Object.entries(SECTION_OF_STEP).forEach(([step, sectionNo]) => {
+    const btn = document.getElementById('btn-step' + step);
+    if (btn) btn.disabled = !QUESTIONS.filter(q => q.section === sectionNo).every(isAnswered);
+  });
+}
+
+
+/* ==========================================================================
+   6. NAVIGATION
+   ========================================================================== */
+
+function goToStep(step){
+  const target = document.getElementById('step-' + step);
+  if (!target) return;
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  target.classList.add('active');
+  currentStep = step;
+  updateProgress();
+  window.scrollTo({ top:0, behavior:'smooth' });
+  saveProgress();
+}
+
+function validateAndGo(fromStep, toStep){
+  const sectionNo = SECTION_OF_STEP[fromStep];
+  QUESTIONS.filter(q => q.section === sectionNo).forEach(q => {
+    answers[q.id] = q.type === 'multi' ? getMulti(q.id) : getRadio(q.id);
+  });
+  if (toStep === 6) generateResults();
+  goToStep(toStep);
+}
+
+function updateProgress(){
+  const L = t();
+  const pct = [0, 8, 25, 50, 75, 90, 100][currentStep] ?? 0;
+  document.getElementById('progress-label').textContent = L.steps[currentStep] || '';
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('prog-track').setAttribute('aria-valuenow', String(pct));
+}
+
+
+/* ==========================================================================
+   7. RESULTS + RECOMMENDATION LOGIC
+   --------------------------------------------------------------------------
+   GERAK & USTEV always lead when the profile fits; USTEV is named first for
+   technical / TVET profiles, which is who that programme exists for.
+   ========================================================================== */
+
+function generateResults(){
+  const L = t();
+  const stage      = answers.q1;
+  const industries = answers.q3 || [];
+  const status     = answers.q4;
+  const challenge  = answers.q5;
+  const visions    = answers.q6 || [];
+  const supports   = answers.q9 || [];
+
+  const isTvet      = industries.includes('technical');
+  const needsMoney  = ['equipment','working-capital'].includes(challenge)
+                      || supports.some(s => ['grant','equipment','capital'].includes(s));
+  const isAmbitious = visions.some(v => ['brand','malaysia','export','branch'].includes(v))
+                      || ['ready-grow','ready-expand'].includes(status);
+
+  document.getElementById('rec-title').textContent = isTvet ? 'USTEV & GERAK' : 'GERAK & USTEV';
+
+  let message =
+      stage === 'planning'                       ? L.recMsg.planning
+    : stage === 'started-12m'                    ? L.recMsg['started-12m']
+    : ['operating-1y','growing'].includes(stage) ? L.recMsg.operating
+    :                                              L.recMsg.fallback;
+
+  if (needsMoney)  message += L.recMsg.needsFit;
+  if (isTvet)      message += L.recMsg.tvetFit;
+  if (isAmbitious) message += L.recMsg.ambitionFit;
+  document.getElementById('rec-message').innerHTML = message;
+
+  /* Snapshot — single answers read as a value, multi answers as chips. */
+  document.getElementById('summary-list').innerHTML = QUESTIONS.map(q => {
+    const val = answers[q.id];
+    if (val == null || (Array.isArray(val) && !val.length)) return '';
+    const o = L.q[q.id].o;
+    const k = L.snapshotLabels[q.id];
+
+    if (q.type === 'multi'){
+      return '<div class="snap-row"><div class="snap-k">' + k + '</div><div class="chips">'
+           + val.map(v => '<span class="chip">' + (o[v] || esc(v)) + '</span>').join('')
+           + '</div></div>';
+    }
+    return '<div class="snap-row single"><span class="snap-k">' + k + '</span>'
+         + '<span class="snap-v">' + (o[val] || esc(val)) + '</span></div>';
+  }).join('');
+
+  /* Celebration in Sarawak colours: green, gold, pua kumbu red. */
+  setTimeout(() => {
+    if (window.confetti && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      confetti({ particleCount:90, spread:72, origin:{ y:.6 },
+                 colors:['#0B6E4F','#D4A017','#A63A2A','#86efb0','#f0c75e'] });
+    }
+  }, 320);
+
+  submitResponses();
+}
+
+/* --------------------------------------------------------------------------
+   BACKEND HOOK
+   --------------------------------------------------------------------------
+   `payload` below carries everything MINTRED needs. To store real responses,
+   set ENDPOINT and uncomment the fetch(). Suitable targets:
+     • Formspree                    https://formspree.io/f/xxxxxxx
+     • Google Apps Script Web App   (deployed with access: "Anyone")
+     • A custom MINTRED API endpoint
+   Multi-select answers arrive as arrays (e.g. q3: ["food","retail"]).
+   No other part of this file needs to change.
+   -------------------------------------------------------------------------- */
+function submitResponses(){
+  const payload = {
+    submittedAt: new Date().toISOString(),
+    language: lang,
+    answers: { ...answers },
+    userAgent: navigator.userAgent,
+  };
+
+  console.log('Growth Check response:', payload);
+
+  // const ENDPOINT = 'https://YOUR-ENDPOINT-HERE';
+  // fetch(ENDPOINT, {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(payload),
+  // }).catch(err => console.error('Submit failed', err));
+}
+
+
+/* ==========================================================================
+   8. SHARING
+   ========================================================================== */
+
+function buildSummaryText(){
+  const L = t();
+  const lines = [L.brandTitle + ' — ' + L.brandSub, ''];
+  QUESTIONS.forEach(q => {
+    const val = answers[q.id];
+    if (val == null || (Array.isArray(val) && !val.length)) return;
+    const o = L.q[q.id].o;
+    const shown = Array.isArray(val) ? val.map(v => o[v] || v).join(', ') : (o[val] || val);
+    lines.push(L.snapshotLabels[q.id] + ': ' + shown);
+  });
+  lines.push('', L.resEyebrow + ': ' + document.getElementById('rec-title').textContent, window.location.href);
+  return lines.join('\n');
+}
+
+function shareResults(){
+  const L = t();
+  const text = L.shareText + ' ' + window.location.href;
+  if (navigator.share){
+    navigator.share({ title:L.brandTitle + ' ' + L.brandSub, text, url:window.location.href }).catch(() => {});
+  } else {
+    copyText(text, L.toastShared);
+  }
+}
+
+function copySummary(){ copyText(buildSummaryText(), t().toastCopied); }
+
+function copyText(text, message){
+  const done = () => showToast(message);
+  if (navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+function fallbackCopy(text, done){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly','');
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); } catch(_){}
+  document.body.removeChild(ta);
+}
+
+let toastTimer;
+function showToast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+}
+
+
+/* ==========================================================================
+   9. PERSISTENCE — survives an accidental refresh mid-survey
+   ========================================================================== */
+
+function saveProgress(){
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ lang, currentStep, answers })); }
+  catch(_){ /* private browsing — fail quietly */ }
+}
+
+function loadProgress(){
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); }
+  catch(_){ return null; }
+}
+
+/** Re-applies stored answers to freshly rendered cards (e.g. after a language switch). */
+function restoreSelectionsToDOM(){
+  QUESTIONS.forEach(q => {
+    const val = answers[q.id];
+    if (val == null) return;
+    const wanted = Array.isArray(val) ? val : [val];
+    document.querySelectorAll('input[name="' + q.id + '"]').forEach(input => {
+      const on = wanted.includes(input.value);
+      input.checked = on;
+      setState(input.closest('.opt'), on);
+    });
+    updateCount(q.id);
+  });
+}
+
+function restart(){
+  Object.keys(answers).forEach(k => delete answers[k]);
+  try { localStorage.removeItem(LS_KEY); } catch(_){}
+  renderQuestionSteps();
+  goToStep(0);
+}
+
+
+/* ==========================================================================
+   10. LANGUAGE SWITCHING
+   ========================================================================== */
+
+function setLanguage(next, opts){
+  opts = opts || {};
+  if (!I18N[next]) return;
+  lang = next;
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const on = btn.dataset.lang === next;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-pressed', String(on));
+  });
+
+  renderStaticCopy();
+  renderQuestionSteps();
+
+  // The results page is language-specific — rebuild it if we're already there.
+  if (currentStep === 6 && answers.q1) generateResults();
+
+  if (!opts.silent) saveProgress();
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+});
+
+
+/* ==========================================================================
+   11. INIT
+   ========================================================================== */
+(function init(){
+  const saved   = loadProgress();
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const nav     = (navigator.language || '').toLowerCase();
+  const guessed = nav.indexOf('zh') === 0 ? 'zh'
+                : nav.indexOf('ms') === 0 ? 'bm'
+                : nav.indexOf('en') === 0 ? 'en' : null;
+
+  if (saved && saved.answers) Object.assign(answers, saved.answers);
+
+  // Language priority: ?lang= → saved choice → browser hint → Bahasa Malaysia
+  setLanguage(
+    (urlLang && I18N[urlLang]) ? urlLang
+    : (saved && I18N[saved.lang]) ? saved.lang
+    : (guessed || 'bm'),
+    { silent:true }
+  );
+
+  // Resume mid-survey, but never drop someone onto a stale results page.
+  goToStep(saved && saved.currentStep > 0 && saved.currentStep < 6 ? saved.currentStep : 0);
+})();
+</script>
+</body>
+</html>
