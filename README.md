@@ -12,9 +12,25 @@ no npm install. Open it in a browser, or drop it on any static host.
 
 ---
 
+## Live
+
+**https://sarawak-growth-check.netlify.app**
+
+Deep links per language:
+[BM](https://sarawak-growth-check.netlify.app/?lang=bm) ·
+[EN](https://sarawak-growth-check.netlify.app/?lang=en) ·
+[中文](https://sarawak-growth-check.netlify.app/?lang=zh) ·
+[Iban](https://sarawak-growth-check.netlify.app/?lang=ib)
+
+---
+
 ## Deploying
 
-Upload `index.html` to any static host — Netlify, Cloudflare Pages, GitHub Pages, or
+Hosted on Netlify (team `zaiwin`, project `sarawak-growth-check`), publishing the
+repo root. `netlify.toml` sets the security headers and keeps the page itself
+always revalidating so updates go live immediately.
+
+To host it anywhere else, upload `index.html` — Netlify, Cloudflare Pages, GitHub Pages, or
 a plain folder on the ministry's web server. There is nothing to compile.
 
 The page renders completely from the file itself. The two external requests it makes
