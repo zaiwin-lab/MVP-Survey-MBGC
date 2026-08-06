@@ -75,7 +75,7 @@ kind it is, in the active language, and multi-select questions also show a live
 | 2 | Your business currently is | **Several** — a business is often home-based *and* online |
 | 3 | Industry | **Several** — many operators straddle two, e.g. Food + Retail |
 | 4 | Which best describes your business today | **One** |
-| 5 | Your biggest challenge | **One** — kept single so the primary pain point stays clean data |
+| 5 | Your biggest challenges | **Up to 3** — problems rarely come one at a time |
 | 6 | By 2030, what would you like your business to become | **Up to 3** — ambitions stack |
 | 7 | Annual sales goal by 2030 | **One** |
 | 8 | People employed by 2030 | **One** |

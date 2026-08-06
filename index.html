@@ -675,9 +675,10 @@ const QUESTIONS = [
     opts:['surviving','stable','ready-grow','ready-expand'],
     icons:{ surviving:'😮‍💨', stable:'🙂', 'ready-grow':'🚀', 'ready-expand':'🌟' } },
 
-  /* SINGLE on purpose — the brief specifies "Choose ONE", so the single
-     biggest pain point stays clean, unambiguous data for MINTRED. */
-  { id:'q5', section:2, type:'single', layout:'list',
+  /* MULTI (max 3) — a struggling micro-business rarely has just one problem;
+     capital and customers usually bite at the same time. Capped at 3 so the
+     answer still tells MINTRED what actually hurts most. */
+  { id:'q5', section:2, type:'multi', layout:'list', max:3,
     opts:['equipment','working-capital','customers','marketing','skills','hiring','others'],
     icons:{ equipment:'🛠️', 'working-capital':'💰', customers:'👥', marketing:'📣',
             skills:'📚', hiring:'🧑‍💼', others:'❓' } },
@@ -785,7 +786,7 @@ en:{
     ambitionFit:' Your 2030 ambitions are exactly the kind of growth these programmes are built to support.',
   },
   snapshotLabels:{
-    q1:'Stage', q2:'Setup', q3:'Industry', q4:'Today', q5:'Biggest challenge',
+    q1:'Stage', q2:'Setup', q3:'Industry', q4:'Today', q5:'Biggest challenges',
     q6:'2030 vision', q7:'Sales goal', q8:'Team size goal', q9:'Support needed', q10:'Prior assistance',
   },
   q:{
@@ -800,7 +801,7 @@ en:{
       manufacturing:'Manufacturing', creative:'Creative', technical:'Technical / TVET', others:'Others' } },
     q4:{ t:'4. Which best describes your business today?', o:{
       surviving:'Just surviving', stable:'Stable', 'ready-grow':'Ready to grow', 'ready-expand':'Ready to expand' } },
-    q5:{ t:'5. What is your biggest challenge?', o:{
+    q5:{ t:'5. What are your biggest challenges?', o:{
       equipment:'Equipment', 'working-capital':'Working Capital', customers:'Finding Customers',
       marketing:'Marketing', skills:'Business Skills', hiring:'Hiring Employees', others:'Others' } },
     q6:{ t:'6. By 2030… What would you like your business to become?', o:{
@@ -1370,12 +1371,12 @@ function generateResults(){
   const stage      = answers.q1;
   const industries = answers.q3 || [];
   const status     = answers.q4;
-  const challenge  = answers.q5;
+  const challenges = answers.q5 || [];
   const visions    = answers.q6 || [];
   const supports   = answers.q9 || [];
 
   const isTvet      = industries.includes('technical');
-  const needsMoney  = ['equipment','working-capital'].includes(challenge)
+  const needsMoney  = challenges.some(c => ['equipment','working-capital'].includes(c))
                       || supports.some(s => ['grant','equipment','capital'].includes(s));
   const isAmbitious = visions.some(v => ['brand','malaysia','export','branch'].includes(v))
                       || ['ready-grow','ready-expand'].includes(status);
@@ -1587,7 +1588,17 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
                 : nav.indexOf('ms') === 0 ? 'bm'
                 : nav.indexOf('en') === 0 ? 'en' : null;
 
-  if (saved && saved.answers) Object.assign(answers, saved.answers);
+  if (saved && saved.answers){
+    Object.assign(answers, saved.answers);
+    // A question's type can change between releases; coerce anything stored in
+    // the old shape so restored answers always match the current schema.
+    QUESTIONS.forEach(q => {
+      const v = answers[q.id];
+      if (v == null) return;
+      if (q.type === 'multi' && !Array.isArray(v)) answers[q.id] = [v];
+      if (q.type === 'single' && Array.isArray(v)) answers[q.id] = v[0] ?? null;
+    });
+  }
 
   // Language priority: ?lang= → saved choice → browser hint → Bahasa Malaysia
   setLanguage(
