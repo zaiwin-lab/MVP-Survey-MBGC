@@ -1,150 +1,115 @@
-# Sarawak Business Growth Check 2026
+# Sarawak Business Growth Check
 
-A front-door acquisition microsite for **GERAK** and **USTEV** — the MINTRED Sarawak
-entrepreneurship grants of up to RM20,000.
+> **Portfolio maturity:** Working Public Prototype · Multilingual Opportunity-Discovery Microsite
 
-Its job is to attract and qualify more of the right applicants (graduates, SPM leavers,
-TVET holders, micro and small businesses) and lead them naturally to the official
-programme page.
+[Open the verified live demonstration](https://bizgrowthsurvey.netlify.app)
 
-**Live file:** `index.html` — one self-contained file. No build step, no framework,
-no npm install. Open it in a browser, or drop it on any static host.
+Sarawak Business Growth Check is a four-language self-assessment that helps an entrepreneur describe their current position, growth ambition and support needs, then receive a transparent programme-oriented next step.
 
----
+The repository name retains MVP for development history. **Sarawak Business Growth Check** is the permanent product identity.
 
-## Live
+## Business problem
 
-**https://bizgrowthsurvey.netlify.app**
+Entrepreneurship programmes can be difficult to navigate when eligibility language, application pathways and support options are spread across multiple channels. At the same time, programme teams need a low-friction way to understand the stage, sector, challenges and ambitions of potential applicants.
 
-Deep links per language:
-[BM](https://bizgrowthsurvey.netlify.app/?lang=bm) ·
-[EN](https://bizgrowthsurvey.netlify.app/?lang=en) ·
-[中文](https://bizgrowthsurvey.netlify.app/?lang=zh) ·
-[Iban](https://bizgrowthsurvey.netlify.app/?lang=ib)
+This prototype provides an accessible front door without pretending to make an official eligibility or funding decision.
 
----
+## Intended users
 
-## Deploying
+- aspiring and early-stage Sarawak entrepreneurs;
+- graduates, SPM leavers and TVET participants exploring enterprise support;
+- micro and small-business owners;
+- outreach teams preparing an authorised entrepreneurship campaign.
 
-Hosted on Netlify (team `zaiwin`, project `bizgrowthsurvey`), publishing the
-repo root. `netlify.toml` sets the security headers and keeps the page itself
-always revalidating so updates go live immediately.
+## Core capabilities
 
-To host it anywhere else, upload `index.html` — Netlify, Cloudflare Pages, GitHub Pages, or
-a plain folder on the ministry's web server. There is nothing to compile.
+- ten-question mobile-first business growth check;
+- single-answer and controlled multi-answer question types;
+- four switchable languages: Bahasa Malaysia, English, Chinese and Iban;
+- direct language links for campaign channels;
+- progress persistence in localStorage;
+- deterministic recommendation logic based on business stage, sector, needs and ambition;
+- programme-oriented results and a handoff toward an official information source;
+- keyboard-friendly interaction and reduced-motion support;
+- one self-contained HTML file with no build requirement.
 
-The page renders completely from the file itself. The two external requests it makes
-(Google Fonts and the confetti animation) are progressive enhancement only: if they
-are slow or blocked, the site still looks and works correctly with system fonts.
-This matters for users on weak rural connections.
+## Strategic value
 
----
+The product demonstrates how a public programme can convert broad awareness into structured, consent-aware interest.
 
-## Languages
+With an approved backend and official content governance, it could:
 
-Four language panels, switchable from the header at any point without losing answers:
+- widen access across common Sarawak languages;
+- give visitors a clearer route from curiosity to action;
+- help an outreach team understand recurring barriers and support needs;
+- preserve campaign context through language-specific links;
+- provide structured demand signals without building a large platform first.
 
-| Button | Language |
-|--------|----------|
-| `BM` | Bahasa Malaysia |
-| `EN` | English |
-| `中`  | 中文 (Chinese) |
-| `IB` | Jaku Iban |
+These are intended uses, not claims of measured applications, approvals, funding or programme impact.
 
-The starting language is chosen in this order: a `?lang=` parameter → the visitor's
-previous choice → their browser language → Bahasa Malaysia.
+## Recommendation approach
 
-You can link straight to one language for a campaign:
-`…/index.html?lang=ib`, `?lang=zh`, `?lang=en`, `?lang=bm`.
+The current recommendation is deterministic, not generative AI. It assembles a result from the respondent's declared stage, technical or TVET context, capital and equipment needs, and growth ambitions.
 
-> **Before public launch:** the Iban copy should be reviewed by a native speaker.
-> It follows common Sarawak usage and borrows Malay terms where spoken Iban does,
-> but it has not been verified by a native speaker.
+The result is an orientation aid only. It does not assess official eligibility, guarantee programme acceptance or replace the latest published criteria.
 
----
+## What is implemented
 
-## How many answers each question takes
+The repository contains a complete self-contained HTML application with the multilingual interface, question definitions, selection rules, recommendation logic, browser persistence, responsive styles and deployment headers.
 
-Not every question is single-answer. Every question carries a badge stating which
-kind it is, in the active language, and multi-select questions also show a live
-"N selected" counter.
+### Technology
 
-| Q | Question | Answers |
-|---|----------|---------|
-| 1 | Which best describes you | **One** |
-| 2 | Your business currently is | **Several** — a business is often home-based *and* online |
-| 3 | Industry | **Several** — many operators straddle two, e.g. Food + Retail |
-| 4 | Which best describes your business today | **One** |
-| 5 | Your biggest challenges | **Up to 3** — problems rarely come one at a time |
-| 6 | By 2030, what would you like your business to become | **Up to 3** — ambitions stack |
-| 7 | Annual sales goal by 2030 | **One** |
-| 8 | People employed by 2030 | **One** |
-| 9 | Which support would help most today | **Several** |
-| 10 | Received government assistance before | **One** |
+Semantic HTML · CSS · vanilla JavaScript · localStorage · deterministic rules · Netlify
 
-Single-answer questions show a grey badge and a round tick; multi-answer questions
-show a gold badge and a square tick, so the difference is visible at a glance even
-before reading the label.
+There is no framework, package installation, database, authentication service or live AI model.
 
-To change any of these, edit the `QUESTIONS` array at the top of the script:
-`type:'single'` or `type:'multi'`, with an optional `max:` cap.
+## Delivery role
 
----
+**Ts. Zaiwin Kassim** leads product strategy, stakeholder requirements, solution architecture and supervised AI-assisted delivery with the **KOBIS AI Prodigy Team**. For this product, that role covers the outreach journey, multilingual experience, recommendation structure and responsible handoff to official programme information.
 
-## Collecting responses
+This portfolio attribution does not imply commissioning, endorsement, approval or partnership by MINTRED Sarawak or any programme referenced in the demonstration.
 
-Responses currently go to the browser console only. To store them for real, open
-`index.html`, search for **`BACKEND HOOK`**, set `ENDPOINT`, and uncomment the
-`fetch()`. That is the only change needed.
+## Responsible-use boundaries
 
-Suitable targets: Formspree, a Google Apps Script Web App deployed with access
-"Anyone", or a MINTRED API endpoint.
+- The result is not an official eligibility, grant, financing or application decision.
+- Programme names, funding values, dates, criteria and official links must be checked against current authoritative sources before every public campaign.
+- Respondent answers are self-declared and are not independently verified.
+- The current public prototype does not transmit responses to a database; submission data remains a demonstration output.
+- A production collection endpoint would require an approved privacy notice, consent record, data minimisation, retention policy and restricted access.
+- The language experience improves accessibility but does not replace native-speaker and programme-owner review.
+- Recommendations must not create false expectations of financial assistance or acceptance.
 
-The payload looks like this — note that multi-answer questions arrive as arrays:
+## Current limitations
 
-```json
-{
-  "submittedAt": "2026-08-06T09:14:22.104Z",
-  "language": "bm",
-  "answers": {
-    "q1": "started-12m",
-    "q2": ["home-based", "online"],
-    "q3": ["food", "retail"],
-    "q4": "ready-grow",
-    "q5": "equipment",
-    "q6": ["brand", "malaysia"],
-    "q7": "300k-1m",
-    "q8": "3-5",
-    "q9": ["grant", "equipment"],
-    "q10": "no"
-  }
-}
-```
+- responses are not stored by a production backend;
+- there is no applicant account, case tracking or administrative dashboard;
+- eligibility logic is informational and has not been validated as an official decision model;
+- Chinese and Iban content require authorised native-speaker review before formal public use;
+- programme facts can change and are not automatically synchronised;
+- external fonts and animation are progressive enhancements, not controlled application assets;
+- no automated test suite is documented.
 
----
+## Live and language links
 
-## Recommendation logic
+The connected hosting record identifies **bizgrowthsurvey** as the project and reports its current deployment as ready.
 
-The results page always surfaces GERAK and USTEV when the profile fits, and names
-**USTEV first** when the respondent works in a technical / TVET field, since that is
-who the programme exists for.
+- [Bahasa Malaysia](https://bizgrowthsurvey.netlify.app/?lang=bm)
+- [English](https://bizgrowthsurvey.netlify.app/?lang=en)
+- [Chinese](https://bizgrowthsurvey.netlify.app/?lang=zh)
+- [Iban](https://bizgrowthsurvey.netlify.app/?lang=ib)
 
-The message is assembled from the respondent's stage (planning / just started /
-operating), then extended when they need capital or equipment, when they are in a
-technical field, and when their 2030 ambitions point to real growth. See
-`generateResults()`.
+## Run or deploy
 
----
+Open index.html directly in a browser, or serve the repository root using any static web server. Netlify publishes the repository root with security and cache headers defined in netlify.toml.
 
-## Design notes
+Before an authorised campaign:
 
-Sarawak green `#0B6E4F` with gold accents, plus a pua kumbu red `#A63A2A` used
-sparingly. Sarawak elements are woven in rather than pasted on:
+1. verify all programme facts and official destination links;
+2. obtain language review and content-owner approval;
+3. publish the privacy notice and consent terms;
+4. connect an approved secure response endpoint if data collection is required;
+5. test the complete journey on common mobile devices and slower connections.
 
-- the **kenyalang** (rhinoceros hornbill) as the brand mark and as faint watermarks
-- **pua kumbu** woven banding across card tops, the header, and section kickers
-- an **ukiran**-inspired rosette on the introduction step, and a soft woven field
-  behind the page
+## Portfolio evidence
 
-Everything is mobile-first, keyboard-navigable, and respects
-`prefers-reduced-motion`. Progress survives an accidental refresh via localStorage.
+Sarawak Business Growth Check demonstrates multilingual public-service UX, low-bandwidth static architecture, deterministic recommendation design and responsible separation between opportunity discovery and official programme decisions.
