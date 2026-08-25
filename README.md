@@ -1,193 +1,186 @@
-# Sarawak Business Growth Check 2026
+# Sarawak Business Growth Check
 
-A front-door acquisition microsite for **GERAK** and **USTEV** — the MINTRED Sarawak
-entrepreneurship grants of up to RM20,000.
+> **Portfolio maturity:** Working Public Prototype · Multilingual Opportunity-Discovery Microsite
 
-Its job is to attract and qualify more of the right applicants (graduates, SPM leavers,
-TVET holders, micro and small businesses) and lead them naturally to the official
-programme page.
+[Open the verified live demonstration](https://bizgrowthsurvey.netlify.app)
 
-**Live file:** `index.html` — one self-contained file. No build step, no framework,
-no npm install. Open it in a browser, or drop it on any static host.
+Sarawak Business Growth Check is a four-language self-assessment that helps an entrepreneur describe their current position, growth ambition and support needs, then receive a transparent programme-oriented next step.
 
----
+The repository name retains MVP for development history. **Sarawak Business Growth Check** is the permanent product identity.
 
-## Live
+## Business problem
 
-**https://bizgrowthsurvey.netlify.app**
+Entrepreneurship programmes can be difficult to navigate when eligibility language, application pathways and support options are spread across multiple channels. At the same time, programme teams need a low-friction way to understand the stage, sector, challenges and ambitions of potential applicants.
 
-Deep links per language:
-[BM](https://bizgrowthsurvey.netlify.app/?lang=bm) ·
-[EN](https://bizgrowthsurvey.netlify.app/?lang=en) ·
-[中文](https://bizgrowthsurvey.netlify.app/?lang=zh) ·
-[Iban](https://bizgrowthsurvey.netlify.app/?lang=ib)
+This prototype provides an accessible front door without pretending to make an official eligibility or funding decision.
 
----
+## Intended users
 
-## Deploying
+- aspiring and early-stage Sarawak entrepreneurs;
+- graduates, SPM leavers and TVET participants exploring enterprise support;
+- micro and small-business owners;
+- outreach teams preparing an authorised entrepreneurship campaign.
 
-Hosted on Netlify (team `zaiwin`, project `bizgrowthsurvey`), publishing the
-repo root. `netlify.toml` sets the security headers and keeps the page itself
-always revalidating so updates go live immediately.
+## Core capabilities
 
-To host it anywhere else, upload `index.html` — Netlify, Cloudflare Pages, GitHub Pages, or
-a plain folder on the ministry's web server. There is nothing to compile.
+- ten-question mobile-first business growth check;
+- single-answer and controlled multi-answer question types;
+- four switchable languages: Bahasa Malaysia, English, Chinese and Iban;
+- direct language links for campaign channels;
+- progress persistence in localStorage;
+- deterministic recommendation logic based on business stage, sector, needs and ambition;
+- programme-oriented results and a handoff toward an official information source;
+- an assistant panel of prepared, translated answers about the check and the programmes;
+- a dedicated desktop layout alongside tablet and phone breakpoints;
+- keyboard-friendly interaction and reduced-motion support;
+- one self-contained HTML file with no build requirement.
 
-The page renders completely from the file itself. The two external requests it makes
-(Google Fonts and the confetti animation) are progressive enhancement only: if they
-are slow or blocked, the site still looks and works correctly with system fonts.
-This matters for users on weak rural connections.
+## Strategic value
 
----
+The product demonstrates how a public programme can convert broad awareness into structured, consent-aware interest.
 
-## Languages
+With an approved backend and official content governance, it could:
 
-Four language panels, switchable from the header at any point without losing answers:
+- widen access across common Sarawak languages;
+- give visitors a clearer route from curiosity to action;
+- help an outreach team understand recurring barriers and support needs;
+- preserve campaign context through language-specific links;
+- provide structured demand signals without building a large platform first.
 
-| Button | Language |
-|--------|----------|
-| `BM` | Bahasa Malaysia |
-| `EN` | English |
-| `中` | 中文 (Chinese) |
-| `IB` | Jaku Iban |
+These are intended uses, not claims of measured applications, approvals, funding or programme impact.
 
-The starting language is chosen in this order: a `?lang=` parameter → the visitor's
-previous choice → their browser language → Bahasa Malaysia.
+## Recommendation approach
 
-You can link straight to one language for a campaign:
-`…/index.html?lang=ib`, `?lang=zh`, `?lang=en`, `?lang=bm`.
+The current recommendation is deterministic, not generative AI. It assembles a result from the respondent's declared stage, technical or TVET context, capital and equipment needs, and growth ambitions.
 
-> **Before public launch:** the Iban copy should be reviewed by a native speaker.
-> It follows common Sarawak usage and borrows Malay terms where spoken Iban does,
-> but it has not been verified by a native speaker.
+The result is an orientation aid only. It does not assess official eligibility, guarantee programme acceptance or replace the latest published criteria.
 
----
+## What is implemented
 
-## How many answers each question takes
+The repository contains a complete self-contained HTML application with the multilingual interface, question definitions, selection rules, recommendation logic, browser persistence, responsive styles and deployment headers.
 
-Not every question is single-answer. Every question carries a badge stating which
-kind it is, in the active language, and multi-select questions also show a live
-"N selected" counter.
+### Technology
 
-| Q | Question | Answers |
-|---|----------|---------|
-| 1 | Which best describes you | **One** |
-| 2 | Your business currently is | **Several** — a business is often home-based *and* online |
-| 3 | Industry | **Several** — many operators straddle two, e.g. Food + Retail |
-| 4 | Which best describes your business today | **One** |
-| 5 | Your biggest challenges | **Up to 3** — problems rarely come one at a time |
-| 6 | By 2030, what would you like your business to become | **Up to 3** — ambitions stack |
-| 7 | Annual sales goal by 2030 | **One** |
-| 8 | People employed by 2030 | **One** |
-| 9 | Which support would help most today | **Several** |
-| 10 | Received government assistance before | **One** |
+Semantic HTML · CSS · vanilla JavaScript · localStorage · deterministic rules · Netlify
 
-Single-answer questions show a grey badge and a round tick; multi-answer questions
-show a gold badge and a square tick, so the difference is visible at a glance even
-before reading the label.
+There is no framework, package installation, database, authentication service or live AI model.
 
-To change any of these, edit the `QUESTIONS` array at the top of the script:
-`type:'single'` or `type:'multi'`, with an optional `max:` cap.
+## Interface design
 
----
+The interface presents as an institutional portal rather than a themed microsite.
+The kenyalang hornbill and pua kumbu banding used in earlier drafts are retired;
+the Sarawak thread is carried by the enterprise green.
 
-## Collecting responses
+The palette holds three roles and keeps them strictly separate, so the page reads
+as one system:
 
-Responses currently go to the browser console only. To store them for real, open
-`index.html`, search for **`BACKEND HOOK`**, set `ENDPOINT`, and uncomment the
-`fetch()`. That is the only change needed.
+| Role | Colour | Applied to |
+|------|--------|------------|
+| Institutional authority | navy `#0A1F44` → `#06142E` | header, hero, footer, primary actions |
+| Enterprise growth | emerald `#00875A` / `#00A36C` | selections, confirmations, advisor bubble |
+| Intelligence layer | cyan `#22D3EE` → violet `#7C5CFF` | assisted-matching surfaces only |
 
-Suitable targets: Formspree, a Google Apps Script Web App deployed with access
-"Anyone", or a MINTRED API endpoint.
+The cyan-to-violet gradient appears on no other element. That separation is what
+makes the matching layer legible as a distinct capability rather than ornament.
 
-The payload looks like this — note that multi-answer questions arrive as arrays:
+Its treatments are a capability chip with a sweeping specular highlight, a
+gradient rule beneath the header, drifting aurora fields behind dark panels, a
+shimmering progress indicator, a step-by-step interstitial shown while the
+answers are matched, and an animated match-strength meter on the result.
 
-```json
-{
-  "submittedAt": "2026-08-06T09:14:22.104Z",
-  "language": "bm",
-  "answers": {
-    "q1": "started-12m",
-    "q2": ["home-based", "online"],
-    "q3": ["food", "retail"],
-    "q4": "ready-grow",
-    "q5": "equipment",
-    "q6": ["brand", "malaysia"],
-    "q7": "300k-1m",
-    "q8": "3-5",
-    "q9": ["grant", "equipment"],
-    "q10": "no"
-  }
-}
-```
+### What the intelligence layer is, and is not
 
----
+This presentation is an interface style. It does not change the substance
+described under **Recommendation approach**: the matching remains deterministic
+rules over declared answers, and there is no live model in the deployed page.
 
-## Recommendation logic
+- the match-strength meter is computed from the same declared signals that
+  assemble the recommendation text, and is an orientation aid, not a score of
+  official eligibility;
+- the interstitial makes existing work visible; it does not perform additional
+  processing, and it is skipped entirely under reduced-motion settings;
+- the assistant panel serves prepared, translated answers. It is not generative,
+  and its footer states that its answers are guidance rather than an eligibility
+  decision.
 
-The results page always surfaces GERAK and USTEV when the profile fits, and names
-**USTEV first** when the respondent works in a technical / TVET field, since that is
-who the programme exists for.
-
-The message is assembled from the respondent's stage (planning / just started /
-operating), then extended when they need capital or equipment, when they are in a
-technical field, and when their 2030 ambitions point to real growth. See
-`generateResults()`.
-
----
-
-## Design notes
-
-Rebuilt as an institutional portal rather than a folk-themed microsite. The
-kenyalang hornbill and pua kumbu banding are retired; the Sarawak thread is
-carried by the enterprise green instead.
-
-**Palette** — three roles, kept strictly separate so the page reads as a system:
-
-| Role | Colour | Used for |
-|------|--------|----------|
-| Ministry authority | navy `#0A1F44` → `#06142E` | header, hero, footer, primary buttons |
-| Enterprise growth | emerald `#00875A` / `#00A36C` | selections, confirmations, the advisor bubble |
-| Intelligence | cyan `#22D3EE` → violet `#7C5CFF` | **AI surfaces only** |
-
-The cyan→violet gradient never appears on a non-AI element. That is what makes
-the AI layer legible as a distinct capability instead of decoration.
-
-**AI treatments** — an `AI-Powered` chip with a sweeping specular highlight, a
-3px intelligence rule under the header, drifting aurora fields behind every
-dark AI panel, a shimmering progress bar, an analysis interstitial that shows
-the matching work step by step before results, an `AI Match` chip and an
-animated match-strength meter on the recommendation.
+Should a public campaign require the interface wording to mirror the deterministic
+approach more literally, the capability labels are single translated strings
+(`aiTag`, `aiMatch`, `aiHelpLabel`) and can be reworded without touching layout
+or logic.
 
 ## Layout across devices
 
-Desktop is a first-class layout, not a stretched phone column.
+The desktop presentation is a distinct layout, not a widened phone column.
 
 | Width | Layout |
 |-------|--------|
-| < 640px | single column; bubble sub-labels collapse below 420px |
-| 640–1023px | wider column, option grids go three across |
-| ≥ 1024px | split hero, sticky section rail beside the questions, results with the snapshot alongside |
-| ≥ 1280px | wider shell and larger display type |
+| below 640px | single column; bubble sub-labels collapse below 420px |
+| 640–1023px | wider column, option grids move to three across |
+| 1024px and above | split hero, sticky section rail beside the questions, result with the snapshot alongside |
+| 1280px and above | wider shell and larger display type |
 
-## The three standard items
+## Standard delivery components
 
-1. **4-pane language panel** — `BM · EN · 中 · IB` in the header, switchable at
-   any point without losing answers.
-2. **Corner bubbles** — bottom-left `AI Help · Available 24/7` opens the
-   assistant panel; bottom-right `Talk to Us` links to the official MINTRED
-   programme page. Both translated. A black spacer below the credit bar keeps
-   them clear of the signature line on phones.
-3. **KOBIS Berhad signature bar** — per `MASTER_WEBSITE_PROMPT.md`: 0.75in tall,
-   `.72rem`, weight 300, on `#07090b`. Hovering **KOBIS Berhad** sweeps a
-   specular highlight across the text and reveals an animated gradient.
-   Translated in all four languages, link to `www.kobisberhad.com`.
+1. **Four-language panel** — `BM · EN · 中 · IB` in the header, switchable at any
+   point without losing answers.
+2. **Corner assist bubbles** — bottom-left opens the assistant panel and is
+   labelled as available at any time; bottom-right links to the official
+   programme information source. Both are translated. A matching spacer beneath
+   the credit bar keeps them clear of the signature line on small screens.
+3. **KOBIS Berhad signature bar** — built to the house specification in
+   `MASTER_WEBSITE_PROMPT.md`: 0.75in tall, `.72rem`, weight 300, on `#07090b`.
+   Hovering the **KOBIS Berhad** link sweeps a specular highlight across the text
+   and reveals an animated gradient. Translated in all four languages.
 
-> **On the AI assistant:** the panel's answers are pre-written and translated,
-> not generated live, and its footer says so — it is framed as prepared guidance,
-> not an eligibility decision. To make it a live assistant, replace `renderFaq()`
-> with a call to a model endpoint; the panel markup needs no changes.
+## Delivery role
 
-Everything is keyboard-navigable, respects `prefers-reduced-motion` (the
-analysis interstitial is skipped entirely), and progress survives a refresh
-via localStorage.
+**Ts. Zaiwin Kassim** leads product strategy, stakeholder requirements, solution architecture and supervised AI-assisted delivery with the **KOBIS AI Prodigy Team**. For this product, that role covers the outreach journey, multilingual experience, recommendation structure and responsible handoff to official programme information.
+
+This portfolio attribution does not imply commissioning, endorsement, approval or partnership by MINTRED Sarawak or any programme referenced in the demonstration.
+
+## Responsible-use boundaries
+
+- The result is not an official eligibility, grant, financing or application decision.
+- Programme names, funding values, dates, criteria and official links must be checked against current authoritative sources before every public campaign.
+- Respondent answers are self-declared and are not independently verified.
+- The current public prototype does not transmit responses to a database; submission data remains a demonstration output.
+- A production collection endpoint would require an approved privacy notice, consent record, data minimisation, retention policy and restricted access.
+- The language experience improves accessibility but does not replace native-speaker and programme-owner review.
+- Recommendations must not create false expectations of financial assistance or acceptance.
+
+## Current limitations
+
+- responses are not stored by a production backend;
+- there is no applicant account, case tracking or administrative dashboard;
+- eligibility logic is informational and has not been validated as an official decision model;
+- Chinese and Iban content require authorised native-speaker review before formal public use;
+- programme facts can change and are not automatically synchronised;
+- external fonts and animation are progressive enhancements, not controlled application assets;
+- assistant-panel answers are prepared content and require the same programme-owner
+  review as the rest of the copy before public use;
+- no automated test suite is documented.
+
+## Live and language links
+
+The connected hosting record identifies **bizgrowthsurvey** as the project and reports its current deployment as ready.
+
+- [Bahasa Malaysia](https://bizgrowthsurvey.netlify.app/?lang=bm)
+- [English](https://bizgrowthsurvey.netlify.app/?lang=en)
+- [Chinese](https://bizgrowthsurvey.netlify.app/?lang=zh)
+- [Iban](https://bizgrowthsurvey.netlify.app/?lang=ib)
+
+## Run or deploy
+
+Open index.html directly in a browser, or serve the repository root using any static web server. Netlify publishes the repository root with security and cache headers defined in netlify.toml.
+
+Before an authorised campaign:
+
+1. verify all programme facts and official destination links;
+2. obtain language review and content-owner approval;
+3. publish the privacy notice and consent terms;
+4. connect an approved secure response endpoint if data collection is required;
+5. test the complete journey on common mobile devices and slower connections.
+
+## Portfolio evidence
+
+Sarawak Business Growth Check demonstrates multilingual public-service UX, low-bandwidth static architecture, deterministic recommendation design and responsible separation between opportunity discovery and official programme decisions.
