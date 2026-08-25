@@ -48,7 +48,7 @@ Four language panels, switchable from the header at any point without losing ans
 |--------|----------|
 | `BM` | Bahasa Malaysia |
 | `EN` | English |
-| `中`  | 中文 (Chinese) |
+| `中` | 中文 (Chinese) |
 | `IB` | Jaku Iban |
 
 The starting language is chosen in this order: a `?lang=` parameter → the visitor's
@@ -138,13 +138,56 @@ technical field, and when their 2030 ambitions point to real growth. See
 
 ## Design notes
 
-Sarawak green `#0B6E4F` with gold accents, plus a pua kumbu red `#A63A2A` used
-sparingly. Sarawak elements are woven in rather than pasted on:
+Rebuilt as an institutional portal rather than a folk-themed microsite. The
+kenyalang hornbill and pua kumbu banding are retired; the Sarawak thread is
+carried by the enterprise green instead.
 
-- the **kenyalang** (rhinoceros hornbill) as the brand mark and as faint watermarks
-- **pua kumbu** woven banding across card tops, the header, and section kickers
-- an **ukiran**-inspired rosette on the introduction step, and a soft woven field
-  behind the page
+**Palette** — three roles, kept strictly separate so the page reads as a system:
 
-Everything is mobile-first, keyboard-navigable, and respects
-`prefers-reduced-motion`. Progress survives an accidental refresh via localStorage.
+| Role | Colour | Used for |
+|------|--------|----------|
+| Ministry authority | navy `#0A1F44` → `#06142E` | header, hero, footer, primary buttons |
+| Enterprise growth | emerald `#00875A` / `#00A36C` | selections, confirmations, the advisor bubble |
+| Intelligence | cyan `#22D3EE` → violet `#7C5CFF` | **AI surfaces only** |
+
+The cyan→violet gradient never appears on a non-AI element. That is what makes
+the AI layer legible as a distinct capability instead of decoration.
+
+**AI treatments** — an `AI-Powered` chip with a sweeping specular highlight, a
+3px intelligence rule under the header, drifting aurora fields behind every
+dark AI panel, a shimmering progress bar, an analysis interstitial that shows
+the matching work step by step before results, an `AI Match` chip and an
+animated match-strength meter on the recommendation.
+
+## Layout across devices
+
+Desktop is a first-class layout, not a stretched phone column.
+
+| Width | Layout |
+|-------|--------|
+| < 640px | single column; bubble sub-labels collapse below 420px |
+| 640–1023px | wider column, option grids go three across |
+| ≥ 1024px | split hero, sticky section rail beside the questions, results with the snapshot alongside |
+| ≥ 1280px | wider shell and larger display type |
+
+## The three standard items
+
+1. **4-pane language panel** — `BM · EN · 中 · IB` in the header, switchable at
+   any point without losing answers.
+2. **Corner bubbles** — bottom-left `AI Help · Available 24/7` opens the
+   assistant panel; bottom-right `Talk to Us` links to the official MINTRED
+   programme page. Both translated. A black spacer below the credit bar keeps
+   them clear of the signature line on phones.
+3. **KOBIS Berhad signature bar** — per `MASTER_WEBSITE_PROMPT.md`: 0.75in tall,
+   `.72rem`, weight 300, on `#07090b`. Hovering **KOBIS Berhad** sweeps a
+   specular highlight across the text and reveals an animated gradient.
+   Translated in all four languages, link to `www.kobisberhad.com`.
+
+> **On the AI assistant:** the panel's answers are pre-written and translated,
+> not generated live, and its footer says so — it is framed as prepared guidance,
+> not an eligibility decision. To make it a live assistant, replace `renderFaq()`
+> with a call to a model endpoint; the panel markup needs no changes.
+
+Everything is keyboard-navigable, respects `prefers-reduced-motion` (the
+analysis interstitial is skipped entirely), and progress survives a refresh
+via localStorage.

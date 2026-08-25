@@ -3,457 +3,719 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Sarawak Business Growth Check 2026 | Discover Your Next Opportunity</title>
-<meta name="description" content="Free 5-minute Business Growth Check for Sarawak entrepreneurs. Available in Bahasa Malaysia, English, 中文 and Iban. Discover programmes that match your journey under Sarawak Maju Makmur & PCDS 2030." />
+<title>Sarawak Business Growth Check 2026 | AI-Powered Programme Matching</title>
+<meta name="description" content="An AI-powered Business Growth Check for Sarawak entrepreneurs. Answer 10 questions in Bahasa Malaysia, English, 中文 or Iban and discover the MINTRED programmes that match your business stage under Sarawak Maju Makmur & PCDS 2030." />
 <meta property="og:title" content="Sarawak Business Growth Check 2026" />
-<meta property="og:description" content="Is your business ready for the next level? Take the free 5-minute check in BM / EN / 中文 / Iban and discover support that matches your journey." />
+<meta property="og:description" content="AI-powered programme matching for Sarawak entrepreneurs. Take the free 5-minute check in BM / EN / 中文 / Iban." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ms_MY" />
-<meta name="theme-color" content="#0B6E4F" />
+<meta name="theme-color" content="#0A1F44" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ==========================================================================
    SARAWAK BUSINESS GROWTH CHECK 2026 — stylesheet
    --------------------------------------------------------------------------
-   Written by hand and inlined on purpose: this microsite must render fully
-   even on a slow or filtered connection in rural Sarawak, so it carries no
-   runtime CSS dependency. Google Fonts is progressive enhancement only —
-   every family falls back to system fonts.
+   Written by hand and inlined on purpose: this portal must render fully even
+   on a slow or filtered connection in rural Sarawak, so it carries no runtime
+   CSS dependency. Google Fonts is progressive enhancement only — every family
+   falls back to system fonts.
+
+   PALETTE — institutional navy for ministry authority, emerald for growth and
+   enterprise, and a cyan→violet "intelligence" gradient reserved exclusively
+   for AI surfaces so the AI layer reads as a distinct system, not decoration.
    ========================================================================== */
 
 :root{
-  /* Sarawak green — the primary brand colour */
-  --g50:#f0fdf6; --g100:#dcfce9; --g200:#bbf7d4; --g300:#86efb0;
-  --g500:#0B6E4F; --g600:#0a5c42; --g700:#084c37; --g800:#063c2c; --g900:#042c20;
-  /* Gold — ceremonial accent */
-  --gold300:#f7dfa0; --gold400:#f0c75e; --gold500:#D4A017; --gold600:#a8790c;
-  /* Pua kumbu red — the Iban textile accent, used sparingly */
-  --pua500:#A63A2A; --pua400:#c75b45;
+  /* Institutional navy — the ministry voice */
+  --n900:#06142E; --n800:#0A1F44; --n700:#102A55; --n600:#1B3B6F; --n500:#2C5292;
 
-  --ink:#1e293b; --ink2:#475569; --ink3:#64748b; --ink4:#94a3b8;
-  --line:#e8edf2; --line2:#f1f5f9;
+  /* Enterprise green — growth, and the Sarawak thread carried forward */
+  --e700:#046A4E; --e600:#00875A; --e500:#00A36C; --e300:#6EE7B7; --e50:#ECFDF5;
 
-  --r-sm:10px; --r:14px; --r-lg:18px; --r-xl:24px;
-  --sh-soft:0 4px 20px -2px rgba(11,110,79,.08);
-  --sh-card:0 8px 30px -4px rgba(11,110,79,.12);
-  --sh-glow:0 10px 34px -8px rgba(11,110,79,.45);
+  /* Intelligence gradient — AI surfaces only */
+  --ai1:#22D3EE; --ai2:#5B8DEF; --ai3:#7C5CFF;
 
-  --font: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Prestige gold, used sparingly */
+  --gold:#C9A227; --gold-lt:#EBC85A; --gold-50:#FDF8E7;
 
-  --shell: 34rem;           /* content column width */
-  --footer-h: 42px;
+  --ink:#0F1B2D; --ink2:#41526B; --ink3:#6B7B93; --ink4:#9AA8BC;
+  --line:#E3E9F2; --line2:#EFF3F9; --bg:#F5F8FC;
+
+  --r-sm:10px; --r:14px; --r-lg:18px; --r-xl:22px;
+  --sh-sm:0 1px 2px rgba(10,31,68,.06);
+  --sh:0 4px 16px -4px rgba(10,31,68,.10);
+  --sh-lg:0 14px 40px -10px rgba(10,31,68,.18);
+  --sh-ai:0 8px 30px -8px rgba(91,141,239,.45);
+
+  --font:'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-d:'Sora','Noto Sans SC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  --shell:35rem;
+  --topbar-h:30px;
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
 *{ -webkit-tap-highlight-color:transparent; }
-html{ -webkit-text-size-adjust:100%; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+
+/* The blurred aurora layers sit outside their panels by design and are clipped
+   by overflow:hidden, but they still inflate documentElement.scrollWidth.
+   `clip` contains that without creating a scroll container, so the sticky
+   header keeps working — `hidden` here would break it. */
+html,body{ overflow-x:clip; }
 
 body{
-  margin:0;
-  font-family:var(--font);
-  color:var(--ink);
-  background:linear-gradient(160deg,#f0fdf6 0%,#f8fafc 42%,#fefce8 100%);
-  background-attachment:fixed;
-  min-height:100dvh;
-  line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-  /* Keeps the last CTA clear of the fixed footer + iOS home indicator */
-  padding-bottom:calc(var(--footer-h) + 28px + env(safe-area-inset-bottom));
+  margin:0; font-family:var(--font); color:var(--ink); background:var(--bg);
+  line-height:1.55; -webkit-font-smoothing:antialiased; min-height:100dvh;
 }
+img,svg{ display:block; max-width:100%; }
+button{ font:inherit; color:inherit; }
+a{ color:inherit; }
 
-/* Sarawak texture: a soft ukiran/weave field behind everything */
+/* Faint blueprint grid — a data-portal texture, not folk ornament */
 body::before{
   content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55;
   background-image:
-    radial-gradient(circle at 18% 12%, rgba(11,110,79,.07) 0%, transparent 42%),
-    radial-gradient(circle at 84% 76%, rgba(212,160,23,.10) 0%, transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%230B6E4F' stroke-opacity='.055' stroke-width='1'%3E%3Cpath d='M0 32 L32 0 L64 32 L32 64 Z'/%3E%3Cpath d='M16 32 L32 16 L48 32 L32 48 Z'/%3E%3Cpath d='M32 26 L38 32 L32 38 L26 32 Z'/%3E%3C/g%3E%3C/svg%3E");
+    radial-gradient(circle at 12% 6%, rgba(91,141,239,.07) 0%, transparent 38%),
+    radial-gradient(circle at 88% 82%, rgba(0,163,108,.07) 0%, transparent 36%),
+    linear-gradient(rgba(16,42,85,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16,42,85,.028) 1px, transparent 1px);
+  background-size:auto,auto,36px 36px,36px 36px;
 }
 
-img,svg{ display:block; max-width:100%; }
-button{ font:inherit; color:inherit; }
-
-/* -------------------------------------------------------------------------
-   Pua kumbu banding — the woven stripe motif of Iban ceremonial cloth
-   ------------------------------------------------------------------------- */
-.pua{
-  height:6px; flex:none;
-  background:repeating-linear-gradient(90deg,
-    var(--pua500) 0 10px, var(--gold500) 10px 14px,
-    var(--g500) 14px 24px, var(--gold300) 24px 27px);
-}
-.pua-thin{
-  height:3px; flex:none;
-  background:repeating-linear-gradient(90deg,
-    rgba(166,58,42,.6) 0 6px, rgba(212,160,23,.6) 6px 9px, rgba(11,110,79,.6) 9px 15px);
-}
-
-/* =========================== LAYOUT SHELL =========================== */
 .shell{ max-width:var(--shell); margin-inline:auto; padding-inline:16px; }
 
-.hdr{
-  position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--g100);
+/* ============================ AI SHINE PRIMITIVES ========================= */
+
+/* The single gradient thread that marks every AI surface */
+.ai-rule{ height:3px; flex:none; background:linear-gradient(90deg,var(--ai1),var(--ai2) 45%,var(--ai3) 70%,var(--e500)); }
+
+/* Sweeping specular highlight, shared by chips, buttons and the credit link */
+@keyframes sheen{ 0%{ transform:translateX(-120%); } 60%,100%{ transform:translateX(220%); } }
+.sheen{ position:relative; overflow:hidden; }
+.sheen::after{
+  content:''; position:absolute; top:0; bottom:0; left:0; width:45%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);
+  transform:translateX(-120%); animation:sheen 4.2s ease-in-out infinite; pointer-events:none;
 }
-.hdr-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:9px 0; }
+
+/* AI capability chip */
+.ai-chip{
+  display:inline-flex; align-items:center; gap:6px; flex:none;
+  font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  padding:4px 10px; border-radius:999px; color:#fff;
+  background:linear-gradient(120deg,var(--ai3),var(--ai2) 55%,var(--ai1));
+  box-shadow:var(--sh-ai); white-space:nowrap;
+}
+.ai-chip svg{ width:11px; height:11px; flex:none; }
+.ai-chip.on-light{ color:#fff; }
+
+@keyframes spark{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.55; transform:scale(.82);} }
+.spark{ animation:spark 2.4s ease-in-out infinite; }
+
+/* Drifting aurora behind dark AI panels */
+@keyframes drift{
+  0%,100%{ transform:translate3d(0,0,0) scale(1); }
+  33%    { transform:translate3d(14%,-8%,0) scale(1.18); }
+  66%    { transform:translate3d(-10%,10%,0) scale(.92); }
+}
+.aurora{ position:absolute; inset:-30%; pointer-events:none; overflow:hidden; }
+.aurora i{
+  position:absolute; display:block; border-radius:50%;
+  filter:blur(46px); opacity:.5; animation:drift 17s ease-in-out infinite;
+}
+.aurora i:nth-child(1){ width:56%; height:56%; left:2%;  top:6%;  background:var(--ai3); }
+.aurora i:nth-child(2){ width:50%; height:50%; right:0;  top:24%; background:var(--ai1); animation-delay:-6s; }
+.aurora i:nth-child(3){ width:44%; height:44%; left:26%; bottom:0;background:var(--e500); animation-delay:-11s; }
+
+/* Animated gradient text */
+@keyframes flow{ to{ background-position:200% center; } }
+.grad-text{
+  background:linear-gradient(90deg,var(--ai1),var(--ai3),var(--e300),var(--ai1));
+  background-size:200% auto; -webkit-background-clip:text; background-clip:text;
+  color:transparent; animation:flow 5s linear infinite;
+}
+
+/* ================================ TOP BAR ================================= */
+.topbar{
+  background:var(--n900); color:rgba(255,255,255,.72);
+  font-size:10.5px; letter-spacing:.03em;
+}
+.topbar .shell{ display:flex; align-items:center; justify-content:space-between; gap:10px; height:var(--topbar-h); }
+.topbar-org{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; }
+
+/* ================================ HEADER ================================== */
+.hdr{
+  position:sticky; top:0; z-index:60;
+  background:rgba(255,255,255,.92); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hdr-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; }
 
 .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
 .brand-mark{
-  width:36px; height:36px; flex:none; border-radius:11px;
-  background:linear-gradient(135deg,var(--g500),var(--g700));
-  display:flex; align-items:center; justify-content:center; box-shadow:var(--sh-soft);
+  width:38px; height:38px; flex:none; border-radius:11px;
+  background:linear-gradient(140deg,var(--n700),var(--n900));
+  display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  box-shadow:var(--sh);
 }
-.brand-mark svg{ width:24px; height:24px; }
+.brand-mark::before{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(140deg,rgba(34,211,238,.35),transparent 55%);
+}
+.brand-mark svg{ width:22px; height:22px; position:relative; }
 .brand-name{
-  font-family:var(--font-display); font-weight:700; font-size:13px; line-height:1.2;
-  color:var(--g800); margin:0;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  font-family:var(--font-d); font-weight:700; font-size:13px; line-height:1.2; color:var(--n800);
+  margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
-.brand-sub{ font-size:10px; color:var(--ink3); font-weight:500; letter-spacing:.06em; margin:1px 0 0; }
+.brand-sub{ font-size:9.5px; color:var(--ink3); font-weight:600; letter-spacing:.1em; margin:2px 0 0; text-transform:uppercase; }
 
-/* ---- 4-language panel: BM · EN · 中 · IB ---- */
-.langbar{
-  display:flex; align-items:center; gap:2px; flex:none;
-  background:var(--line2); border-radius:999px; padding:3px;
-}
+/* ---- 4-PANE LANGUAGE PANEL: BM · EN · 中 · IB ---- */
+.langbar{ display:flex; align-items:center; gap:2px; flex:none; background:var(--line2); border-radius:999px; padding:3px; border:1px solid var(--line); }
 .lang-btn{
-  border:0; background:transparent; cursor:pointer;
-  font-size:11px; font-weight:700; letter-spacing:.02em;
+  border:0; background:transparent; cursor:pointer; font-size:11px; font-weight:700;
   color:var(--ink3); padding:6px 9px; border-radius:999px; line-height:1;
   transition:background .18s ease,color .18s ease,box-shadow .18s ease;
 }
-.lang-btn:hover{ color:var(--g600); background:rgba(255,255,255,.75); }
-.lang-btn.active{
-  background:linear-gradient(135deg,var(--g500),var(--g700));
-  color:#fff; box-shadow:0 2px 8px -2px rgba(11,110,79,.5);
-}
-.lang-btn:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+.lang-btn:hover{ color:var(--n700); background:#fff; }
+.lang-btn.active{ background:linear-gradient(135deg,var(--n700),var(--n900)); color:#fff; box-shadow:0 2px 8px -2px rgba(10,31,68,.5); }
+.lang-btn:focus-visible{ outline:3px solid var(--ai2); outline-offset:2px; }
 
-.prog-row{ display:flex; align-items:center; gap:10px; padding-bottom:9px; }
-.prog-track{ flex:1; height:6px; background:var(--line2); border-radius:999px; overflow:hidden; }
+/* Progress */
+.prog-row{ display:flex; align-items:center; gap:10px; padding-bottom:10px; }
+.prog-track{ flex:1; height:6px; background:var(--line2); border-radius:999px; overflow:hidden; position:relative; }
 .prog-fill{
-  height:100%; width:0; border-radius:999px;
-  background:linear-gradient(90deg,var(--g500),var(--gold500) 70%,var(--pua500));
-  transition:width .5s cubic-bezier(.4,0,.2,1);
+  height:100%; width:0; border-radius:999px; position:relative; overflow:hidden;
+  background:linear-gradient(90deg,var(--ai1),var(--ai2) 40%,var(--ai3) 70%,var(--e500));
+  box-shadow:0 0 12px -2px rgba(91,141,239,.75);
+  transition:width .55s cubic-bezier(.4,0,.2,1);
 }
-.prog-label{
-  font-size:11px; font-weight:600; color:var(--g600);
-  background:var(--g50); padding:3px 9px; border-radius:999px; flex:none;
+.prog-fill::after{
+  content:''; position:absolute; inset:0; width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);
+  transform:translateX(-120%); animation:sheen 2.8s ease-in-out infinite;
 }
+.prog-label{ font-size:11px; font-weight:700; color:var(--n700); background:var(--line2); padding:3px 10px; border-radius:999px; flex:none; }
 
 main{ position:relative; z-index:1; padding-top:22px; }
 
-/* =========================== STEPS =========================== */
+/* ================================= STEPS ================================== */
 .step{ display:none; }
-.step.active{ display:block; animation:fadeUp .42s ease-out both; }
-@keyframes fadeUp{ from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:none;} }
+.step.active{ display:block; animation:rise .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes rise{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:none;} }
 
-/* =========================== CARDS =========================== */
-.card{
-  background:#fff; border:1px solid var(--g100);
-  border-radius:var(--r-xl); box-shadow:var(--sh-card); overflow:hidden;
-}
+/* ================================= CARDS ================================== */
+.card{ background:#fff; border:1px solid var(--line); border-radius:var(--r-xl); box-shadow:var(--sh); overflow:hidden; }
 .card-pad{ padding:24px; }
 
+/* Dark AI hero panel */
 .hero{
-  position:relative; overflow:hidden;
-  padding:26px 24px 22px;
-  background:linear-gradient(150deg,var(--g50) 0%,rgba(247,223,160,.38) 42%,#fff 100%);
+  position:relative; overflow:hidden; padding:30px 24px 26px;
+  background:linear-gradient(150deg,var(--n800) 0%,var(--n900) 60%,#04101F 100%);
+  color:#fff;
 }
-.hero-bird{ position:absolute; right:-22px; top:-14px; width:158px; height:158px; opacity:.075; }
-.hero > *{ position:relative; }
-.eyebrow{
-  font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--gold600); margin:0 0 8px;
+.hero-grid{
+  position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:30px 30px;
+  mask-image:radial-gradient(ellipse at 70% 20%,#000,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at 70% 20%,#000,transparent 78%);
 }
-h1{ font-family:var(--font-display); font-weight:800; font-size:25px; line-height:1.24; color:var(--g900); margin:0 0 8px; }
-h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-height:1.25; color:var(--g900); margin:0; }
+.hero > .hero-body{ position:relative; }
+.hero h1{ font-family:var(--font-d); font-weight:800; font-size:26px; line-height:1.22; margin:12px 0 10px; letter-spacing:-.015em; }
+.hero .lede{ font-size:14px; color:rgba(255,255,255,.78); margin:0; }
+.eyebrow{ font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--e300); margin:0; }
+
+h2{ font-family:var(--font-d); font-weight:700; font-size:22px; line-height:1.24; color:var(--n800); margin:0; letter-spacing:-.01em; }
 .lede{ font-size:14px; color:var(--ink2); margin:0; }
 
 /* Landing checklist */
 .checklist{ list-style:none; margin:0; padding:0; display:grid; gap:11px; }
-.checklist li{ display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--ink2); }
+.checklist li{ display:flex; gap:11px; align-items:flex-start; font-size:14px; color:var(--ink2); }
 .tick{
-  width:20px; height:20px; flex:none; margin-top:1px; border-radius:999px;
-  background:var(--g100); color:var(--g600);
-  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800;
-}
-.dream{
-  margin:20px 0 0; padding:13px 16px; font-size:14px; font-weight:500; line-height:1.6;
-  color:var(--g800); background:var(--g50); border:1px solid var(--g100); border-radius:var(--r);
-}
-.timing{
-  margin-top:15px; display:flex; align-items:center; justify-content:center; gap:7px;
-  font-size:12.5px; color:var(--ink3); font-weight:500;
-}
-.fineprint{ text-align:center; font-size:12px; color:var(--ink4); margin:15px 0 0; }
-
-/* Ukiran rosette used on the intro step */
-.rosette{
-  width:56px; height:56px; border-radius:16px; margin:6px 0 20px;
-  background:linear-gradient(135deg,var(--g100),rgba(247,223,160,.75));
+  width:21px; height:21px; flex:none; margin-top:1px; border-radius:7px;
+  background:var(--e50); color:var(--e600); border:1px solid rgba(0,135,90,.22);
   display:flex; align-items:center; justify-content:center;
 }
-.rosette svg{ width:32px; height:32px; }
-.prose p{ font-size:14.5px; color:var(--ink2); line-height:1.68; margin:0 0 14px; }
-.prose p:last-child{ margin-bottom:0; }
-.prose strong{ color:var(--g700); font-weight:700; }
+.tick svg{ width:12px; height:12px; }
+.dream{
+  margin:20px 0 0; padding:14px 16px; font-size:14px; font-weight:500; line-height:1.6;
+  color:var(--n800); background:linear-gradient(120deg,var(--e50),#F1F7FF);
+  border:1px solid var(--line); border-left:3px solid var(--e500); border-radius:var(--r);
+}
+.timing{ margin-top:16px; display:flex; align-items:center; justify-content:center; gap:7px; font-size:12.5px; color:var(--ink3); font-weight:500; }
+.timing svg{ width:14px; height:14px; }
+.fineprint{ text-align:center; font-size:12px; color:var(--ink4); margin:16px 0 0; }
 
-/* =========================== BUTTONS =========================== */
+/* Trust strip — three ministry-grade assurances */
+.trust{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:18px; }
+.trust div{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r-sm);
+  padding:11px 8px; text-align:center; box-shadow:var(--sh-sm);
+}
+.trust svg{ width:17px; height:17px; margin:0 auto 5px; color:var(--n600); }
+.trust span{ font-size:10.5px; font-weight:600; color:var(--ink2); line-height:1.35; display:block; }
+
+/* Intro step icon */
+.step-icon{
+  width:54px; height:54px; border-radius:15px; margin-bottom:20px; position:relative; overflow:hidden;
+  background:linear-gradient(140deg,var(--n700),var(--n900));
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--sh);
+}
+.step-icon::before{ content:''; position:absolute; inset:0; background:linear-gradient(140deg,rgba(34,211,238,.4),transparent 60%); }
+.step-icon svg{ width:26px; height:26px; position:relative; color:#fff; }
+.prose p{ font-size:14.5px; color:var(--ink2); line-height:1.7; margin:0 0 14px; }
+.prose p:last-child{ margin-bottom:0; }
+.prose strong{ color:var(--n700); font-weight:700; }
+
+/* ================================ BUTTONS ================================= */
 .btn{
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  width:100%; border:0; cursor:pointer; text-decoration:none;
-  font-weight:600; border-radius:var(--r); padding:14px 16px; font-size:14px;
-  transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease, background .18s ease;
+  display:flex; align-items:center; justify-content:center; gap:8px; width:100%;
+  border:0; cursor:pointer; text-decoration:none; font-weight:600;
+  border-radius:var(--r); padding:14px 16px; font-size:14px;
+  transition:transform .18s ease,box-shadow .18s ease,opacity .18s ease,background .18s ease;
 }
 .btn svg{ width:17px; height:17px; flex:none; }
-.btn-primary{ background:linear-gradient(135deg,var(--g500),var(--g700)); color:#fff; }
-.btn-primary:hover:not(:disabled){ transform:translateY(-1px); box-shadow:var(--sh-glow); }
-.btn-primary:active:not(:disabled){ transform:none; }
-.btn-primary:disabled{ opacity:.42; cursor:not-allowed; box-shadow:none; transform:none; }
-.btn-lg{ padding:17px; font-size:15.5px; border-radius:var(--r-lg); box-shadow:var(--sh-glow); }
-.btn-ghost{ background:#fff; border:2px solid var(--line); color:var(--ink2); }
-.btn-ghost:hover{ background:var(--line2); }
-.btn-outline{ background:#fff; border:2px solid var(--g200); color:var(--g700); font-size:12.5px; padding:12px 10px; }
-.btn-outline:hover{ background:var(--g50); }
-.btn-gold{ background:#fff; border:2px solid var(--gold400); color:var(--gold600); font-size:12.5px; padding:12px 10px; }
-.btn-gold:hover{ background:rgba(247,223,160,.3); }
-.btn:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+.btn-primary{ background:linear-gradient(135deg,var(--n700),var(--n900)); color:#fff; box-shadow:var(--sh); }
+.btn-primary:hover:not(:disabled){ transform:translateY(-1px); box-shadow:var(--sh-lg); }
+.btn-primary:disabled{ opacity:.4; cursor:not-allowed; box-shadow:none; transform:none; }
+.btn-lg{ padding:17px; font-size:15.5px; border-radius:var(--r-lg); }
+/* The one CTA that carries the AI gradient */
+.btn-ai{ background:linear-gradient(120deg,var(--ai3),var(--ai2) 50%,var(--ai1)); color:#fff; box-shadow:var(--sh-ai); }
+.btn-ai:hover:not(:disabled){ transform:translateY(-1px); box-shadow:0 14px 40px -10px rgba(91,141,239,.6); }
+.btn-ghost{ background:#fff; border:1.5px solid var(--line); color:var(--ink2); }
+.btn-ghost:hover{ background:var(--line2); border-color:var(--ink4); }
+.btn-outline{ background:#fff; border:1.5px solid var(--n600); color:var(--n700); font-size:12.5px; padding:12px 10px; }
+.btn-outline:hover{ background:#F1F6FD; }
+.btn-gold{ background:#fff; border:1.5px solid var(--gold); color:#8A6F12; font-size:12.5px; padding:12px 10px; }
+.btn-gold:hover{ background:var(--gold-50); }
+.btn:focus-visible{ outline:3px solid var(--ai2); outline-offset:2px; }
 
 .nav-row{ display:flex; gap:11px; margin-top:6px; }
 .nav-row .btn:first-child{ flex:1; }
 .nav-row .btn:last-child{ flex:2; }
-
 .linkish{
   display:block; margin:0 auto; background:none; border:0; cursor:pointer;
   font-size:13.5px; font-weight:500; color:var(--ink3);
   text-decoration:underline; text-underline-offset:3px;
 }
-.linkish:hover{ color:var(--g600); }
+.linkish:hover{ color:var(--n700); }
 
-/* =========================== QUESTIONS =========================== */
-.sec-head{ margin-bottom:22px; }
-.sec-kicker{ display:flex; align-items:center; gap:9px; margin-bottom:7px; }
-.sec-kicker .pua{ width:34px; height:4px; border-radius:2px; }
-.sec-kicker span:last-child{
-  font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--g600);
-}
-.sec-note{ font-size:13px; color:var(--ink3); margin:5px 0 0; }
+/* =============================== QUESTIONS ================================ */
+.sec-head{ margin-bottom:20px; }
+.sec-kicker{ display:flex; align-items:center; gap:9px; margin-bottom:8px; }
+.sec-kicker .ai-rule{ width:30px; border-radius:2px; }
+.sec-kicker span:last-child{ font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--n600); }
+.sec-note{ font-size:13px; color:var(--ink3); margin:6px 0 0; }
 
 /* One-time nudge that some questions accept several answers */
 .hint{
-  display:flex; gap:10px; align-items:flex-start;
-  background:rgba(247,223,160,.32); border:1px solid var(--gold400);
-  border-radius:var(--r); padding:12px 14px; margin-bottom:22px;
-  animation:hintPulse 2.4s ease-in-out 2;
+  display:flex; gap:11px; align-items:flex-start; background:#fff;
+  border:1px solid var(--line); border-left:3px solid var(--gold);
+  border-radius:var(--r); padding:13px 15px; margin-bottom:22px; box-shadow:var(--sh-sm);
 }
+.hint svg{ width:17px; height:17px; flex:none; color:var(--gold); margin-top:1px; }
 .hint p{ margin:0; font-size:12.5px; line-height:1.6; color:var(--ink2); }
-.hint strong{ color:var(--gold600); }
-@keyframes hintPulse{
-  0%,100%{ box-shadow:0 0 0 0 rgba(212,160,23,0); }
-  50%    { box-shadow:0 0 0 7px rgba(212,160,23,.16); }
-}
+.hint strong{ color:#8A6F12; }
 
-.q{ margin-bottom:30px; }
+.q{ margin-bottom:28px; }
 .q-title{ font-size:15px; font-weight:600; color:var(--ink); margin:0 0 9px; line-height:1.45; }
 .q-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:13px; }
 
-/* The answer-count badge — present on EVERY question, gold when multi */
-.badge{
-  display:inline-flex; align-items:center; gap:5px;
-  font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; line-height:1.5;
-}
+/* Answer-count badge — on EVERY question */
+.badge{ display:inline-flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:999px; line-height:1.5; }
 .badge svg{ width:11px; height:11px; flex:none; }
-.badge-one{ color:var(--ink3); background:var(--line2); border:1px solid var(--line); font-weight:600; }
-.badge-many{ color:var(--gold600); background:rgba(247,223,160,.4); border:1px solid var(--gold400); }
-.count{ font-size:11px; font-weight:700; color:var(--g600); transition:color .2s ease; }
-.count.warn{ color:var(--pua500); }
+.badge-one{ color:var(--ink3); background:var(--line2); border:1px solid var(--line); }
+.badge-many{ color:#8A6F12; background:var(--gold-50); border:1px solid rgba(201,162,39,.45); }
+.count{ font-size:10.5px; font-weight:700; color:var(--e600); transition:color .2s ease; }
+.count.warn{ color:#B4472E; }
 
-/* ---- Option groups ---- */
 .opts{ display:grid; gap:10px; }
 .opts.list{ grid-template-columns:1fr; }
 .opts.grid,.opts.tiles{ grid-template-columns:1fr 1fr; }
 .opts.duo{ grid-template-columns:1fr 1fr; gap:12px; }
 
 .opt{
-  position:relative; display:flex; align-items:center; gap:11px;
-  padding:14px; background:#fff;
-  border:2px solid var(--line); border-radius:var(--r);
-  box-shadow:0 1px 2px rgba(15,23,42,.04);
-  cursor:pointer; user-select:none;
-  transition:transform .16s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  position:relative; display:flex; align-items:center; gap:11px; padding:14px;
+  background:#fff; border:1.5px solid var(--line); border-radius:var(--r);
+  box-shadow:var(--sh-sm); cursor:pointer; user-select:none;
+  transition:transform .16s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
 }
-.opt:hover{ border-color:var(--g300); background:var(--g50); }
+.opt:hover{ border-color:var(--n500); background:#F8FBFF; }
 .opt:active{ transform:scale(.985); }
-.opt:focus-visible{ outline:3px solid var(--g500); outline-offset:2px; }
+.opt:focus-visible{ outline:3px solid var(--ai2); outline-offset:2px; }
 .opt.on{
-  border-color:var(--g500);
-  background:linear-gradient(135deg,var(--g50),var(--g100));
-  box-shadow:0 4px 16px -3px rgba(11,110,79,.2);
+  border-color:var(--e600); background:linear-gradient(135deg,var(--e50),#F2FBFF);
+  box-shadow:0 4px 16px -4px rgba(0,135,90,.3);
 }
 .opt input{ position:absolute; opacity:0; width:0; height:0; pointer-events:none; }
-
 .opt-emoji{ font-size:19px; line-height:1; flex:none; }
 .opt-label{ flex:1; font-size:14px; font-weight:500; line-height:1.4; }
 
-/* Tile variant — icon stacked over label, check pinned to the corner */
 .opts.tiles .opt{ flex-direction:column; text-align:center; gap:7px; padding:16px 10px; }
 .opts.tiles .opt-emoji{ font-size:24px; }
 .opts.tiles .opt-label{ flex:none; font-size:12.5px; }
 .opts.tiles .mark{ position:absolute; top:8px; right:8px; }
-
-/* Compact 2-column variant for the industry list */
 .opts.grid .opt{ padding:13px 12px; gap:8px; }
 .opts.grid .opt-emoji{ font-size:17px; }
 .opts.grid .opt-label{ font-size:13px; }
-
-/* Yes / No */
 .opts.duo .opt{ justify-content:center; padding:19px 12px; }
 .opts.duo .opt-label{ flex:none; font-weight:600; }
 
-/* The selection marker: a circle for "one answer", a square for "many" */
+/* Circle marker = one answer, square = several */
 .mark{
   width:21px; height:21px; flex:none; border-radius:999px;
-  background:var(--g500); color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  font-size:11px; font-weight:800;
+  background:var(--e600); color:#fff; display:flex; align-items:center; justify-content:center;
   opacity:0; transform:scale(.55);
-  transition:opacity .18s ease, transform .18s cubic-bezier(.34,1.56,.64,1);
+  transition:opacity .18s ease,transform .2s cubic-bezier(.34,1.56,.64,1);
 }
+.mark svg{ width:12px; height:12px; }
 .mark.square{ border-radius:7px; }
 .opt.on .mark{ opacity:1; transform:scale(1); }
 .opts.list .mark,.opts.grid .mark{ margin-left:auto; }
 
-/* =========================== RESULTS =========================== */
-.res-top{ text-align:center; margin-bottom:24px; }
-.res-badge{
-  width:64px; height:64px; margin:0 auto 16px; border-radius:999px;
-  background:linear-gradient(135deg,var(--g100),rgba(240,199,94,.5));
-  display:flex; align-items:center; justify-content:center; font-size:32px;
-  box-shadow:var(--sh-soft);
+/* ===================== DESKTOP SECTION RAIL (>=1024px) ==================== */
+.step-grid{ display:block; }
+.rail{ display:none; }
+.rail-h{ font-size:10.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink4); margin:0 0 10px; padding-left:11px; }
+.rail-list{ list-style:none; margin:0; padding:0; display:grid; gap:3px; }
+.rail-list li{
+  display:flex; gap:11px; align-items:center; padding:10px 11px; border-radius:11px;
+  font-size:13px; color:var(--ink3); border:1px solid transparent; transition:all .2s ease;
 }
-.res-top h2{ font-weight:800; font-size:24px; margin-bottom:7px; }
+.rail-list li.on{ background:#fff; color:var(--n800); font-weight:600; border-color:var(--line); box-shadow:var(--sh-sm); }
+.rail-list li.done{ color:var(--e700); }
+.rail-n{
+  width:23px; height:23px; flex:none; border-radius:50%; background:var(--line2); color:var(--ink3);
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
+}
+.rail-n svg{ width:12px; height:12px; }
+.rail-list li.on .rail-n{ background:linear-gradient(135deg,var(--n700),var(--n900)); color:#fff; }
+.rail-list li.done .rail-n{ background:var(--e50); color:var(--e600); box-shadow:inset 0 0 0 1px rgba(0,135,90,.3); }
+.rail-ai{ margin-top:20px; padding:15px; border-radius:13px; background:#fff; border:1px solid var(--line); box-shadow:var(--sh-sm); }
+.rail-ai p{ margin:10px 0 0; font-size:11.5px; line-height:1.6; color:var(--ink3); }
+
+/* ============================ AI ANALYSING OVERLAY ======================== */
+.scrim{
+  position:fixed; inset:0; z-index:90; display:none;
+  align-items:center; justify-content:center; padding:24px;
+  background:rgba(6,20,46,.82); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.scrim.show{ display:flex; animation:fade .3s ease both; }
+@keyframes fade{ from{opacity:0} to{opacity:1} }
+.analyser{
+  position:relative; overflow:hidden; width:100%; max-width:330px; text-align:center;
+  background:linear-gradient(150deg,var(--n800),var(--n900)); color:#fff;
+  border:1px solid rgba(255,255,255,.14); border-radius:var(--r-xl);
+  padding:30px 24px 26px; box-shadow:0 30px 70px -20px rgba(0,0,0,.7);
+}
+.analyser > *{ position:relative; }
+/* Rotating conic ring around a pulsing core */
+@keyframes spin{ to{ transform:rotate(360deg); } }
+@keyframes pulse{ 0%,100%{ transform:scale(1); opacity:1 } 50%{ transform:scale(.88); opacity:.72 } }
+.orb{ width:74px; height:74px; margin:0 auto 20px; position:relative; }
+.orb::before{
+  content:''; position:absolute; inset:0; border-radius:50%;
+  background:conic-gradient(from 0deg,transparent,var(--ai1),var(--ai3),transparent 75%);
+  animation:spin 1.5s linear infinite;
+}
+.orb::after{ content:''; position:absolute; inset:5px; border-radius:50%; background:var(--n900); }
+.orb svg{ position:absolute; inset:0; margin:auto; z-index:1; width:30px; height:30px; color:#fff; animation:pulse 1.6s ease-in-out infinite; }
+.analyser h3{ font-family:var(--font-d); font-weight:700; font-size:17px; margin:0 0 18px; }
+.steps{ list-style:none; margin:0; padding:0; display:grid; gap:10px; text-align:left; }
+.steps li{
+  display:flex; align-items:center; gap:9px; font-size:12.5px;
+  color:rgba(255,255,255,.42); opacity:.4; transform:translateX(-4px);
+  transition:opacity .35s ease,color .35s ease,transform .35s ease;
+}
+.steps li.done{ opacity:1; color:rgba(255,255,255,.94); transform:none; }
+.steps .dot{
+  width:16px; height:16px; flex:none; border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.28);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .35s ease,border-color .35s ease;
+}
+.steps .dot svg{ width:9px; height:9px; opacity:0; transition:opacity .3s ease; }
+.steps li.done .dot{ background:linear-gradient(135deg,var(--ai2),var(--e500)); border-color:transparent; }
+.steps li.done .dot svg{ opacity:1; }
+
+/* ================================ RESULTS ================================= */
+.res-top{ text-align:center; margin-bottom:22px; }
+.res-seal{
+  width:66px; height:66px; margin:0 auto 16px; border-radius:50%; position:relative;
+  background:linear-gradient(140deg,var(--n700),var(--n900));
+  display:flex; align-items:center; justify-content:center; box-shadow:var(--sh-lg);
+}
+.res-seal::before{
+  content:''; position:absolute; inset:-3px; border-radius:50%; z-index:-1;
+  background:linear-gradient(120deg,var(--ai1),var(--ai3),var(--e500));
+}
+.res-seal svg{ width:30px; height:30px; color:#fff; }
+.res-top h2{ font-size:24px; margin-bottom:8px; }
 .res-top p{ font-size:14px; color:var(--ink2); margin:0; }
 
-.rec-head{
-  position:relative; overflow:hidden; padding:16px 20px;
-  background:linear-gradient(120deg,var(--g500),var(--g700));
-}
-.rec-head-bird{ position:absolute; right:4px; bottom:-14px; width:92px; height:92px; opacity:.15; }
-.rec-head > *{ position:relative; }
-.rec-kicker{
-  font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--g200); margin:0;
-}
-.rec-title{ font-family:var(--font-display); font-weight:700; font-size:20px; color:#fff; margin:4px 0 0; }
+.rec-head{ position:relative; overflow:hidden; padding:20px; background:linear-gradient(140deg,var(--n800),var(--n900)); }
+.rec-head > .rec-head-body{ position:relative; }
+.rec-kicker{ font-size:10.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--e300); margin:10px 0 0; }
+.rec-title{ font-family:var(--font-d); font-weight:800; font-size:22px; color:#fff; margin:5px 0 0; letter-spacing:-.01em; }
 .rec-body{ padding:20px; }
 .rec-msg{ font-size:14px; line-height:1.72; color:var(--ink2); margin:0 0 18px; }
-.rec-msg strong{ color:var(--g700); font-weight:700; }
+.rec-msg strong{ color:var(--n700); font-weight:700; }
 
-.getbox{ background:var(--g50); border:1px solid var(--g100); border-radius:var(--r); padding:15px 16px; margin-bottom:18px; }
-.getbox h4{
-  font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--g700); margin:0 0 9px;
+/* Confidence meter — visualises the match strength */
+.meter{ margin:0 0 18px; }
+.meter-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+.meter-top span:first-child{ font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); }
+.meter-val{ font-family:var(--font-d); font-size:15px; font-weight:800; color:var(--n700); }
+.meter-track{ height:8px; background:var(--line2); border-radius:999px; overflow:hidden; }
+.meter-fill{
+  height:100%; width:0; border-radius:999px; position:relative; overflow:hidden;
+  background:linear-gradient(90deg,var(--ai2),var(--ai3) 45%,var(--e500));
+  transition:width 1.1s cubic-bezier(.4,0,.2,1);
 }
-.getbox ul{ list-style:none; margin:0; padding:0; display:grid; gap:7px; }
+.meter-fill::after{
+  content:''; position:absolute; inset:0; width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.8),transparent);
+  transform:translateX(-120%); animation:sheen 3s ease-in-out infinite;
+}
+
+.getbox{ background:linear-gradient(120deg,var(--e50),#F3F8FF); border:1px solid var(--line); border-radius:var(--r); padding:16px; margin-bottom:18px; }
+.getbox h4{ font-size:10.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--e700); margin:0 0 10px; }
+.getbox ul{ list-style:none; margin:0; padding:0; display:grid; gap:8px; }
 .getbox li{ display:flex; gap:9px; font-size:13.5px; color:var(--ink2); line-height:1.5; }
-.getbox li::before{ content:'•'; color:var(--gold500); font-weight:800; flex:none; }
-.getbox strong{ color:var(--g800); }
+.getbox li svg{ width:14px; height:14px; flex:none; margin-top:3px; color:var(--e600); }
+.getbox strong{ color:var(--n800); }
 
 .actions{ display:grid; gap:10px; }
 .actions-2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
 
-.snapshot{
-  background:#fff; border:1px solid var(--line); border-radius:var(--r-lg);
-  box-shadow:var(--sh-soft); padding:18px 20px; margin:22px 0;
-}
-.snapshot > h4{
-  font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--ink3); margin:0 0 13px;
-}
+.snapshot{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-sm); padding:18px 20px; margin:22px 0; }
+.snapshot > h4{ font-size:10.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--ink3); margin:0 0 14px; }
 .snap-row{ padding:9px 0; border-bottom:1px solid var(--line2); }
 .snap-row:last-child{ border-bottom:0; padding-bottom:0; }
 .snap-row:first-child{ padding-top:0; }
 .snap-row.single{ display:flex; justify-content:space-between; gap:16px; align-items:baseline; }
 .snap-k{ font-size:12px; color:var(--ink3); flex:none; }
 .snap-v{ font-size:13.5px; font-weight:600; text-align:right; }
-.chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
-.chip{
-  font-size:12px; font-weight:500; padding:3px 9px; border-radius:9px;
-  background:var(--g50); border:1px solid var(--g100); color:var(--g800);
-}
-.disclaimer{ text-align:center; font-size:11.5px; color:var(--ink4); line-height:1.65; margin:28px 0 0; }
+.chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:7px; }
+.chip{ font-size:12px; font-weight:500; padding:4px 10px; border-radius:8px; background:var(--e50); border:1px solid rgba(0,135,90,.2); color:var(--e700); }
+.disclaimer{ text-align:center; font-size:11.5px; color:var(--ink4); line-height:1.65; margin:26px 0 0; }
 
-/* =========================== FOOTER + TOAST =========================== */
-.ftr{
-  position:fixed; left:0; right:0; bottom:0; z-index:40;
-  background:rgba(255,255,255,.93);
-  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-  border-top:1px solid var(--line);
+/* ========================= FLOATING ASSIST BUBBLES ======================== */
+/* Standard item #2 — bottom-left AI help, bottom-right human advisor */
+.bub{
+  position:fixed; bottom:calc(18px + env(safe-area-inset-bottom)); z-index:70;
+  display:flex; align-items:center; gap:9px; border:0; cursor:pointer;
+  padding:11px 15px 11px 12px; border-radius:999px; color:#fff; text-decoration:none;
+  font-size:12.5px; font-weight:600; box-shadow:var(--sh-lg);
+  transition:transform .2s ease,box-shadow .2s ease;
 }
-.ftr-row{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  font-size:10px; color:var(--ink4); padding:10px 0;
-  padding-bottom:calc(10px + env(safe-area-inset-bottom));
-}
-.ftr-row span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bub:hover{ transform:translateY(-2px); }
+.bub:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+.bub svg.ico{ width:19px; height:19px; flex:none; }
+.bub-l{ left:14px; background:linear-gradient(120deg,var(--ai3),var(--ai2) 55%,var(--ai1)); box-shadow:var(--sh-ai); }
+.bub-r{ right:14px; background:linear-gradient(135deg,var(--e600),var(--e700)); }
+.bub-txt{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.15; }
+.bub-txt b{ font-weight:700; font-size:12.5px; }
+.bub-txt i{ font-style:normal; font-size:9.5px; opacity:.85; font-weight:500; letter-spacing:.04em; }
 
+/* Live pulse ring on the AI bubble */
+@keyframes ring{ 0%{ inset:0; opacity:.55 } 100%{ inset:-10px; opacity:0 } }
+.bub-l::before{
+  content:''; position:absolute; inset:0; border-radius:999px;
+  border:2px solid var(--ai1); animation:ring 2.4s ease-out infinite; pointer-events:none;
+}
+
+/* AI help panel */
+.panel{
+  position:fixed; inset:auto 14px calc(78px + env(safe-area-inset-bottom)) 14px;
+  max-width:370px; z-index:80; display:none;
+  background:#fff; border:1px solid var(--line); border-radius:var(--r-xl);
+  box-shadow:0 30px 70px -18px rgba(6,20,46,.45); overflow:hidden;
+}
+.panel.show{ display:block; animation:rise .3s cubic-bezier(.22,1,.36,1) both; }
+.panel-head{ position:relative; overflow:hidden; padding:15px 16px; background:linear-gradient(140deg,var(--n800),var(--n900)); color:#fff; }
+.panel-head > .panel-head-body{ position:relative; display:flex; align-items:flex-start; gap:11px; }
+.panel-head h3{ font-family:var(--font-d); font-size:14.5px; font-weight:700; margin:0; }
+.panel-head p{ margin:3px 0 0; font-size:11.5px; color:rgba(255,255,255,.72); line-height:1.45; }
+.panel-close{
+  margin-left:auto; background:rgba(255,255,255,.14); border:0; color:#fff; cursor:pointer;
+  width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none;
+}
+.panel-close:hover{ background:rgba(255,255,255,.26); }
+.panel-close svg{ width:13px; height:13px; }
+.panel-body{ padding:12px; max-height:min(52vh,400px); overflow-y:auto; }
+.faq{ border:1px solid var(--line); border-radius:var(--r-sm); margin-bottom:8px; overflow:hidden; background:#fff; }
+.faq:last-child{ margin-bottom:0; }
+.faq summary{
+  cursor:pointer; list-style:none; padding:12px 13px; font-size:13px; font-weight:600; color:var(--n800);
+  display:flex; align-items:center; gap:9px;
+}
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{
+  content:''; margin-left:auto; width:7px; height:7px; flex:none;
+  border-right:2px solid var(--ink4); border-bottom:2px solid var(--ink4);
+  transform:rotate(45deg); transition:transform .2s ease;
+}
+.faq[open] summary::after{ transform:rotate(-135deg); }
+.faq summary:hover{ background:var(--line2); }
+.faq .a{ padding:0 13px 13px 13px; font-size:12.5px; line-height:1.65; color:var(--ink2); }
+.faq .a strong{ color:var(--n700); }
+.panel-foot{ padding:11px 13px; border-top:1px solid var(--line); background:var(--line2); font-size:10.5px; color:var(--ink3); line-height:1.5; }
+
+/* ============================== PAGE FOOTER =============================== */
+.ftr{ background:var(--n800); color:rgba(255,255,255,.72); padding:26px 0 20px; margin-top:36px; position:relative; z-index:1; }
+.ftr-brand{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.ftr-brand .brand-mark{ width:34px; height:34px; border-radius:10px; }
+.ftr-brand b{ font-family:var(--font-d); font-size:13.5px; color:#fff; font-weight:700; }
+.ftr p{ margin:0 0 6px; font-size:12px; line-height:1.6; }
+.ftr-copy{ font-size:11px; color:rgba(255,255,255,.5); margin-top:14px; }
+
+/* --- Standard item #3: KOBIS Berhad signature bar --- */
+.kobis-bar{
+  min-height:.75in; background:#07090b; display:flex; align-items:center; justify-content:center;
+  text-align:center; padding:16px 24px; position:relative; z-index:1;
+}
+.kobis-text{ font-size:.72rem; font-weight:300; letter-spacing:.04em; color:rgba(250,246,236,.85); line-height:1.6; }
+.kobis-link{
+  position:relative; display:inline-block; text-decoration:none; font-weight:500;
+  color:rgba(250,246,236,.85);
+  background-image:linear-gradient(110deg,var(--ai1),var(--ai3) 30%,var(--e300) 55%,var(--gold-lt) 80%,var(--ai1));
+  background-size:220% auto; background-position:0% center;
+  -webkit-background-clip:text; background-clip:text;
+  transition:color .28s ease,background-position 1.1s ease;
+}
+.kobis-link:hover,.kobis-link:focus-visible{ color:transparent; background-position:100% center; }
+/* Specular sweep across the link on hover */
+.kobis-link::after{
+  content:''; position:absolute; top:-2px; bottom:-2px; left:0; width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:translateX(-140%); opacity:0; pointer-events:none;
+}
+.kobis-link:hover::after,.kobis-link:focus-visible::after{ opacity:1; animation:sheen 1.1s ease-out; }
+.kobis-link:focus-visible{ outline:2px solid var(--ai1); outline-offset:3px; border-radius:3px; }
+
+.bub-clear{ height:calc(62px + env(safe-area-inset-bottom)); background:#07090b; position:relative; z-index:1; }
+
+/* ================================= TOAST ================================== */
 .toast{
-  position:fixed; left:50%; transform:translateX(-50%);
-  bottom:calc(var(--footer-h) + 26px + env(safe-area-inset-bottom));
-  z-index:60; background:var(--g800); color:#fff;
-  font-size:13.5px; font-weight:500; padding:11px 18px; border-radius:var(--r);
-  box-shadow:0 10px 30px -6px rgba(0,0,0,.35);
-  opacity:0; pointer-events:none; transition:opacity .3s ease;
-  max-width:calc(100vw - 40px); text-align:center;
+  position:fixed; left:50%; transform:translateX(-50%); bottom:calc(84px + env(safe-area-inset-bottom));
+  z-index:95; background:var(--n900); color:#fff; font-size:13.5px; font-weight:500;
+  padding:11px 18px; border-radius:var(--r); box-shadow:0 14px 40px -10px rgba(0,0,0,.6);
+  opacity:0; pointer-events:none; transition:opacity .3s ease; max-width:calc(100vw - 40px); text-align:center;
 }
 .toast.show{ opacity:1; }
 
-/* =========================== RESPONSIVE =========================== */
+/* =============================== RESPONSIVE ===============================
+   Phone first, then tablet, then a genuine desktop portal layout at 1024px+:
+   a sticky section rail beside the questions, a split hero, and results with
+   the snapshot alongside rather than stacked a screen below.
+   ========================================================================= */
+
+/* ---- Small phones ---- */
+@media (max-width:420px){
+  .bub-txt i{ display:none; }
+  .bub{ padding:10px 13px; font-size:12px; }
+}
+
+/* ---- Large phone / tablet ---- */
 @media (min-width:640px){
-  :root{ --shell:38rem; }
-  main{ padding-top:32px; }
-  h1{ font-size:29px; }
-  .hero{ padding:34px 32px 28px; }
+  :root{ --shell:42rem; }
+  main{ padding-top:30px; }
+  .hero{ padding:38px 32px 32px; }
+  .hero h1{ font-size:30px; }
   .card-pad{ padding:30px 32px; }
   .opts.grid,.opts.tiles{ grid-template-columns:1fr 1fr 1fr; }
   .opts.duo{ max-width:420px; }
+  /* The panel belongs on the same side as the bubble that opens it */
+  .panel{ right:auto; left:14px; width:380px; }
 }
+
+@media (min-width:768px){
+  :root{ --shell:46rem; }
+  .trust div{ padding:14px 10px; }
+}
+
+/* ---- Desktop portal ---- */
 @media (min-width:1024px){
-  body{ padding-bottom:calc(var(--footer-h) + 40px + env(safe-area-inset-bottom)); }
-  main{ padding-top:44px; }
+  :root{ --shell:64rem; --topbar-h:34px; }
+  .topbar{ font-size:11.5px; }
+  main{ padding-top:40px; }
+  .brand-mark{ width:42px; height:42px; border-radius:12px; }
+  .brand-mark svg{ width:25px; height:25px; }
+  .brand-name{ font-size:15px; }
+  .brand-sub{ font-size:10px; }
+  .hdr-row{ padding:13px 0; }
+  .lang-btn{ font-size:12px; padding:7px 12px; }
+
+  /* Landing: dark AI panel and the qualifying list side by side */
+  #step-0 .card{ display:grid; grid-template-columns:1.05fr 1fr; align-items:stretch; }
+  #step-0 .hero{ display:flex; flex-direction:column; justify-content:center; padding:44px 38px; }
+  #step-0 .hero h1{ font-size:34px; }
+  #step-0 .card-pad{ padding:38px; display:flex; flex-direction:column; justify-content:center; }
+  #step-0 > .btn,#step-0 > .fineprint{ max-width:440px; margin-inline:auto; }
+
+  #step-1{ max-width:680px; margin-inline:auto; }
+
+  /* Questions: sticky section rail + the form beside it */
+  .step-grid{ display:grid; grid-template-columns:236px minmax(0,1fr); gap:38px; align-items:start; }
+  .rail{ display:block; position:sticky; top:112px; }
+  .step-main{ max-width:700px; }
+
+  /* Results: recommendation leads, snapshot rides alongside */
+  #step-6.step.active{ display:grid; grid-template-columns:1.12fr .88fr; gap:26px; align-items:start; }
+  #step-6 > .res-top,#step-6 > .linkish,#step-6 > .disclaimer{ grid-column:1 / -1; }
+  #step-6 > .snapshot{ margin:0; position:sticky; top:112px; }
+  #step-6 > .res-top h2{ font-size:28px; }
+
+  .bub{ bottom:22px; }
+  .bub-l{ left:22px; }
+  .bub-r{ right:22px; }
+  .panel{ left:22px; bottom:88px; }
+  .bub-clear{ height:30px; }
+}
+
+@media (min-width:1280px){
+  :root{ --shell:68rem; }
+  #step-0 .hero h1{ font-size:37px; }
 }
 
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.001ms !important; animation-iteration-count:1 !important;
-    transition-duration:.001ms !important;
-  }
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .sheen::after,.bub-l::before{ display:none; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ============================== HEADER ============================== -->
+<!-- ============================ MINISTRY TOP BAR ============================ -->
+<div class="topbar">
+  <div class="shell">
+    <span class="topbar-org" data-i18n="ministryLine">MINTRED Sarawak · PCDS 2030</span>
+    <span class="ai-chip sheen" style="font-size:9.5px;padding:3px 9px">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z"/></svg>
+      <span data-i18n="aiTag">AI-Powered</span>
+    </span>
+  </div>
+</div>
+
+<!-- ================================= HEADER ================================ -->
 <header class="hdr">
-  <div class="pua-thin"></div>
+  <div class="ai-rule"></div>
   <div class="shell">
     <div class="hdr-row">
-
-      <!-- Brand mark: the kenyalang (rhinoceros hornbill), emblem of Sarawak -->
       <div class="brand">
         <div class="brand-mark">
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <g fill="#f0c75e"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
-            <circle cx="39.5" cy="21" r="1.9" fill="#0B6E4F"/>
+          <!-- Growth chart mark: enterprise progress, not folk ornament -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20V9"/><path d="M16 20v-8"/><path d="M21 20V5"/>
           </svg>
         </div>
         <div style="min-width:0">
@@ -462,7 +724,7 @@ h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-heigh
         </div>
       </div>
 
-      <!-- ===== 4-LANGUAGE PANEL: BM · EN · 中文 · IBAN ===== -->
+      <!-- ===== STANDARD ITEM #1 — 4-PANE LANGUAGE PANEL: BM · EN · 中文 · IBAN ===== -->
       <div class="langbar" role="group" aria-label="Language / Bahasa / 语言 / Jaku">
         <button type="button" class="lang-btn" data-lang="bm" title="Bahasa Malaysia">BM</button>
         <button type="button" class="lang-btn" data-lang="en" title="English">EN</button>
@@ -480,50 +742,58 @@ h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-heigh
   </div>
 </header>
 
-<!-- =============================== MAIN =============================== -->
+<!-- ================================== MAIN ================================= -->
 <main class="shell">
 
   <!-- ========== STEP 0 · LANDING ========== -->
   <section id="step-0" class="step active">
-    <div class="card" style="margin-bottom:22px">
-      <div class="pua"></div>
-
+    <div class="card" style="margin-bottom:20px">
       <div class="hero">
-        <svg class="hero-bird" viewBox="0 0 64 64" aria-hidden="true">
-          <g fill="#0B6E4F"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
-        </svg>
-        <p class="eyebrow" data-i18n="landingEyebrow">Bumi Kenyalang</p>
-        <h1 data-i18n="landingTitle">Is This Assessment for You?</h1>
-        <p class="lede" data-i18n="landingSubtitle"></p>
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-body">
+          <p class="eyebrow" data-i18n="landingEyebrow">Official Programme Matching Portal</p>
+          <h1 data-i18n="landingTitle">Is This Assessment for You?</h1>
+          <p class="lede" data-i18n="landingSubtitle"></p>
+        </div>
       </div>
 
-      <div class="card-pad" style="padding-top:20px">
+      <div class="card-pad" style="padding-top:22px">
         <ul class="checklist" id="landing-list"></ul>
         <p class="dream" data-i18n="landingDream"></p>
-        <div class="timing"><span aria-hidden="true">⏱️</span><span data-i18n="landingTime"></span></div>
+
+        <div class="trust">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-4z"/></svg>
+            <span data-i18n="trust1">Official MINTRED programmes</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span data-i18n="trust2">5–7 minutes</span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+            <span data-i18n="trust3">No sign-up needed</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <button class="btn btn-primary btn-lg" onclick="goToStep(1)">
+    <button class="btn btn-ai btn-lg sheen" onclick="goToStep(1)">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z"/></svg>
       <span data-i18n="ctaStart">Start My Growth Check</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 7l5 5-5 5M18 12H6"/></svg>
     </button>
     <p class="fineprint" data-i18n="alignNote"></p>
   </section>
 
   <!-- ========== STEP 1 · INTRODUCTION ========== -->
   <section id="step-1" class="step">
-    <div class="card" style="margin-bottom:22px">
-      <div class="pua-thin"></div>
+    <div class="card" style="margin-bottom:20px">
+      <div class="ai-rule"></div>
       <div class="card-pad">
-        <!-- Ukiran-inspired rosette, echoing Sarawak woodcarving -->
-        <div class="rosette">
-          <svg viewBox="0 0 40 40" aria-hidden="true">
-            <g fill="none" stroke="#0B6E4F" stroke-width="2" stroke-linecap="round">
-              <path d="M20 4 28 12 20 20 12 12Z"/><path d="M20 20 28 28 20 36 12 28Z"/>
-              <path d="M4 20 12 12M36 20 28 12M4 20 12 28M36 20 28 28"/>
-            </g>
-            <circle cx="20" cy="20" r="2.6" fill="#D4A017"/>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/>
           </svg>
         </div>
         <h2 data-i18n="introTitle" style="margin-bottom:14px">Your Journey Starts Here</h2>
@@ -553,22 +823,36 @@ h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-heigh
   <!-- ========== STEP 6 · RESULTS ========== -->
   <section id="step-6" class="step">
     <div class="res-top">
-      <div class="res-badge" aria-hidden="true">🎉</div>
+      <div class="res-seal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
       <h2 data-i18n="resTitle">Thank You!</h2>
       <p data-i18n="resSubtitle"></p>
     </div>
 
     <div class="card">
-      <div class="pua"></div>
       <div class="rec-head">
-        <svg class="rec-head-bird" viewBox="0 0 64 64" aria-hidden="true">
-          <g fill="#fff"><path d="M17 38.5l12 7.5-15.5 16.8c-1 1-2.6 1-3.6 0l-7.2-7.2c-1-1-1-2.6 0-3.6z"/><path d="M37 13.5c5.5 0 10 4.4 10 9.9 0 2.6-1 5-2.7 6.8-.9 6.8-6.4 12.3-13.4 13.4l-.6.1c-7.4.8-14-4.6-14.7-12C14.9 24.3 24 13.5 37 13.5z"/><path d="M43.5 17.5c9.5.5 16 7 20 15.5-6.5-1.5-14-4-20-4.5z"/><path d="M41.5 16.5c3-8.5 13-11.5 20-7 1.8 1.2 1.2 4-.9 4.4-5.8-1.4-13.4.4-17.4 5z"/></g>
-        </svg>
-        <p class="rec-kicker" data-i18n="resEyebrow">Your Recommended Next Step</p>
-        <h3 class="rec-title" id="rec-title">GERAK &amp; USTEV</h3>
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="rec-head-body">
+          <span class="ai-chip sheen">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z"/></svg>
+            <span data-i18n="aiMatch">AI Match</span>
+          </span>
+          <p class="rec-kicker" data-i18n="resEyebrow">Your Recommended Next Step</p>
+          <h3 class="rec-title" id="rec-title">GERAK &amp; USTEV</h3>
+        </div>
       </div>
 
       <div class="rec-body">
+        <div class="meter">
+          <div class="meter-top">
+            <span data-i18n="matchStrength">Match strength</span>
+            <span class="meter-val" id="meter-val">—</span>
+          </div>
+          <div class="meter-track"><div class="meter-fill" id="meter-fill"></div></div>
+        </div>
+
         <p class="rec-msg" id="rec-message"></p>
 
         <div class="getbox">
@@ -605,16 +889,82 @@ h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-heigh
   </section>
 </main>
 
-<!-- ============================== FOOTER ============================== -->
-<footer class="ftr">
-  <div class="pua-thin" style="opacity:.6"></div>
-  <div class="shell">
-    <div class="ftr-row">
-      <span>MINTRED Sarawak · PCDS 2030</span>
-      <span data-i18n="brandShort">Business Growth Check</span>
+<!-- ===================== AI ANALYSING OVERLAY (results) ==================== -->
+<div class="scrim" id="scrim" role="status" aria-live="polite">
+  <div class="analyser">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="orb" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z"/></svg>
+    </div>
+    <h3 data-i18n="analysingTitle">Analysing your answers…</h3>
+    <ul class="steps" id="analyse-steps"></ul>
+  </div>
+</div>
+
+<!-- ============ STANDARD ITEM #2 — BOTTOM-LEFT & BOTTOM-RIGHT BUBBLES ====== -->
+<button class="bub bub-l" id="bub-ai" onclick="toggleHelp()" aria-expanded="false" aria-controls="help-panel">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.4 8.4 0 01-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.4 8.4 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+  </svg>
+  <span class="bub-txt">
+    <b data-i18n="aiHelpLabel">AI Help</b>
+    <i data-i18n="aiHelp247">Available 24/7</i>
+  </span>
+</button>
+
+<a class="bub bub-r" id="bub-advisor" href="https://mintred.sarawak.gov.my/web/subpage/webpage_view/148" target="_blank" rel="noopener">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M17 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/>
+  </svg>
+  <span class="bub-txt">
+    <b data-i18n="advisorLabel">Talk to Us</b>
+    <i data-i18n="advisorSub">Official info</i>
+  </span>
+</a>
+
+<!-- AI help panel -->
+<div class="panel" id="help-panel" role="dialog" aria-modal="false" aria-labelledby="help-title">
+  <div class="panel-head">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="panel-head-body">
+      <div>
+        <h3 id="help-title" data-i18n="aiHelpTitle">AI Assistant</h3>
+        <p data-i18n="aiHelpSub">Quick answers about this check and the programmes.</p>
+      </div>
+      <button class="panel-close" onclick="toggleHelp(false)" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
     </div>
   </div>
+  <div class="panel-body" id="faq-list"></div>
+  <div class="panel-foot" data-i18n="aiHelpFoot"></div>
+</div>
+
+<!-- ================================ FOOTER ================================= -->
+<footer class="ftr">
+  <div class="shell">
+    <div class="ftr-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 20h18"/><path d="M6 20v-5"/><path d="M11 20V9"/><path d="M16 20v-8"/><path d="M21 20V5"/>
+        </svg>
+      </div>
+      <b data-i18n="brandTitle">Business Growth Check</b>
+    </div>
+    <p data-i18n="footerTagline"></p>
+    <p class="ftr-copy" data-i18n="footerRights"></p>
+  </div>
 </footer>
+
+<!-- ============ STANDARD ITEM #3 — KOBIS BERHAD SIGNATURE BAR ============== -->
+<div class="kobis-bar">
+  <div class="kobis-text" data-i18n="kobisCredit">
+    This Digital Experience is Part of the
+    <a class="kobis-link" href="https://www.kobisberhad.com" target="_blank" rel="noopener">KOBIS Berhad</a>
+    Innovation Ecosystem
+  </div>
+</div>
+<div class="bub-clear" aria-hidden="true"></div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -622,29 +972,6 @@ h2{ font-family:var(--font-display); font-weight:700; font-size:22px; line-heigh
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js" defer></script>
 
 <script>
-/* ==========================================================================
-   SARAWAK BUSINESS GROWTH CHECK 2026
-   Single self-contained HTML file · vanilla JS · no build step, no framework
-   --------------------------------------------------------------------------
-   HOW THIS FILE IS ORGANISED
-     1. QUESTIONS — the question schema (order, single vs multi, icons)
-     2. I18N      — every string in 4 languages: bm · en · zh · ib
-     3. STATE     — the answers object
-     4. RENDER    — builds the question steps from QUESTIONS + I18N
-     5. SELECTION — single/multi handling and validation
-     6. NAVIGATION
-     7. RESULTS   — recommendation logic (leads toward GERAK & USTEV)
-     8. SHARING
-     9. PERSISTENCE (localStorage)
-    10. LANGUAGE SWITCHING
-    11. INIT
-
-   MINTRED DEVELOPERS: search for "BACKEND HOOK" — that is the single place
-   where responses should be POSTed to a real endpoint. Nothing else needs
-   to change.
-   ========================================================================== */
-
-
 /* ==========================================================================
    1. QUESTION SCHEMA
    --------------------------------------------------------------------------
@@ -720,11 +1047,37 @@ const I18N = {
 
 /* -------------------------------- ENGLISH -------------------------------- */
 en:{
+
+  sectionsLabel:'Sections', railNote:'Your answers are matched against MINTRED programme criteria as you go.',
+  ministryLine:'MINTRED Sarawak · PCDS 2030',
+  aiTag:'AI-Powered', aiMatch:'AI Match', matchStrength:'Match strength',
+  trust1:'Official MINTRED programmes', trust2:'5–7 minutes', trust3:'No sign-up needed',
+  analysingTitle:'Analysing your answers…',
+  analyseSteps:['Reading your business profile','Matching against MINTRED programmes','Preparing your recommendation'],
+  aiHelpLabel:'AI Help', aiHelp247:'Available 24/7',
+  aiHelpTitle:'AI Assistant', aiHelpSub:'Quick answers about this check and the programmes.',
+  aiHelpFoot:'These answers are prepared guidance, not a formal eligibility decision. For official confirmation, contact MINTRED Sarawak.',
+  advisorLabel:'Talk to Us', advisorSub:'Official info',
+  footerTagline:'An AI-assisted programme matching portal for Sarawak entrepreneurs, aligned with Sarawak Maju Makmur and PCDS 2030.',
+  footerRights:'© 2026 MINTRED Sarawak. All rights reserved.',
+  kobisCredit:'This Digital Experience is Part of the <a class="kobis-link" href="https://www.kobisberhad.com" target="_blank" rel="noopener">KOBIS Berhad</a> Innovation Ecosystem',
+  aiFaq:[
+    { q:'What is this Growth Check?',
+      a:'A short 10-question assessment that reads your business stage and matches it against MINTRED Sarawak programmes such as <strong>GERAK</strong> and <strong>USTEV</strong>. It takes 5–7 minutes and needs no sign-up.' },
+    { q:'Who can apply for GERAK and USTEV?',
+      a:'<strong>GERAK</strong> is aimed at graduates and SPM leavers starting or growing a business. <strong>USTEV</strong> is for TVET and technical skills holders. Both serve Sarawak entrepreneurs — final eligibility is set by MINTRED and the implementing agencies.' },
+    { q:'How much support can I receive?',
+      a:'Both programmes offer grants of up to <strong>RM20,000</strong> to help you start or expand — for example equipment, working capital, or growing your operation.' },
+    { q:'Can I answer more than one option?',
+      a:'On some questions, yes. Every question shows a badge telling you whether it takes <strong>one</strong> answer or <strong>several</strong>, and multi-answer questions show a live count of what you have picked.' },
+    { q:'Is my information stored?',
+      a:'Your answers stay in your own browser so you can resume if you refresh or close the page. Nothing is sent anywhere unless MINTRED connects this portal to an official system.' },
+  ],
   _label:'English', _htmlLang:'en',
   brandTitle:'Business Growth Check', brandShort:'Business Growth Check', brandSub:'SARAWAK 2026',
   steps:['Start','Intro','Business','Growth','Vision','Support','Results'],
 
-  landingEyebrow:'Bumi Kenyalang · Land of the Hornbill',
+  landingEyebrow:'Official Programme Matching Portal',
   landingTitle:'Is This Assessment for You?',
   landingSubtitle:'This FREE Business Growth Check is designed for Sarawak entrepreneurs who are:',
   landingList:[
@@ -822,11 +1175,37 @@ en:{
 
 /* ---------------------------- BAHASA MALAYSIA ---------------------------- */
 bm:{
+
+  sectionsLabel:'Bahagian', railNote:'Jawapan anda dipadankan dengan kriteria program MINTRED sambil anda menjawab.',
+  ministryLine:'MINTRED Sarawak · PCDS 2030',
+  aiTag:'Dikuasakan AI', aiMatch:'Padanan AI', matchStrength:'Kekuatan padanan',
+  trust1:'Program rasmi MINTRED', trust2:'5–7 minit', trust3:'Tanpa pendaftaran',
+  analysingTitle:'Menganalisis jawapan anda…',
+  analyseSteps:['Membaca profil perniagaan anda','Memadankan dengan program MINTRED','Menyediakan saranan anda'],
+  aiHelpLabel:'Bantuan AI', aiHelp247:'Sedia 24/7',
+  aiHelpTitle:'Pembantu AI', aiHelpSub:'Jawapan pantas tentang semakan ini dan program berkaitan.',
+  aiHelpFoot:'Jawapan di sini ialah panduan, bukan keputusan kelayakan rasmi. Untuk pengesahan rasmi, sila hubungi MINTRED Sarawak.',
+  advisorLabel:'Hubungi Kami', advisorSub:'Maklumat rasmi',
+  footerTagline:'Portal padanan program berbantukan AI untuk usahawan Sarawak, selari dengan Sarawak Maju Makmur dan PCDS 2030.',
+  footerRights:'© 2026 MINTRED Sarawak. Hak cipta terpelihara.',
+  kobisCredit:'Pengalaman Digital Ini Sebahagian daripada Ekosistem Inovasi <a class="kobis-link" href="https://www.kobisberhad.com" target="_blank" rel="noopener">KOBIS Berhad</a>',
+  aiFaq:[
+    { q:'Apakah Semakan Pertumbuhan ini?',
+      a:'Penilaian ringkas 10 soalan yang membaca peringkat perniagaan anda dan memadankannya dengan program MINTRED Sarawak seperti <strong>GERAK</strong> dan <strong>USTEV</strong>. Ia mengambil masa 5–7 minit tanpa perlu mendaftar.' },
+    { q:'Siapa yang boleh memohon GERAK dan USTEV?',
+      a:'<strong>GERAK</strong> ditujukan kepada graduan dan lepasan SPM yang memulakan atau mengembangkan perniagaan. <strong>USTEV</strong> pula untuk pemegang TVET dan kemahiran teknikal. Kedua-duanya untuk usahawan Sarawak — kelayakan akhir ditentukan oleh MINTRED dan agensi pelaksana.' },
+    { q:'Berapa banyak sokongan yang boleh saya terima?',
+      a:'Kedua-dua program menawarkan geran sehingga <strong>RM20,000</strong> untuk membantu anda memulakan atau mengembangkan perniagaan — contohnya peralatan, modal kerja, atau meluaskan operasi.' },
+    { q:'Bolehkah saya pilih lebih daripada satu jawapan?',
+      a:'Bagi sesetengah soalan, ya. Setiap soalan memaparkan label yang menyatakan sama ada ia menerima <strong>satu</strong> jawapan atau <strong>beberapa</strong>, dan soalan berbilang jawapan menunjukkan kiraan langsung pilihan anda.' },
+    { q:'Adakah maklumat saya disimpan?',
+      a:'Jawapan anda kekal dalam pelayar anda sendiri supaya anda boleh menyambung semula jika muat semula atau menutup halaman. Tiada apa-apa dihantar ke mana-mana melainkan MINTRED menyambungkan portal ini kepada sistem rasmi.' },
+  ],
   _label:'Bahasa Malaysia', _htmlLang:'ms',
   brandTitle:'Semakan Pertumbuhan Perniagaan', brandShort:'Semakan Pertumbuhan', brandSub:'SARAWAK 2026',
   steps:['Mula','Pengenalan','Perniagaan','Pertumbuhan','Wawasan','Sokongan','Keputusan'],
 
-  landingEyebrow:'Bumi Kenyalang',
+  landingEyebrow:'Portal Rasmi Padanan Program',
   landingTitle:'Adakah Semakan Ini Untuk Anda?',
   landingSubtitle:'Semakan Pertumbuhan Perniagaan PERCUMA ini direka untuk usahawan Sarawak yang:',
   landingList:[
@@ -924,11 +1303,37 @@ bm:{
 
 /* ---------------------------------- 中文 ---------------------------------- */
 zh:{
+
+  sectionsLabel:'章节', railNote:'系统会在您作答的同时，将答案与 MINTRED 的计划标准进行匹配。',
+  ministryLine:'砂拉越 MINTRED · PCDS 2030',
+  aiTag:'AI 智能驱动', aiMatch:'AI 匹配', matchStrength:'匹配度',
+  trust1:'MINTRED 官方计划', trust2:'5–7 分钟', trust3:'无需注册',
+  analysingTitle:'正在分析您的回答……',
+  analyseSteps:['读取您的业务概况','与 MINTRED 计划进行匹配','生成您的推荐结果'],
+  aiHelpLabel:'AI 协助', aiHelp247:'24/7 全天候',
+  aiHelpTitle:'AI 助理', aiHelpSub:'关于本检测与相关计划的快速解答。',
+  aiHelpFoot:'此处的回答为一般指引，并非正式的资格认定。如需正式确认，请联系砂拉越 MINTRED。',
+  advisorLabel:'联系我们', advisorSub:'官方资讯',
+  footerTagline:'专为砂拉越创业者打造的 AI 辅助计划匹配平台，配合 Sarawak Maju Makmur 与 PCDS 2030 愿景。',
+  footerRights:'© 2026 砂拉越 MINTRED。版权所有。',
+  kobisCredit:'此数字体验是 <a class="kobis-link" href="https://www.kobisberhad.com" target="_blank" rel="noopener">KOBIS Berhad</a> 创新生态系统的一部分',
+  aiFaq:[
+    { q:'这项「成长检测」是什么？',
+      a:'一份仅 10 道题的简短评估，读取您目前的业务阶段，并与砂拉越 MINTRED 的计划（如 <strong>GERAK</strong> 与 <strong>USTEV</strong>）进行匹配。只需 5–7 分钟，无需注册。' },
+    { q:'谁可以申请 GERAK 和 USTEV？',
+      a:'<strong>GERAK</strong> 面向正在创业或扩展业务的大学与 SPM 毕业生；<strong>USTEV</strong> 则面向 TVET 及技术技能持证者。两者皆服务砂拉越创业者——最终资格由 MINTRED 及执行机构认定。' },
+    { q:'我可以获得多少支援？',
+      a:'两项计划均提供最高 <strong>RM20,000</strong> 的补助金，协助您创业或扩展——例如购置设备、周转资金，或扩大营运规模。' },
+    { q:'我可以选择多个答案吗？',
+      a:'部分题目可以。每道题都会显示标签，说明它只接受<strong>一个</strong>答案还是可选<strong>多个</strong>；可多选的题目会即时显示您已选的数量。' },
+    { q:'我的资料会被储存吗？',
+      a:'您的答案仅保存在您自己的浏览器中，方便您刷新或关闭页面后继续作答。除非 MINTRED 将本平台接入官方系统，否则不会传送到任何地方。' },
+  ],
   _label:'中文', _htmlLang:'zh',
   brandTitle:'商业成长检测', brandShort:'商业成长检测', brandSub:'砂拉越 2026',
   steps:['开始','简介','业务','成长','愿景','支援','结果'],
 
-  landingEyebrow:'犀鸟之乡 · 砂拉越',
+  landingEyebrow:'官方计划匹配平台',
   landingTitle:'这项检测适合您吗？',
   landingSubtitle:'这项免费的「商业成长检测」，专为以下砂拉越创业者而设：',
   landingList:[
@@ -1025,11 +1430,37 @@ zh:{
 
 /* ---------------------------------- IBAN ---------------------------------- */
 ib:{
+
+  sectionsLabel:'Bagi', railNote:'Saut nuan dipadanka enggau kriteria program MINTRED lebuh nuan benung nyaut.',
+  ministryLine:'MINTRED Sarawak · PCDS 2030',
+  aiTag:'Bekuasa AI', aiMatch:'Padan AI', matchStrength:'Pengering padan',
+  trust1:'Program resmi MINTRED', trust2:'5–7 minit', trust3:'Nadai daftar',
+  analysingTitle:'Benung nelaah saut nuan…',
+  analyseSteps:['Macha profil bisnes nuan','Madanka enggau program MINTRED','Nyendia saran ke nuan'],
+  aiHelpLabel:'Tulung AI', aiHelp247:'Sedia 24/7',
+  aiHelpTitle:'Penulung AI', aiHelpSub:'Saut ti chepat pasal cek tu enggau program nya.',
+  aiHelpFoot:'Saut ditu nya tunjuk jalai, ukai keputusan pengelayak ti resmi. Kena mastika, berandau enggau MINTRED Sarawak.',
+  advisorLabel:'Berandau Enggau Kami', advisorSub:'Berita resmi',
+  footerTagline:'Portal padan program ti ditulung AI ke orang bedagang Sarawak, sejalai enggau Sarawak Maju Makmur enggau PCDS 2030.',
+  footerRights:'© 2026 MINTRED Sarawak. Semua hak ditagang.',
+  kobisCredit:'Pengalaman Digital Tu Sebagi ari Ekosistem Inovasi <a class="kobis-link" href="https://www.kobisberhad.com" target="_blank" rel="noopener">KOBIS Berhad</a>',
+  aiFaq:[
+    { q:'Nama utai Cek Pemansang tu?',
+      a:'Siti cek ti pendek, bisi 10 tanya, ti macha tikas bisnes nuan lalu madanka nya enggau program MINTRED Sarawak baka <strong>GERAK</strong> enggau <strong>USTEV</strong>. Semina makai 5–7 minit, nadai guna daftar.' },
+    { q:'Sapa ulih minta GERAK enggau USTEV?',
+      a:'<strong>GERAK</strong> digaga ke graduan enggau nembiak lepas SPM ti berengkah tauka meransang bisnes. <strong>USTEV</strong> ke pemegai TVET enggau pengelandik teknikal. Dua iti tu ke orang bedagang Sarawak — pengelayak penghabis ditentuka MINTRED enggau agensi ti ngereja.' },
+    { q:'Berapa besai sukung ti ulih diterima aku?',
+      a:'Dua iti program tu meri geran sampai <strong>RM20,000</strong> kena nulung nuan berengkah tauka meransang — chunto iya pengkakas, modal pengawa, tauka ngelebarka pengawa nuan.' },
+    { q:'Kati aku ulih milih lebih ari siji saut?',
+      a:'Ba sekeda tanya, ulih. Genap tanya bisi label ti madah kati iya nerima <strong>siji</strong> saut tauka <strong>mayuh</strong>, lalu tanya ti mayuh saut mandangka kira saut ti udah dipilih nuan.' },
+    { q:'Kati berita aku disimpan?',
+      a:'Saut nuan semina diau dalam pelayar nuan empu, ngambika nuan ulih neruska enti nuan muat baru tauka nutup laman tu. Nadai utai dikirum ngagai ni-ni endur, kelali MINTRED nyambung portal tu ngagai sistem resmi.' },
+  ],
   _label:'Jaku Iban', _htmlLang:'iba',
   brandTitle:'Cek Pemansang Bisnes', brandShort:'Cek Pemansang Bisnes', brandSub:'SARAWAK 2026',
   steps:['Berengkah','Pengenal','Bisnes','Pemansang','Wawasan','Sukung','Utai Ditemu'],
 
-  landingEyebrow:'Menua Kenyalang',
+  landingEyebrow:'Portal Resmi Padan Program',
   landingTitle:'Kati Cek Tu Ngena Ke Nuan?',
   landingSubtitle:'Cek Pemansang Bisnes ti PERCUMA tu digaga ke orang bedagang Sarawak ke:',
   landingList:[
@@ -1146,7 +1577,7 @@ const esc  = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
    4. RENDERING
    ========================================================================== */
 
-const ICON_TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>';
+const ICON_TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h10M4 16h6M17 13l2.5 2.5L24 11"/></svg>';
 const ICON_DOT  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="12" cy="12" r="7"/></svg>';
 
 /** Rebuilds the four question steps in the active language. */
@@ -1165,12 +1596,34 @@ function renderQuestionSteps(){
     /* The "some questions accept several answers" nudge, shown once on the
        first section that actually contains a multi-select question. */
     const hint = sectionNo === firstMultiSection
-      ? '<div class="hint"><span aria-hidden="true">💡</span><p>' + L.multiHint + '</p></div>' : '';
+      ? '<div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg><p>' + L.multiHint + '</p></div>' : '';
+
+    /* Desktop-only section rail showing where the respondent is in the flow.
+       Hidden below 1024px, where the header progress bar already says it. */
+    const railTick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+    const rail = [1,2,3,4].map(n => `
+        <li class="${n === sectionNo ? 'on' : (n < sectionNo ? 'done' : '')}">
+          <span class="rail-n">${n < sectionNo ? railTick : n}</span>
+          <span>${L.sectionTitles[n]}</span>
+        </li>`).join('');
 
     host.innerHTML = `
+     <div class="step-grid">
+      <aside class="rail">
+        <p class="rail-h">${L.sectionsLabel}</p>
+        <ol class="rail-list">${rail}</ol>
+        <div class="rail-ai">
+          <span class="ai-chip sheen">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z"/></svg>
+            <span>${L.aiTag}</span>
+          </span>
+          <p>${L.railNote}</p>
+        </div>
+      </aside>
+      <div class="step-main">
       <div class="sec-head">
         <div class="sec-kicker">
-          <span class="pua" aria-hidden="true"></span>
+          <span class="ai-rule" aria-hidden="true"></span>
           <span>${L.sectionOf.replace('{n}', sectionNo)}</span>
         </div>
         <h2>${L.sectionTitles[sectionNo]}</h2>
@@ -1183,7 +1636,9 @@ function renderQuestionSteps(){
         <button class="btn btn-primary" id="btn-step${step}" onclick="validateAndGo(${step}, ${step + 1})" disabled>
           ${sectionNo === 4 ? L.navResults : L.navNext}
         </button>
-      </div>`;
+      </div>
+      </div>
+     </div>`;
   });
 
   wireOptions();
@@ -1222,7 +1677,7 @@ function renderOption(q, key, label){
       <input type="${multi ? 'checkbox' : 'radio'}" name="${q.id}" value="${esc(key)}" tabindex="-1" />
       ${icon ? `<span class="opt-emoji" aria-hidden="true">${icon}</span>` : ''}
       <span class="opt-label">${label}</span>
-      <span class="mark${multi ? ' square' : ''}" aria-hidden="true">✓</span>
+      <span class="mark${multi ? ' square' : ''}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>
     </label>`;
 }
 
@@ -1236,13 +1691,25 @@ function renderStaticCopy(){
   });
 
   document.getElementById('landing-list').innerHTML = L.landingList
-    .map(item => '<li><span class="tick" aria-hidden="true">✓</span><span>' + item + '</span></li>').join('');
+    .map(item => '<li><span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><span>' + item + '</span></li>').join('');
 
   document.getElementById('rec-benefits').innerHTML = L.resBenefits
-    .map(b => '<li><span>' + b + '</span></li>').join('');
+    .map(b => '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span>' + b + '</span></li>').join('');
+
+  renderFaq();
 
   document.documentElement.lang = L._htmlLang;
   updateProgress();
+}
+
+/** Builds the AI help panel's question list in the active language. */
+function renderFaq(){
+  const L = t();
+  document.getElementById('faq-list').innerHTML = L.aiFaq.map(item => `
+    <details class="faq">
+      <summary>${item.q}</summary>
+      <div class="a">${item.a}</div>
+    </details>`).join('');
 }
 
 
@@ -1346,8 +1813,33 @@ function validateAndGo(fromStep, toStep){
   QUESTIONS.filter(q => q.section === sectionNo).forEach(q => {
     answers[q.id] = q.type === 'multi' ? getMulti(q.id) : getRadio(q.id);
   });
-  if (toStep === 6) generateResults();
+  if (toStep === 6){ runAnalysis(); return; }
   goToStep(toStep);
+}
+
+/* --------------------------------------------------------------------------
+   The analysis interstitial. The matching itself is instant — this makes the
+   work visible so people understand an engine read their answers rather than
+   a page simply turning. Skipped entirely under prefers-reduced-motion.
+   -------------------------------------------------------------------------- */
+function runAnalysis(){
+  const L = t();
+  const finish = () => { generateResults(); goToStep(6); };
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){ finish(); return; }
+
+  const scrim = document.getElementById('scrim');
+  const list  = document.getElementById('analyse-steps');
+  const tick  = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+
+  list.innerHTML = L.analyseSteps
+    .map(s => `<li><span class="dot">${tick}</span><span>${s}</span></li>`).join('');
+  scrim.classList.add('show');
+
+  const items = Array.from(list.children);
+  items.forEach((li, i) => setTimeout(() => li.classList.add('done'), 380 + i * 460));
+
+  setTimeout(() => { scrim.classList.remove('show'); finish(); }, 380 + items.length * 460 + 340);
 }
 
 function updateProgress(){
@@ -1394,6 +1886,22 @@ function generateResults(){
   if (isAmbitious) message += L.recMsg.ambitionFit;
   document.getElementById('rec-message').innerHTML = message;
 
+  /* Match strength — a readable summary of how well this profile fits the two
+     programmes, built from the same signals that shaped the message above. */
+  let score = 55;
+  if (['planning','started-12m'].includes(stage))   score += 12;
+  if (['operating-1y','growing'].includes(stage))   score += 7;
+  if (needsMoney)                                   score += 10;
+  if (isTvet)                                       score += 8;
+  if (isAmbitious)                                  score += 8;
+  if (answers.q10 === 'no')                         score += 5;
+  score = Math.max(60, Math.min(96, score));
+
+  document.getElementById('meter-val').textContent = score + '%';
+  const fill = document.getElementById('meter-fill');
+  fill.style.width = '0%';
+  setTimeout(() => { fill.style.width = score + '%'; }, 180);
+
   /* Snapshot — single answers read as a value, multi answers as chips. */
   document.getElementById('summary-list').innerHTML = QUESTIONS.map(q => {
     const val = answers[q.id];
@@ -1410,11 +1918,11 @@ function generateResults(){
          + '<span class="snap-v">' + (o[val] || esc(val)) + '</span></div>';
   }).join('');
 
-  /* Celebration in Sarawak colours: green, gold, pua kumbu red. */
+  /* Celebration in the portal palette: intelligence gradient + enterprise green. */
   setTimeout(() => {
     if (window.confetti && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       confetti({ particleCount:90, spread:72, origin:{ y:.6 },
-                 colors:['#0B6E4F','#D4A017','#A63A2A','#86efb0','#f0c75e'] });
+                 colors:['#22D3EE','#7C5CFF','#00A36C','#C9A227','#5B8DEF'] });
     }
   }, 320);
 
@@ -1611,6 +2119,38 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   // Resume mid-survey, but never drop someone onto a stale results page.
   goToStep(saved && saved.currentStep > 0 && saved.currentStep < 6 ? saved.currentStep : 0);
 })();
+
+
+/* ==========================================================================
+   12. AI HELP PANEL (bottom-left bubble)
+   --------------------------------------------------------------------------
+   NOTE FOR MINTRED: the answers in this panel are pre-written and translated,
+   not generated live. It is deliberately framed as prepared guidance, and the
+   panel footer says so. To make it a live assistant, replace renderFaq() with
+   a call to a real model endpoint — the panel markup needs no changes.
+   ========================================================================== */
+
+function toggleHelp(force){
+  const panel = document.getElementById('help-panel');
+  const btn   = document.getElementById('bub-ai');
+  const open  = force === undefined ? !panel.classList.contains('show') : force;
+
+  panel.classList.toggle('show', open);
+  btn.setAttribute('aria-expanded', String(open));
+  if (open) panel.querySelector('summary').focus();
+}
+
+/* Close on Escape, or on a click outside the panel and its bubble. */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') toggleHelp(false);
+});
+document.addEventListener('click', e => {
+  const panel = document.getElementById('help-panel');
+  if (!panel.classList.contains('show')) return;
+  if (panel.contains(e.target) || document.getElementById('bub-ai').contains(e.target)) return;
+  toggleHelp(false);
+});
+
 </script>
 </body>
 </html>
